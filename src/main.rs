@@ -4,17 +4,20 @@ use std::sync::Arc;
 use grpcio::{CallOption, ChannelBuilder, EnvBuilder, MetadataBuilder};
 use protobuf::{RepeatedField, ProtobufEnum};
 
-use crate::resources::{Data, Image, Input};
-use crate::service::PostModelOutputsRequest;
-use crate::service_grpc::V2Client;
-use crate::status_code::StatusCode;
 use std::process::exit;
 
-mod status;
-mod status_code;
-mod service_grpc;
-mod resources;
-mod service;
+use crate::grpc::status_code::StatusCode;
+use crate::grpc::service_grpc::V2Client;
+use crate::grpc::service::PostModelOutputsRequest;
+use crate::grpc::resources::{Image, Data, Input};
+
+mod grpc {
+    pub mod service;
+    pub mod resources;
+    pub mod service_grpc;
+    pub mod status;
+    pub mod status_code;
+}
 
 fn main() {
     let api_key = env::var("CLARIFAI_API_KEY")
