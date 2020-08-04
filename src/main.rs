@@ -2,11 +2,13 @@ use std::env;
 use std::sync::Arc;
 
 use grpcio::{CallOption, ChannelBuilder, EnvBuilder, MetadataBuilder};
-use protobuf::RepeatedField;
+use protobuf::{RepeatedField, ProtobufEnum};
 
 use crate::resources::{Data, Image, Input};
 use crate::service::PostModelOutputsRequest;
 use crate::service_grpc::V2Client;
+use crate::status_code::StatusCode;
+use std::process::exit;
 
 mod status;
 mod status_code;
@@ -47,9 +49,14 @@ fn main() {
     req.set_inputs(RepeatedField::from(inputs));
     let response = client.post_model_outputs_opt(&req, call_opt).expect("rpc");
 
-    println!("Status:");
-    println!("{}", response.get_status().get_description());
-    println!("{}", response.get_status().get_details());
+    let status = response.get_status();
+    if status.get_code() != StatusCode::SUCCESS {
+        println!("Failure response:");
+        println!("\t{}", status.get_code().value());
+        println!("\t{}", status.get_description());
+        println!("\t{}", status.get_details());
+        exit(1);
+    }
 
     println!("Predicted concepts:");
     for concept in response.get_outputs()[0].get_data().get_concepts() {
