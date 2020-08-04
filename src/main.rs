@@ -10,6 +10,8 @@ use crate::grpc::service_grpc::V2Client;
 use crate::grpc::service::PostModelOutputsRequest;
 use crate::grpc::resources::{Image, Data, Input};
 use clarifai_grpc::clarifai::insecure_grpc;
+use std::fs::File;
+use std::io::Read;
 
 mod grpc {
     pub mod service;
@@ -20,6 +22,9 @@ mod grpc {
 }
 
 fn main() {
+    let args: Vec<String> = env::args().collect();
+    let file_name = &args[1];
+
     let api_key = env::var("CLARIFAI_API_KEY")
         .expect("Please set an environmental variable CLARIFAI_API_KEY");
     let auth = "Key ".to_owned() + &api_key;
@@ -40,7 +45,7 @@ fn main() {
     req.set_model_id(general_model_id.parse().unwrap());
 
     let mut image = Image::new();
-    image.set_url("https://samples.clarifai.com/dog2.jpeg".parse().unwrap());
+    image.set_base64(read_file(file_name));
     let mut data = Data::new();
     data.set_image(image);
     let mut input = Input::new();
@@ -64,4 +69,11 @@ fn main() {
     for concept in response.get_outputs()[0].get_data().get_concepts() {
         println!("\t{}: {}", concept.get_name(), concept.get_value());
     }
+}
+
+fn read_file(file_name: &String) -> Vec<u8> {
+    let mut file = File::open(file_name).unwrap();
+    let mut buffer = Vec::new();
+    file.read_to_end(&mut buffer).unwrap();
+    buffer
 }
