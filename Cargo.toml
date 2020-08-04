@@ -1,10 +1,8 @@
 [package]
 name = "clarifai_grpc"
-version = "0.1.0"
-authors = ["Rok Povsic <rok.povsic@gmail.com>"]
+version = "0.0.1"
+authors = ["Rok Povsic <rok.povsic@clarifai.com>"]
 edition = "2018"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 grpcio = "0.6.0"
