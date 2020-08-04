@@ -1,3 +1,4 @@
+use std::env;
 use std::sync::Arc;
 
 use grpcio::{CallOption, ChannelBuilder, EnvBuilder, MetadataBuilder};
@@ -14,7 +15,9 @@ mod resources;
 mod service;
 
 fn main() {
-    let auth = "Key MY_CLARIFAI_API_KEY";
+    let api_key = env::var("CLARIFAI_API_KEY")
+        .expect("Please set an environmental variable CLARIFAI_API_KEY");
+    let auth = "Key ".to_owned() + &api_key;
     let general_model_id = "aaa03c23b3724a16a56b629203edc62c";
 
     let env = Arc::new(EnvBuilder::new().build());
@@ -23,7 +26,7 @@ fn main() {
 
     let mut builder = MetadataBuilder::with_capacity(3);
     builder
-        .add_str("Authorization", auth)
+        .add_str("Authorization", &auth)
         .unwrap()
     ;
     let metadata = builder.build();
