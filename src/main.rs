@@ -1,5 +1,4 @@
 use std::env;
-use std::sync::Arc;
 
 use grpcio::{CallOption, MetadataBuilder};
 use protobuf::{RepeatedField, ProtobufEnum};
