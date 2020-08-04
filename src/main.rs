@@ -5,11 +5,13 @@ use protobuf::{RepeatedField, ProtobufEnum};
 
 use std::process::exit;
 
+use crate::grpc::resources::{Image, Data, Input};
+use crate::grpc::service::PostModelOutputsRequest;
+use crate::grpc::service::PostWorkflowResultsRequest;
+use crate::grpc::service_grpc::V2Client;
 use crate::grpc::status::Status;
 use crate::grpc::status_code::StatusCode;
-use crate::grpc::service_grpc::V2Client;
-use crate::grpc::service::PostModelOutputsRequest;
-use crate::grpc::resources::{Image, Data, Input};
+
 use clarifai_grpc::clarifai::insecure_grpc;
 use std::fs::File;
 use std::io::Read;
@@ -26,22 +28,39 @@ const GENERAL_MODEL_ID: &str = "aaa03c23b3724a16a56b629203edc62c";
 
 fn main() {
     let args: Vec<String> = env::args().collect();
-    let file_name = &args[1];
+    let predict_type = &args[1];
+    let file_name = &args[2];
 
     let client = V2Client::new(insecure_grpc());
 
-    let mut req = PostModelOutputsRequest::default();
-    req.set_model_id(GENERAL_MODEL_ID.parse().unwrap());
-    req.set_inputs(make_input_from_file_name(file_name));
-    let response = client
-        .post_model_outputs_opt(&req, call_opt())
-        .expect("Failuree");
+    if predict_type == "general_model" {
+        let mut req = PostModelOutputsRequest::default();
+        req.set_model_id(GENERAL_MODEL_ID.parse().unwrap());
+        req.set_inputs(make_input_from_file_name(file_name));
+        let response = client
+            .post_model_outputs_opt(&req, call_opt())
+            .expect("Failure");
 
-    exit_on_failure(response.get_status());
+        exit_on_failure(response.get_status());
 
-    println!("Predicted concepts:");
-    for concept in response.get_outputs()[0].get_data().get_concepts() {
-        println!("\t{}: {}", concept.get_name(), concept.get_value());
+        println!("Predicted concepts:");
+        for concept in response.get_outputs()[0].get_data().get_concepts() {
+            println!("\t{}: {}", concept.get_name(), concept.get_value());
+        }
+    } else if predict_type == "custom_workflow" {
+        let mut req = PostWorkflowResultsRequest::default();
+        req.set_workflow_id("my-workflow".parse().unwrap());
+        req.set_inputs(make_input_from_file_name(file_name));
+        let response = client
+            .post_workflow_results_opt(&req, call_opt())
+            .expect("Failure");
+
+        exit_on_failure(response.get_status());
+
+        println!("Predicted concepts:");
+        for concept in response.get_results()[0].get_outputs()[1].get_data().get_concepts() {
+            println!("\t{}: {}", concept.get_name(), concept.get_value());
+        }
     }
 }
 
