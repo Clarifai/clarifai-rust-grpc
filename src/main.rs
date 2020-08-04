@@ -1,7 +1,7 @@
 use std::env;
 use std::sync::Arc;
 
-use grpcio::{CallOption, ChannelBuilder, EnvBuilder, MetadataBuilder};
+use grpcio::{CallOption, MetadataBuilder};
 use protobuf::{RepeatedField, ProtobufEnum};
 
 use std::process::exit;
@@ -10,6 +10,7 @@ use crate::grpc::status_code::StatusCode;
 use crate::grpc::service_grpc::V2Client;
 use crate::grpc::service::PostModelOutputsRequest;
 use crate::grpc::resources::{Image, Data, Input};
+use clarifai_grpc::clarifai::insecure_grpc;
 
 mod grpc {
     pub mod service;
@@ -25,8 +26,7 @@ fn main() {
     let auth = "Key ".to_owned() + &api_key;
     let general_model_id = "aaa03c23b3724a16a56b629203edc62c";
 
-    let env = Arc::new(EnvBuilder::new().build());
-    let ch = ChannelBuilder::new(env).connect("api-grpc.clarifai.com:18080");
+    let ch = insecure_grpc();
     let client = V2Client::new(ch);
 
     let mut builder = MetadataBuilder::with_capacity(3);
