@@ -3,8 +3,6 @@ use std::env;
 use grpcio::{CallOption, MetadataBuilder};
 use protobuf::{RepeatedField, ProtobufEnum};
 
-use std::process::exit;
-
 extern crate clarifai_grpc;
 
 use clarifai_grpc::grpc::status_code::StatusCode;
