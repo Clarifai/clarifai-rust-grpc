@@ -5,11 +5,11 @@ use protobuf::{RepeatedField, ProtobufEnum};
 
 extern crate clarifai_grpc;
 
+use clarifai_grpc::clarifai_channel;
 use clarifai_grpc::grpc::status_code::StatusCode;
 use clarifai_grpc::grpc::service_grpc::V2Client;
 use clarifai_grpc::grpc::service::PostModelOutputsRequest;
 use clarifai_grpc::grpc::resources::{Image, Data, Input};
-use clarifai_grpc::clarifai::grpc;
 use clarifai_grpc::grpc::status::Status;
 
 const GENERAL_MODEL_ID: &str = "aaa03c23b3724a16a56b629203edc62c";
@@ -40,7 +40,7 @@ fn test_post_model_outputs_url() {
 }
 
 fn client() -> V2Client {
-    let client = V2Client::new(grpc());
+    let client = V2Client::new(clarifai_channel::grpc());
     client
 }
 

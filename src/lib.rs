@@ -7,7 +7,7 @@ pub mod grpc {
     pub mod status_code;
 }
 
-pub mod clarifai {
+pub mod clarifai_channel {
     use std::sync::Arc;
     use grpcio::{EnvBuilder, ChannelBuilder, Channel, ChannelCredentialsBuilder};
 

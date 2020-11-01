@@ -12,7 +12,7 @@ use crate::grpc::service_grpc::V2Client;
 use crate::grpc::status::Status;
 use crate::grpc::status_code::StatusCode;
 
-use clarifai_grpc::clarifai::insecure_grpc;
+use clarifai_grpc::clarifai_channel::insecure_grpc;
 use std::fs::File;
 use std::io::Read;
 
