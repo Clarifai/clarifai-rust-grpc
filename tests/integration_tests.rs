@@ -1,16 +1,16 @@
 use std::env;
 
 use grpcio::{CallOption, MetadataBuilder};
-use protobuf::{RepeatedField, ProtobufEnum};
+use protobuf::{ProtobufEnum, RepeatedField};
 
 extern crate clarifai_grpc;
 
 use clarifai_grpc::clarifai_channel;
-use clarifai_grpc::grpc::status_code::StatusCode;
-use clarifai_grpc::grpc::service_grpc::V2Client;
+use clarifai_grpc::grpc::resources::{Data, Image, Input};
 use clarifai_grpc::grpc::service::PostModelOutputsRequest;
-use clarifai_grpc::grpc::resources::{Image, Data, Input};
+use clarifai_grpc::grpc::service_grpc::V2Client;
 use clarifai_grpc::grpc::status::Status;
+use clarifai_grpc::grpc::status_code::StatusCode;
 
 const GENERAL_MODEL_ID: &str = "aaa03c23b3724a16a56b629203edc62c";
 
@@ -49,12 +49,8 @@ fn call_opt() -> CallOption {
         .expect("Please set an environmental variable CLARIFAI_API_KEY");
     let auth = "Key ".to_owned() + &api_key;
 
-
     let mut builder = MetadataBuilder::with_capacity(1);
-    builder
-        .add_str("Authorization", &auth)
-        .unwrap()
-    ;
+    builder.add_str("Authorization", &auth).unwrap();
     let metadata = builder.build();
     let call_opt = CallOption::default().headers(metadata);
     call_opt
