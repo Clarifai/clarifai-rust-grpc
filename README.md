@@ -46,18 +46,20 @@ let call_opt = CallOption::default().headers(metadata);
 Predict concepts in an image:
 
 ```rust
-let mut request = PostModelOutputsRequest::default();
-// This is the ID of the publicly available General model.
-request.set_model_id("aaa03c23b3724a16a56b629203edc62c".to_string());
-let mut image = Image::new();
-image.set_url("https://samples.clarifai.com/dog2.jpeg".parse().unwrap());
-let mut data = Data::new();
-data.set_image(image);
-let mut input = Input::new();
-input.set_data(data);
-let mut inputs: Vec<Input> = Vec::new();
-inputs.push(input);
-request.set_inputs(RepeatedField::from(inputs));
+let request = PostModelOutputsRequest {
+    model_id: GENERAL_MODEL_ID.to_string(),
+    inputs: RepeatedField::from(vec![Input {
+        data: SingularPtrField::some(Data {
+            image: SingularPtrField::some(Image {
+                url: "https://samples.clarifai.com/dog2.jpeg".to_string(),
+                ..Default::default()
+            }),
+            ..Default::default()
+        }),
+        ..Default::default()
+    }]),
+    ..Default::default()
+};
 let response = client
     .post_model_outputs_opt(&request, call_opt)
     .expect("Failure");
