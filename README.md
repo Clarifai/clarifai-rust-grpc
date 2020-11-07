@@ -12,6 +12,7 @@ content.
 * Sign up for a free account at: https://portal.clarifai.com/signup
 * Read the documentation at: https://docs.clarifai.com/
 
+[![crates.io](https://img.shields.io/crates/v/clarifai_grpc.svg)](https://crates.io/crates/clarifai_grpc)
 ![Run tests](https://github.com/Clarifai/clarifai-rust-grpc/workflows/Run%20tests/badge.svg)
 
 # Installation
