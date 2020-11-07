@@ -26,18 +26,18 @@ protobuf = "2.0"
 
 ## Getting started
 
-Construct the V2Stub object using which you'll access all the Clarifai API functionality:
+Construct the `V2Client` object using which you'll access all the Clarifai API functionality,
+and a `CallOption` object that will be used for authentication.
 
 ```rust
 use grpcio::{CallOption, MetadataBuilder};
-use protobuf::{RepeatedField};
-
-use crate::grpc::resources::{Data, Image, Input};
-use crate::grpc::service::PostModelOutputsRequest;
-use crate::grpc::service_grpc::V2Client;
-use crate::grpc::status_code::StatusCode;
+use protobuf::{RepeatedField, SingularPtrField};
 
 use clarifai_grpc::clarifai_channel;
+use clarifai_grpc::grpc::resources::{Data, Image, Input};
+use clarifai_grpc::grpc::service::PostModelOutputsRequest;
+use clarifai_grpc::grpc::service_grpc::V2Client;
+use clarifai_grpc::grpc::status_code::StatusCode;
 
 let client = V2Client::new(clarifai_channel::grpc());
 
@@ -53,6 +53,9 @@ let call_opt = CallOption::default().headers(metadata);
 Predict concepts in an image:
 
 ```rust
+// This is a publicly available model.
+const GENERAL_MODEL_ID: &str = "aaa03c23b3724a16a56b629203edc62c";
+
 let request = PostModelOutputsRequest {
     model_id: GENERAL_MODEL_ID.to_string(),
     inputs: RepeatedField::from(vec![Input {
@@ -74,10 +77,10 @@ let response = client
 let status = response.get_status();
 if status.get_code() != StatusCode::SUCCESS {
     println!("Failure response:");
-    println!("\t{}", status.get_code().value());
+    println!("\t{:?}", status.get_code());
     println!("\t{}", status.get_description());
     println!("\t{}", status.get_details());
-    exit(1);
+    std::process::exit(1);
 }
 
 println!("Predicted concepts:");
