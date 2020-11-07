@@ -12,6 +12,7 @@ content.
 * Sign up for a free account at: https://portal.clarifai.com/signup
 * Read the documentation at: https://docs.clarifai.com/
 
+![Run tests](https://github.com/Clarifai/clarifai-rust-grpc/workflows/Run%20tests/badge.svg)
 
 # Installation
 
