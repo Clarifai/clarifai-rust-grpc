@@ -15,7 +15,14 @@ content.
 
 # Installation
 
-WIP
+Add these dependencies to `Cargo.toml`: `clarifai_grpc`, `protobuf` and `grpcio`.
+
+```
+[dependencies]
+clarifai_grpc = "*"
+grpcio = "0.6.0"
+protobuf = "2.0"
+```
 
 ## Getting started
 
