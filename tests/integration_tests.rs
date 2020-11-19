@@ -6,8 +6,11 @@ use protobuf::{ProtobufEnum, RepeatedField, SingularPtrField};
 extern crate clarifai_grpc;
 
 use clarifai_grpc::clarifai_channel;
-use clarifai_grpc::grpc::resources::{Data, Image, Input, Concept};
-use clarifai_grpc::grpc::service::{GetModelRequest, ListModelsRequest, PostModelOutputsRequest, PostInputsRequest, GetInputRequest, PatchInputsRequest, DeleteInputRequest};
+use clarifai_grpc::grpc::resources::{Concept, Data, Image, Input};
+use clarifai_grpc::grpc::service::{
+    DeleteInputRequest, GetInputRequest, GetModelRequest, ListModelsRequest, PatchInputsRequest,
+    PostInputsRequest, PostModelOutputsRequest,
+};
 use clarifai_grpc::grpc::service_grpc::V2Client;
 use clarifai_grpc::grpc::status::Status;
 use clarifai_grpc::grpc::status_code::StatusCode;
@@ -133,8 +136,14 @@ fn test_mixed_success_post_model_outputs() {
         .expect("Failure");
 
     assert_eq!(StatusCode::MIXED_STATUS, response.get_status().code);
-    assert_eq!(StatusCode::SUCCESS, response.get_outputs()[0].get_status().code);
-    assert_eq!(StatusCode::INPUT_DOWNLOAD_FAILED, response.get_outputs()[1].get_status().code);
+    assert_eq!(
+        StatusCode::SUCCESS,
+        response.get_outputs()[0].get_status().code
+    );
+    assert_eq!(
+        StatusCode::INPUT_DOWNLOAD_FAILED,
+        response.get_outputs()[1].get_status().code
+    );
 }
 
 #[test]
@@ -142,34 +151,34 @@ fn test_post_patch_and_delete_input() {
     let post_inputs_response = client()
         .post_inputs_opt(
             &PostInputsRequest {
-                inputs: RepeatedField::from(vec![
-                    Input {
-                        data: SingularPtrField::some(Data {
-                            image: SingularPtrField::some(Image {
-                                url: TRUCK_IMAGE_URL.to_string(),
-                                allow_duplicate_url: true,
-                                ..Default::default()
-                            }),
-                            concepts: RepeatedField::from(vec![
-                                Concept {
-                                    id: "red-truck".to_string(),
-                                    ..Default::default()
-                                }
-                            ]),
+                inputs: RepeatedField::from(vec![Input {
+                    data: SingularPtrField::some(Data {
+                        image: SingularPtrField::some(Image {
+                            url: TRUCK_IMAGE_URL.to_string(),
+                            allow_duplicate_url: true,
                             ..Default::default()
                         }),
+                        concepts: RepeatedField::from(vec![Concept {
+                            id: "red-truck".to_string(),
+                            ..Default::default()
+                        }]),
                         ..Default::default()
-                    }
-                ]),
-                .. Default::default()
+                    }),
+                    ..Default::default()
+                }]),
+                ..Default::default()
             },
-            call_opt()
+            call_opt(),
         )
         .expect("Failure");
 
     assert_success_response(post_inputs_response.get_status());
 
-    let input_id = post_inputs_response.get_inputs().get(0).expect("Failure").get_id();
+    let input_id = post_inputs_response
+        .get_inputs()
+        .get(0)
+        .expect("Failure")
+        .get_id();
     loop {
         let get_input_response = client()
             .get_input_opt(
@@ -177,7 +186,7 @@ fn test_post_patch_and_delete_input() {
                     input_id: input_id.to_string(),
                     ..Default::default()
                 },
-                call_opt()
+                call_opt(),
             )
             .expect("Failure");
         assert_success_response(get_input_response.get_status());
@@ -185,9 +194,13 @@ fn test_post_patch_and_delete_input() {
         if input_status_code == StatusCode::INPUT_DOWNLOAD_SUCCESS {
             break;
         }
-        if input_status_code != StatusCode::INPUT_DOWNLOAD_PENDING &&
-            input_status_code != StatusCode::INPUT_DOWNLOAD_IN_PROGRESS {
-            panic!(format!("Waiting for input ID {} failed, status code is {:?}", input_id, input_status_code));
+        if input_status_code != StatusCode::INPUT_DOWNLOAD_PENDING
+            && input_status_code != StatusCode::INPUT_DOWNLOAD_IN_PROGRESS
+        {
+            panic!(format!(
+                "Waiting for input ID {} failed, status code is {:?}",
+                input_id, input_status_code
+            ));
         }
         sleep(Duration::from_secs(1));
     }
@@ -196,24 +209,20 @@ fn test_post_patch_and_delete_input() {
         .patch_inputs_opt(
             &PatchInputsRequest {
                 action: "overwrite".to_string(),
-                inputs: RepeatedField::from(vec![
-                    Input {
-                        id: input_id.to_string(),
-                        data: SingularPtrField::some(Data {
-                            concepts: RepeatedField::from(vec![
-                                Concept {
-                                    id: "very-red-truck".to_string(),
-                                    ..Default::default()
-                                }
-                            ]),
+                inputs: RepeatedField::from(vec![Input {
+                    id: input_id.to_string(),
+                    data: SingularPtrField::some(Data {
+                        concepts: RepeatedField::from(vec![Concept {
+                            id: "very-red-truck".to_string(),
                             ..Default::default()
-                        }),
+                        }]),
                         ..Default::default()
-                    }
-                ]),
+                    }),
+                    ..Default::default()
+                }]),
                 ..Default::default()
             },
-            call_opt()
+            call_opt(),
         )
         .expect("Failure");
 
@@ -225,7 +234,7 @@ fn test_post_patch_and_delete_input() {
                 input_id: input_id.to_string(),
                 ..Default::default()
             },
-            call_opt()
+            call_opt(),
         )
         .expect("Failure");
     assert_success_response(delete_input_response.get_status());
