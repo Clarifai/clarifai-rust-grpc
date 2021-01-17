@@ -21,6 +21,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build
+      shell: bash
       run: |
         if [[ "$RUNNER_OS" == "Windows" ]]; then
           export LIBCLANG_PATH="C:\Program Files\LLVM\bin"
