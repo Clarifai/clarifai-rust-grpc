@@ -19,6 +19,8 @@ use std::time::Duration;
 
 const GENERAL_MODEL_ID: &str = "aaa03c23b3724a16a56b629203edc62c";
 const TRUCK_IMAGE_URL: &str = "https://samples.clarifai.com/red-truck.png";
+const DOG_IMAGE_URL: &str = "https://samples.clarifai.com/dog2.jpeg";
+const NON_EXISTING_IMAGE_URL: &str = "https://samples.clarifai.com/non-existing-image.jpeg";
 
 #[test]
 fn test_get_model() {
@@ -59,7 +61,7 @@ fn test_post_model_outputs_url() {
         inputs: RepeatedField::from(vec![Input {
             data: SingularPtrField::some(Data {
                 image: SingularPtrField::some(Image {
-                    url: "https://samples.clarifai.com/dog2.jpeg".to_string(),
+                    url: DOG_IMAGE_URL.to_string(),
                     ..Default::default()
                 }),
                 ..Default::default()
@@ -85,7 +87,7 @@ fn test_failed_post_model_outputs() {
         inputs: RepeatedField::from(vec![Input {
             data: SingularPtrField::some(Data {
                 image: SingularPtrField::some(Image {
-                    url: "https://samples.clarifai.com/non-existing-image.jpeg".to_string(),
+                    url: NON_EXISTING_IMAGE_URL.to_string(),
                     ..Default::default()
                 }),
                 ..Default::default()
@@ -110,7 +112,7 @@ fn test_mixed_success_post_model_outputs() {
             Input {
                 data: SingularPtrField::some(Data {
                     image: SingularPtrField::some(Image {
-                        url: "https://samples.clarifai.com/dog2.jpeg".to_string(),
+                        url: DOG_IMAGE_URL.to_string(),
                         ..Default::default()
                     }),
                     ..Default::default()
@@ -120,7 +122,7 @@ fn test_mixed_success_post_model_outputs() {
             Input {
                 data: SingularPtrField::some(Data {
                     image: SingularPtrField::some(Image {
-                        url: "https://samples.clarifai.com/non-existing-image.jpeg".to_string(),
+                        url: NON_EXISTING_IMAGE_URL.to_string(),
                         ..Default::default()
                     }),
                     ..Default::default()
