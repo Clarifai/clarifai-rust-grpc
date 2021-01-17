@@ -6,11 +6,8 @@ use protobuf::{ProtobufEnum, RepeatedField, SingularPtrField};
 extern crate clarifai_grpc;
 
 use clarifai_grpc::clarifai_channel;
-use clarifai_grpc::grpc::resources::{Concept, Data, Image, Input};
-use clarifai_grpc::grpc::service::{
-    DeleteInputRequest, GetInputRequest, GetModelRequest, ListModelsRequest, PatchInputsRequest,
-    PostInputsRequest, PostModelOutputsRequest,
-};
+use clarifai_grpc::grpc::resources;
+use clarifai_grpc::grpc::service;
 use clarifai_grpc::grpc::service_grpc::V2Client;
 use clarifai_grpc::grpc::status::Status;
 use clarifai_grpc::grpc::status_code::StatusCode;
@@ -24,7 +21,7 @@ const NON_EXISTING_IMAGE_URL: &str = "https://samples.clarifai.com/non-existing-
 
 #[test]
 fn test_get_model() {
-    let request = GetModelRequest {
+    let request = service::GetModelRequest {
         model_id: GENERAL_MODEL_ID.to_string(),
         ..Default::default()
     };
@@ -40,7 +37,7 @@ fn test_get_model() {
 
 #[test]
 fn test_list_model_with_pagination() {
-    let request = ListModelsRequest {
+    let request = service::ListModelsRequest {
         per_page: 2,
         ..Default::default()
     };
@@ -56,11 +53,11 @@ fn test_list_model_with_pagination() {
 
 #[test]
 fn test_post_model_outputs_url() {
-    let request = PostModelOutputsRequest {
+    let request = service::PostModelOutputsRequest {
         model_id: GENERAL_MODEL_ID.to_string(),
-        inputs: RepeatedField::from(vec![Input {
-            data: SingularPtrField::some(Data {
-                image: SingularPtrField::some(Image {
+        inputs: RepeatedField::from(vec![resources::Input {
+            data: SingularPtrField::some(resources::Data {
+                image: SingularPtrField::some(resources::Image {
                     url: DOG_IMAGE_URL.to_string(),
                     ..Default::default()
                 }),
@@ -82,11 +79,11 @@ fn test_post_model_outputs_url() {
 
 #[test]
 fn test_failed_post_model_outputs() {
-    let request = PostModelOutputsRequest {
+    let request = service::PostModelOutputsRequest {
         model_id: GENERAL_MODEL_ID.to_string(),
-        inputs: RepeatedField::from(vec![Input {
-            data: SingularPtrField::some(Data {
-                image: SingularPtrField::some(Image {
+        inputs: RepeatedField::from(vec![resources::Input {
+            data: SingularPtrField::some(resources::Data {
+                image: SingularPtrField::some(resources::Image {
                     url: NON_EXISTING_IMAGE_URL.to_string(),
                     ..Default::default()
                 }),
@@ -106,12 +103,12 @@ fn test_failed_post_model_outputs() {
 
 #[test]
 fn test_mixed_success_post_model_outputs() {
-    let request = PostModelOutputsRequest {
+    let request = service::PostModelOutputsRequest {
         model_id: GENERAL_MODEL_ID.to_string(),
         inputs: RepeatedField::from(vec![
-            Input {
-                data: SingularPtrField::some(Data {
-                    image: SingularPtrField::some(Image {
+            resources::Input {
+                data: SingularPtrField::some(resources::Data {
+                    image: SingularPtrField::some(resources::Image {
                         url: DOG_IMAGE_URL.to_string(),
                         ..Default::default()
                     }),
@@ -119,9 +116,9 @@ fn test_mixed_success_post_model_outputs() {
                 }),
                 ..Default::default()
             },
-            Input {
-                data: SingularPtrField::some(Data {
-                    image: SingularPtrField::some(Image {
+            resources::Input {
+                data: SingularPtrField::some(resources::Data {
+                    image: SingularPtrField::some(resources::Image {
                         url: NON_EXISTING_IMAGE_URL.to_string(),
                         ..Default::default()
                     }),
@@ -152,15 +149,15 @@ fn test_mixed_success_post_model_outputs() {
 fn test_post_patch_and_delete_input() {
     let post_inputs_response = client()
         .post_inputs_opt(
-            &PostInputsRequest {
-                inputs: RepeatedField::from(vec![Input {
-                    data: SingularPtrField::some(Data {
-                        image: SingularPtrField::some(Image {
+            &service::PostInputsRequest {
+                inputs: RepeatedField::from(vec![resources::Input {
+                    data: SingularPtrField::some(resources::Data {
+                        image: SingularPtrField::some(resources::Image {
                             url: TRUCK_IMAGE_URL.to_string(),
                             allow_duplicate_url: true,
                             ..Default::default()
                         }),
-                        concepts: RepeatedField::from(vec![Concept {
+                        concepts: RepeatedField::from(vec![resources::Concept {
                             id: "red-truck".to_string(),
                             ..Default::default()
                         }]),
@@ -184,7 +181,7 @@ fn test_post_patch_and_delete_input() {
     loop {
         let get_input_response = client()
             .get_input_opt(
-                &GetInputRequest {
+                &service::GetInputRequest {
                     input_id: input_id.to_string(),
                     ..Default::default()
                 },
@@ -209,12 +206,12 @@ fn test_post_patch_and_delete_input() {
 
     let patch_inputs_response = client()
         .patch_inputs_opt(
-            &PatchInputsRequest {
+            &service::PatchInputsRequest {
                 action: "overwrite".to_string(),
-                inputs: RepeatedField::from(vec![Input {
+                inputs: RepeatedField::from(vec![resources::Input {
                     id: input_id.to_string(),
-                    data: SingularPtrField::some(Data {
-                        concepts: RepeatedField::from(vec![Concept {
+                    data: SingularPtrField::some(resources::Data {
+                        concepts: RepeatedField::from(vec![resources::Concept {
                             id: "very-red-truck".to_string(),
                             ..Default::default()
                         }]),
@@ -232,7 +229,7 @@ fn test_post_patch_and_delete_input() {
 
     let delete_input_response = client()
         .delete_input_opt(
-            &DeleteInputRequest {
+            &service::DeleteInputRequest {
                 input_id: input_id.to_string(),
                 ..Default::default()
             },

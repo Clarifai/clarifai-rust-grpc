@@ -36,8 +36,8 @@ use grpcio::{CallOption, MetadataBuilder};
 use protobuf::{RepeatedField, SingularPtrField};
 
 use clarifai_grpc::clarifai_channel;
-use clarifai_grpc::grpc::resources::{Data, Image, Input};
-use clarifai_grpc::grpc::service::PostModelOutputsRequest;
+use clarifai_grpc::grpc::resources;
+use clarifai_grpc::grpc::service;
 use clarifai_grpc::grpc::service_grpc::V2Client;
 use clarifai_grpc::grpc::status_code::StatusCode;
 
@@ -76,11 +76,11 @@ Predict concepts in an image:
 // This is a publicly available model.
 const GENERAL_MODEL_ID: &str = "aaa03c23b3724a16a56b629203edc62c";
 
-let request = PostModelOutputsRequest {
+let request = service::PostModelOutputsRequest {
     model_id: GENERAL_MODEL_ID.to_string(),
-    inputs: RepeatedField::from(vec![Input {
-        data: SingularPtrField::some(Data {
-            image: SingularPtrField::some(Image {
+    inputs: RepeatedField::from(vec![resources::Input {
+        data: SingularPtrField::some(resources::Data {
+            image: SingularPtrField::some(resources::Image {
                 url: "https://samples.clarifai.com/dog2.jpeg".to_string(),
                 ..Default::default()
             }),
