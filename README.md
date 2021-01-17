@@ -52,6 +52,24 @@ let metadata = builder.build();
 let call_opt = CallOption::default().headers(metadata);
 ```
 
+> On Windows and macOS gRPC requires explicitly setting the root of trust for SSL. One way to do this is by setting the `GRPC_DEFAULT_SSL_ROOTS_FILE_PATH` environmental variable. To do this on macOS use:
+>
+> ```
+> curl -Lo roots.pem https://raw.githubusercontent.com/grpc/grpc/master/etc/roots.pem
+> export GRPC_DEFAULT_SSL_ROOTS_FILE_PATH="$PWD/roots.pem"
+> ```
+>
+> On Windows use:
+>
+> ```
+> @powershell -NoProfile -ExecutionPolicy unrestricted -Command ^
+>     (new-object System.Net.WebClient).Downloadfile( ^
+>         'https://raw.githubusercontent.com/grpc/grpc/master/etc/roots.pem', ^
+>         'roots.pem')
+> set GRPC_DEFAULT_SSL_ROOTS_FILE_PATH=%cd%\roots.pem
+> ```
+> See more [here](https://github.com/grpc/grpc/issues/16571).
+
 Predict concepts in an image:
 
 ```rust
