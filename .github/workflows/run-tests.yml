@@ -26,7 +26,6 @@ jobs:
         if [[ "$RUNNER_OS" == "Windows" ]]; then
           export LIBCLANG_PATH="C:\Program Files\LLVM\bin"
           choco install -y llvm
-          refreshenv
         fi
         cargo build --verbose
     - name: Run tests
