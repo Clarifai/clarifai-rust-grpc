@@ -5,8 +5,6 @@
 #![allow(unknown_lints)]
 #![allow(clippy::all)]
 
-#![cfg_attr(rustfmt, rustfmt_skip)]
-
 #![allow(box_pointers)]
 #![allow(dead_code)]
 #![allow(missing_docs)]
@@ -17,6 +15,27 @@
 #![allow(unsafe_code)]
 #![allow(unused_imports)]
 #![allow(unused_results)]
+
+const METHOD_V2_LIST_CONCEPT_RELATIONS: ::grpcio::Method<super::service::ListConceptRelationsRequest, super::service::MultiConceptRelationResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/ListConceptRelations",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_POST_CONCEPT_RELATIONS: ::grpcio::Method<super::service::PostConceptRelationsRequest, super::service::MultiConceptRelationResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/PostConceptRelations",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_DELETE_CONCEPT_RELATIONS: ::grpcio::Method<super::service::DeleteConceptRelationsRequest, super::status::BaseResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/DeleteConceptRelations",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
 
 const METHOD_V2_GET_CONCEPT_COUNTS: ::grpcio::Method<super::service::GetConceptCountsRequest, super::service::MultiConceptCountResponse> = ::grpcio::Method {
     ty: ::grpcio::MethodType::Unary,
@@ -88,27 +107,6 @@ const METHOD_V2_PATCH_CONCEPT_LANGUAGES: ::grpcio::Method<super::service::PatchC
     resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
 };
 
-const METHOD_V2_LIST_CONCEPT_RELATIONS: ::grpcio::Method<super::service::ListConceptRelationsRequest, super::service::MultiConceptRelationResponse> = ::grpcio::Method {
-    ty: ::grpcio::MethodType::Unary,
-    name: "/clarifai.api.V2/ListConceptRelations",
-    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
-    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
-};
-
-const METHOD_V2_POST_CONCEPT_RELATIONS: ::grpcio::Method<super::service::PostConceptRelationsRequest, super::service::MultiConceptRelationResponse> = ::grpcio::Method {
-    ty: ::grpcio::MethodType::Unary,
-    name: "/clarifai.api.V2/PostConceptRelations",
-    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
-    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
-};
-
-const METHOD_V2_DELETE_CONCEPT_RELATIONS: ::grpcio::Method<super::service::DeleteConceptRelationsRequest, super::status::BaseResponse> = ::grpcio::Method {
-    ty: ::grpcio::MethodType::Unary,
-    name: "/clarifai.api.V2/DeleteConceptRelations",
-    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
-    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
-};
-
 const METHOD_V2_LIST_KNOWLEDGE_GRAPHS: ::grpcio::Method<super::service::ListKnowledgeGraphsRequest, super::service::MultiKnowledgeGraphResponse> = ::grpcio::Method {
     ty: ::grpcio::MethodType::Unary,
     name: "/clarifai.api.V2/ListKnowledgeGraphs",
@@ -158,6 +156,13 @@ const METHOD_V2_PATCH_ANNOTATIONS: ::grpcio::Method<super::service::PatchAnnotat
     resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
 };
 
+const METHOD_V2_PATCH_ANNOTATIONS_STATUS: ::grpcio::Method<super::service::PatchAnnotationsStatusRequest, super::service::PatchAnnotationsStatusResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/PatchAnnotationsStatus",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
 const METHOD_V2_DELETE_ANNOTATION: ::grpcio::Method<super::service::DeleteAnnotationRequest, super::status::BaseResponse> = ::grpcio::Method {
     ty: ::grpcio::MethodType::Unary,
     name: "/clarifai.api.V2/DeleteAnnotation",
@@ -189,6 +194,13 @@ const METHOD_V2_GET_INPUT_COUNT: ::grpcio::Method<super::service::GetInputCountR
 const METHOD_V2_STREAM_INPUTS: ::grpcio::Method<super::service::StreamInputsRequest, super::service::MultiInputResponse> = ::grpcio::Method {
     ty: ::grpcio::MethodType::Unary,
     name: "/clarifai.api.V2/StreamInputs",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_GET_INPUT_SAMPLES: ::grpcio::Method<super::service::GetInputSamplesRequest, super::service::MultiInputAnnotationResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/GetInputSamples",
     req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
     resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
 };
@@ -669,6 +681,20 @@ const METHOD_V2_POST_TASKS: ::grpcio::Method<super::service::PostTasksRequest, s
     resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
 };
 
+const METHOD_V2_GET_TASK_ANNOTATION_COUNT: ::grpcio::Method<super::service::GetTaskCountRequest, super::service::SingleTaskCountResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/GetTaskAnnotationCount",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_GET_TASK_INPUT_COUNT: ::grpcio::Method<super::service::GetTaskCountRequest, super::service::SingleTaskCountResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/GetTaskInputCount",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
 const METHOD_V2_GET_TASK: ::grpcio::Method<super::service::GetTaskRequest, super::service::SingleTaskResponse> = ::grpcio::Method {
     ty: ::grpcio::MethodType::Unary,
     name: "/clarifai.api.V2/GetTask",
@@ -756,6 +782,54 @@ impl V2Client {
         V2Client {
             client: ::grpcio::Client::new(channel),
         }
+    }
+
+    pub fn list_concept_relations_opt(&self, req: &super::service::ListConceptRelationsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiConceptRelationResponse> {
+        self.client.unary_call(&METHOD_V2_LIST_CONCEPT_RELATIONS, req, opt)
+    }
+
+    pub fn list_concept_relations(&self, req: &super::service::ListConceptRelationsRequest) -> ::grpcio::Result<super::service::MultiConceptRelationResponse> {
+        self.list_concept_relations_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_concept_relations_async_opt(&self, req: &super::service::ListConceptRelationsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiConceptRelationResponse>> {
+        self.client.unary_call_async(&METHOD_V2_LIST_CONCEPT_RELATIONS, req, opt)
+    }
+
+    pub fn list_concept_relations_async(&self, req: &super::service::ListConceptRelationsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiConceptRelationResponse>> {
+        self.list_concept_relations_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn post_concept_relations_opt(&self, req: &super::service::PostConceptRelationsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiConceptRelationResponse> {
+        self.client.unary_call(&METHOD_V2_POST_CONCEPT_RELATIONS, req, opt)
+    }
+
+    pub fn post_concept_relations(&self, req: &super::service::PostConceptRelationsRequest) -> ::grpcio::Result<super::service::MultiConceptRelationResponse> {
+        self.post_concept_relations_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn post_concept_relations_async_opt(&self, req: &super::service::PostConceptRelationsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiConceptRelationResponse>> {
+        self.client.unary_call_async(&METHOD_V2_POST_CONCEPT_RELATIONS, req, opt)
+    }
+
+    pub fn post_concept_relations_async(&self, req: &super::service::PostConceptRelationsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiConceptRelationResponse>> {
+        self.post_concept_relations_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn delete_concept_relations_opt(&self, req: &super::service::DeleteConceptRelationsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::status::BaseResponse> {
+        self.client.unary_call(&METHOD_V2_DELETE_CONCEPT_RELATIONS, req, opt)
+    }
+
+    pub fn delete_concept_relations(&self, req: &super::service::DeleteConceptRelationsRequest) -> ::grpcio::Result<super::status::BaseResponse> {
+        self.delete_concept_relations_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn delete_concept_relations_async_opt(&self, req: &super::service::DeleteConceptRelationsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::status::BaseResponse>> {
+        self.client.unary_call_async(&METHOD_V2_DELETE_CONCEPT_RELATIONS, req, opt)
+    }
+
+    pub fn delete_concept_relations_async(&self, req: &super::service::DeleteConceptRelationsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::status::BaseResponse>> {
+        self.delete_concept_relations_async_opt(req, ::grpcio::CallOption::default())
     }
 
     pub fn get_concept_counts_opt(&self, req: &super::service::GetConceptCountsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiConceptCountResponse> {
@@ -918,54 +992,6 @@ impl V2Client {
         self.patch_concept_languages_async_opt(req, ::grpcio::CallOption::default())
     }
 
-    pub fn list_concept_relations_opt(&self, req: &super::service::ListConceptRelationsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiConceptRelationResponse> {
-        self.client.unary_call(&METHOD_V2_LIST_CONCEPT_RELATIONS, req, opt)
-    }
-
-    pub fn list_concept_relations(&self, req: &super::service::ListConceptRelationsRequest) -> ::grpcio::Result<super::service::MultiConceptRelationResponse> {
-        self.list_concept_relations_opt(req, ::grpcio::CallOption::default())
-    }
-
-    pub fn list_concept_relations_async_opt(&self, req: &super::service::ListConceptRelationsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiConceptRelationResponse>> {
-        self.client.unary_call_async(&METHOD_V2_LIST_CONCEPT_RELATIONS, req, opt)
-    }
-
-    pub fn list_concept_relations_async(&self, req: &super::service::ListConceptRelationsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiConceptRelationResponse>> {
-        self.list_concept_relations_async_opt(req, ::grpcio::CallOption::default())
-    }
-
-    pub fn post_concept_relations_opt(&self, req: &super::service::PostConceptRelationsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiConceptRelationResponse> {
-        self.client.unary_call(&METHOD_V2_POST_CONCEPT_RELATIONS, req, opt)
-    }
-
-    pub fn post_concept_relations(&self, req: &super::service::PostConceptRelationsRequest) -> ::grpcio::Result<super::service::MultiConceptRelationResponse> {
-        self.post_concept_relations_opt(req, ::grpcio::CallOption::default())
-    }
-
-    pub fn post_concept_relations_async_opt(&self, req: &super::service::PostConceptRelationsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiConceptRelationResponse>> {
-        self.client.unary_call_async(&METHOD_V2_POST_CONCEPT_RELATIONS, req, opt)
-    }
-
-    pub fn post_concept_relations_async(&self, req: &super::service::PostConceptRelationsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiConceptRelationResponse>> {
-        self.post_concept_relations_async_opt(req, ::grpcio::CallOption::default())
-    }
-
-    pub fn delete_concept_relations_opt(&self, req: &super::service::DeleteConceptRelationsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::status::BaseResponse> {
-        self.client.unary_call(&METHOD_V2_DELETE_CONCEPT_RELATIONS, req, opt)
-    }
-
-    pub fn delete_concept_relations(&self, req: &super::service::DeleteConceptRelationsRequest) -> ::grpcio::Result<super::status::BaseResponse> {
-        self.delete_concept_relations_opt(req, ::grpcio::CallOption::default())
-    }
-
-    pub fn delete_concept_relations_async_opt(&self, req: &super::service::DeleteConceptRelationsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::status::BaseResponse>> {
-        self.client.unary_call_async(&METHOD_V2_DELETE_CONCEPT_RELATIONS, req, opt)
-    }
-
-    pub fn delete_concept_relations_async(&self, req: &super::service::DeleteConceptRelationsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::status::BaseResponse>> {
-        self.delete_concept_relations_async_opt(req, ::grpcio::CallOption::default())
-    }
-
     pub fn list_knowledge_graphs_opt(&self, req: &super::service::ListKnowledgeGraphsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiKnowledgeGraphResponse> {
         self.client.unary_call(&METHOD_V2_LIST_KNOWLEDGE_GRAPHS, req, opt)
     }
@@ -1078,6 +1104,22 @@ impl V2Client {
         self.patch_annotations_async_opt(req, ::grpcio::CallOption::default())
     }
 
+    pub fn patch_annotations_status_opt(&self, req: &super::service::PatchAnnotationsStatusRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::PatchAnnotationsStatusResponse> {
+        self.client.unary_call(&METHOD_V2_PATCH_ANNOTATIONS_STATUS, req, opt)
+    }
+
+    pub fn patch_annotations_status(&self, req: &super::service::PatchAnnotationsStatusRequest) -> ::grpcio::Result<super::service::PatchAnnotationsStatusResponse> {
+        self.patch_annotations_status_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn patch_annotations_status_async_opt(&self, req: &super::service::PatchAnnotationsStatusRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::PatchAnnotationsStatusResponse>> {
+        self.client.unary_call_async(&METHOD_V2_PATCH_ANNOTATIONS_STATUS, req, opt)
+    }
+
+    pub fn patch_annotations_status_async(&self, req: &super::service::PatchAnnotationsStatusRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::PatchAnnotationsStatusResponse>> {
+        self.patch_annotations_status_async_opt(req, ::grpcio::CallOption::default())
+    }
+
     pub fn delete_annotation_opt(&self, req: &super::service::DeleteAnnotationRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::status::BaseResponse> {
         self.client.unary_call(&METHOD_V2_DELETE_ANNOTATION, req, opt)
     }
@@ -1156,6 +1198,22 @@ impl V2Client {
 
     pub fn stream_inputs_async(&self, req: &super::service::StreamInputsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiInputResponse>> {
         self.stream_inputs_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn get_input_samples_opt(&self, req: &super::service::GetInputSamplesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiInputAnnotationResponse> {
+        self.client.unary_call(&METHOD_V2_GET_INPUT_SAMPLES, req, opt)
+    }
+
+    pub fn get_input_samples(&self, req: &super::service::GetInputSamplesRequest) -> ::grpcio::Result<super::service::MultiInputAnnotationResponse> {
+        self.get_input_samples_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn get_input_samples_async_opt(&self, req: &super::service::GetInputSamplesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiInputAnnotationResponse>> {
+        self.client.unary_call_async(&METHOD_V2_GET_INPUT_SAMPLES, req, opt)
+    }
+
+    pub fn get_input_samples_async(&self, req: &super::service::GetInputSamplesRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiInputAnnotationResponse>> {
+        self.get_input_samples_async_opt(req, ::grpcio::CallOption::default())
     }
 
     pub fn get_input_opt(&self, req: &super::service::GetInputRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::SingleInputResponse> {
@@ -2246,6 +2304,38 @@ impl V2Client {
         self.post_tasks_async_opt(req, ::grpcio::CallOption::default())
     }
 
+    pub fn get_task_annotation_count_opt(&self, req: &super::service::GetTaskCountRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::SingleTaskCountResponse> {
+        self.client.unary_call(&METHOD_V2_GET_TASK_ANNOTATION_COUNT, req, opt)
+    }
+
+    pub fn get_task_annotation_count(&self, req: &super::service::GetTaskCountRequest) -> ::grpcio::Result<super::service::SingleTaskCountResponse> {
+        self.get_task_annotation_count_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn get_task_annotation_count_async_opt(&self, req: &super::service::GetTaskCountRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleTaskCountResponse>> {
+        self.client.unary_call_async(&METHOD_V2_GET_TASK_ANNOTATION_COUNT, req, opt)
+    }
+
+    pub fn get_task_annotation_count_async(&self, req: &super::service::GetTaskCountRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleTaskCountResponse>> {
+        self.get_task_annotation_count_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn get_task_input_count_opt(&self, req: &super::service::GetTaskCountRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::SingleTaskCountResponse> {
+        self.client.unary_call(&METHOD_V2_GET_TASK_INPUT_COUNT, req, opt)
+    }
+
+    pub fn get_task_input_count(&self, req: &super::service::GetTaskCountRequest) -> ::grpcio::Result<super::service::SingleTaskCountResponse> {
+        self.get_task_input_count_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn get_task_input_count_async_opt(&self, req: &super::service::GetTaskCountRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleTaskCountResponse>> {
+        self.client.unary_call_async(&METHOD_V2_GET_TASK_INPUT_COUNT, req, opt)
+    }
+
+    pub fn get_task_input_count_async(&self, req: &super::service::GetTaskCountRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleTaskCountResponse>> {
+        self.get_task_input_count_async_opt(req, ::grpcio::CallOption::default())
+    }
+
     pub fn get_task_opt(&self, req: &super::service::GetTaskRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::SingleTaskResponse> {
         self.client.unary_call(&METHOD_V2_GET_TASK, req, opt)
     }
@@ -2427,6 +2517,9 @@ impl V2Client {
 }
 
 pub trait V2 {
+    fn list_concept_relations(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListConceptRelationsRequest, sink: ::grpcio::UnarySink<super::service::MultiConceptRelationResponse>);
+    fn post_concept_relations(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostConceptRelationsRequest, sink: ::grpcio::UnarySink<super::service::MultiConceptRelationResponse>);
+    fn delete_concept_relations(&mut self, ctx: ::grpcio::RpcContext, req: super::service::DeleteConceptRelationsRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
     fn get_concept_counts(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetConceptCountsRequest, sink: ::grpcio::UnarySink<super::service::MultiConceptCountResponse>);
     fn get_concept(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetConceptRequest, sink: ::grpcio::UnarySink<super::service::SingleConceptResponse>);
     fn list_concepts(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListConceptsRequest, sink: ::grpcio::UnarySink<super::service::MultiConceptResponse>);
@@ -2437,9 +2530,6 @@ pub trait V2 {
     fn list_concept_languages(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListConceptLanguagesRequest, sink: ::grpcio::UnarySink<super::service::MultiConceptLanguageResponse>);
     fn post_concept_languages(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostConceptLanguagesRequest, sink: ::grpcio::UnarySink<super::service::MultiConceptLanguageResponse>);
     fn patch_concept_languages(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PatchConceptLanguagesRequest, sink: ::grpcio::UnarySink<super::service::MultiConceptLanguageResponse>);
-    fn list_concept_relations(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListConceptRelationsRequest, sink: ::grpcio::UnarySink<super::service::MultiConceptRelationResponse>);
-    fn post_concept_relations(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostConceptRelationsRequest, sink: ::grpcio::UnarySink<super::service::MultiConceptRelationResponse>);
-    fn delete_concept_relations(&mut self, ctx: ::grpcio::RpcContext, req: super::service::DeleteConceptRelationsRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
     fn list_knowledge_graphs(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListKnowledgeGraphsRequest, sink: ::grpcio::UnarySink<super::service::MultiKnowledgeGraphResponse>);
     fn post_knowledge_graphs(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostKnowledgeGraphsRequest, sink: ::grpcio::UnarySink<super::service::MultiKnowledgeGraphResponse>);
     fn post_concept_mapping_jobs(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostConceptMappingJobsRequest, sink: ::grpcio::UnarySink<super::service::MultiConceptMappingJobResponse>);
@@ -2447,11 +2537,13 @@ pub trait V2 {
     fn list_annotations(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListAnnotationsRequest, sink: ::grpcio::UnarySink<super::service::MultiAnnotationResponse>);
     fn post_annotations(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostAnnotationsRequest, sink: ::grpcio::UnarySink<super::service::MultiAnnotationResponse>);
     fn patch_annotations(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PatchAnnotationsRequest, sink: ::grpcio::UnarySink<super::service::MultiAnnotationResponse>);
+    fn patch_annotations_status(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PatchAnnotationsStatusRequest, sink: ::grpcio::UnarySink<super::service::PatchAnnotationsStatusResponse>);
     fn delete_annotation(&mut self, ctx: ::grpcio::RpcContext, req: super::service::DeleteAnnotationRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
     fn delete_annotations(&mut self, ctx: ::grpcio::RpcContext, req: super::service::DeleteAnnotationsRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
     fn post_annotations_searches(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostAnnotationsSearchesRequest, sink: ::grpcio::UnarySink<super::service::MultiSearchResponse>);
     fn get_input_count(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetInputCountRequest, sink: ::grpcio::UnarySink<super::service::SingleInputCountResponse>);
     fn stream_inputs(&mut self, ctx: ::grpcio::RpcContext, req: super::service::StreamInputsRequest, sink: ::grpcio::UnarySink<super::service::MultiInputResponse>);
+    fn get_input_samples(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetInputSamplesRequest, sink: ::grpcio::UnarySink<super::service::MultiInputAnnotationResponse>);
     fn get_input(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetInputRequest, sink: ::grpcio::UnarySink<super::service::SingleInputResponse>);
     fn list_inputs(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListInputsRequest, sink: ::grpcio::UnarySink<super::service::MultiInputResponse>);
     fn post_inputs(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostInputsRequest, sink: ::grpcio::UnarySink<super::service::MultiInputResponse>);
@@ -2520,6 +2612,8 @@ pub trait V2 {
     fn list_app_duplications(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListAppDuplicationsRequest, sink: ::grpcio::UnarySink<super::service::MultiAppDuplicationsResponse>);
     fn get_app_duplication(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetAppDuplicationRequest, sink: ::grpcio::UnarySink<super::service::SingleAppDuplicationResponse>);
     fn post_tasks(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostTasksRequest, sink: ::grpcio::UnarySink<super::service::MultiTaskResponse>);
+    fn get_task_annotation_count(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetTaskCountRequest, sink: ::grpcio::UnarySink<super::service::SingleTaskCountResponse>);
+    fn get_task_input_count(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetTaskCountRequest, sink: ::grpcio::UnarySink<super::service::SingleTaskCountResponse>);
     fn get_task(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetTaskRequest, sink: ::grpcio::UnarySink<super::service::SingleTaskResponse>);
     fn list_tasks(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListTasksRequest, sink: ::grpcio::UnarySink<super::service::MultiTaskResponse>);
     fn patch_tasks(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PatchTasksRequest, sink: ::grpcio::UnarySink<super::service::MultiTaskResponse>);
@@ -2535,6 +2629,18 @@ pub trait V2 {
 
 pub fn create_v2<S: V2 + Send + Clone + 'static>(s: S) -> ::grpcio::Service {
     let mut builder = ::grpcio::ServiceBuilder::new();
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_LIST_CONCEPT_RELATIONS, move |ctx, req, resp| {
+        instance.list_concept_relations(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_POST_CONCEPT_RELATIONS, move |ctx, req, resp| {
+        instance.post_concept_relations(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_DELETE_CONCEPT_RELATIONS, move |ctx, req, resp| {
+        instance.delete_concept_relations(ctx, req, resp)
+    });
     let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_GET_CONCEPT_COUNTS, move |ctx, req, resp| {
         instance.get_concept_counts(ctx, req, resp)
@@ -2576,18 +2682,6 @@ pub fn create_v2<S: V2 + Send + Clone + 'static>(s: S) -> ::grpcio::Service {
         instance.patch_concept_languages(ctx, req, resp)
     });
     let mut instance = s.clone();
-    builder = builder.add_unary_handler(&METHOD_V2_LIST_CONCEPT_RELATIONS, move |ctx, req, resp| {
-        instance.list_concept_relations(ctx, req, resp)
-    });
-    let mut instance = s.clone();
-    builder = builder.add_unary_handler(&METHOD_V2_POST_CONCEPT_RELATIONS, move |ctx, req, resp| {
-        instance.post_concept_relations(ctx, req, resp)
-    });
-    let mut instance = s.clone();
-    builder = builder.add_unary_handler(&METHOD_V2_DELETE_CONCEPT_RELATIONS, move |ctx, req, resp| {
-        instance.delete_concept_relations(ctx, req, resp)
-    });
-    let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_LIST_KNOWLEDGE_GRAPHS, move |ctx, req, resp| {
         instance.list_knowledge_graphs(ctx, req, resp)
     });
@@ -2616,6 +2710,10 @@ pub fn create_v2<S: V2 + Send + Clone + 'static>(s: S) -> ::grpcio::Service {
         instance.patch_annotations(ctx, req, resp)
     });
     let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_PATCH_ANNOTATIONS_STATUS, move |ctx, req, resp| {
+        instance.patch_annotations_status(ctx, req, resp)
+    });
+    let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_DELETE_ANNOTATION, move |ctx, req, resp| {
         instance.delete_annotation(ctx, req, resp)
     });
@@ -2634,6 +2732,10 @@ pub fn create_v2<S: V2 + Send + Clone + 'static>(s: S) -> ::grpcio::Service {
     let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_STREAM_INPUTS, move |ctx, req, resp| {
         instance.stream_inputs(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_GET_INPUT_SAMPLES, move |ctx, req, resp| {
+        instance.get_input_samples(ctx, req, resp)
     });
     let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_GET_INPUT, move |ctx, req, resp| {
@@ -2906,6 +3008,14 @@ pub fn create_v2<S: V2 + Send + Clone + 'static>(s: S) -> ::grpcio::Service {
     let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_POST_TASKS, move |ctx, req, resp| {
         instance.post_tasks(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_GET_TASK_ANNOTATION_COUNT, move |ctx, req, resp| {
+        instance.get_task_annotation_count(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_GET_TASK_INPUT_COUNT, move |ctx, req, resp| {
+        instance.get_task_input_count(ctx, req, resp)
     });
     let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_GET_TASK, move |ctx, req, resp| {
