@@ -359,6 +359,13 @@ const METHOD_V2_POST_MODEL_VERSIONS: ::grpcio::Method<super::service::PostModelV
     resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
 };
 
+const METHOD_V2_PATCH_MODEL_VERSIONS: ::grpcio::Method<super::service::PatchModelVersionsRequest, super::service::MultiModelVersionResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/PatchModelVersions",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
 const METHOD_V2_DELETE_MODEL_VERSION: ::grpcio::Method<super::service::DeleteModelVersionRequest, super::status::BaseResponse> = ::grpcio::Method {
     ty: ::grpcio::MethodType::Unary,
     name: "/clarifai.api.V2/DeleteModelVersion",
@@ -1568,6 +1575,22 @@ impl V2Client {
         self.post_model_versions_async_opt(req, ::grpcio::CallOption::default())
     }
 
+    pub fn patch_model_versions_opt(&self, req: &super::service::PatchModelVersionsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiModelVersionResponse> {
+        self.client.unary_call(&METHOD_V2_PATCH_MODEL_VERSIONS, req, opt)
+    }
+
+    pub fn patch_model_versions(&self, req: &super::service::PatchModelVersionsRequest) -> ::grpcio::Result<super::service::MultiModelVersionResponse> {
+        self.patch_model_versions_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn patch_model_versions_async_opt(&self, req: &super::service::PatchModelVersionsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiModelVersionResponse>> {
+        self.client.unary_call_async(&METHOD_V2_PATCH_MODEL_VERSIONS, req, opt)
+    }
+
+    pub fn patch_model_versions_async(&self, req: &super::service::PatchModelVersionsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiModelVersionResponse>> {
+        self.patch_model_versions_async_opt(req, ::grpcio::CallOption::default())
+    }
+
     pub fn delete_model_version_opt(&self, req: &super::service::DeleteModelVersionRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::status::BaseResponse> {
         self.client.unary_call(&METHOD_V2_DELETE_MODEL_VERSION, req, opt)
     }
@@ -2566,6 +2589,7 @@ pub trait V2 {
     fn get_model_version(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetModelVersionRequest, sink: ::grpcio::UnarySink<super::service::SingleModelVersionResponse>);
     fn list_model_versions(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListModelVersionsRequest, sink: ::grpcio::UnarySink<super::service::MultiModelVersionResponse>);
     fn post_model_versions(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostModelVersionsRequest, sink: ::grpcio::UnarySink<super::service::SingleModelResponse>);
+    fn patch_model_versions(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PatchModelVersionsRequest, sink: ::grpcio::UnarySink<super::service::MultiModelVersionResponse>);
     fn delete_model_version(&mut self, ctx: ::grpcio::RpcContext, req: super::service::DeleteModelVersionRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
     fn get_model_version_metrics(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetModelVersionMetricsRequest, sink: ::grpcio::UnarySink<super::service::SingleModelVersionResponse>);
     fn post_model_version_metrics(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostModelVersionMetricsRequest, sink: ::grpcio::UnarySink<super::service::SingleModelVersionResponse>);
@@ -2824,6 +2848,10 @@ pub fn create_v2<S: V2 + Send + Clone + 'static>(s: S) -> ::grpcio::Service {
     let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_POST_MODEL_VERSIONS, move |ctx, req, resp| {
         instance.post_model_versions(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_PATCH_MODEL_VERSIONS, move |ctx, req, resp| {
+        instance.patch_model_versions(ctx, req, resp)
     });
     let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_DELETE_MODEL_VERSION, move |ctx, req, resp| {
