@@ -387,6 +387,27 @@ const METHOD_V2_POST_MODEL_VERSION_METRICS: ::grpcio::Method<super::service::Pos
     resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
 };
 
+const METHOD_V2_LIST_MODEL_REFERENCES: ::grpcio::Method<super::service::ListModelReferencesRequest, super::service::MultiModelReferenceResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/ListModelReferences",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_GET_MODEL_VERSION_INPUT_EXAMPLE: ::grpcio::Method<super::service::GetModelVersionInputExampleRequest, super::service::SingleModelVersionInputExampleResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/GetModelVersionInputExample",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_LIST_MODEL_VERSION_INPUT_EXAMPLES: ::grpcio::Method<super::service::ListModelVersionInputExamplesRequest, super::service::MultiModelVersionInputExampleResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/ListModelVersionInputExamples",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
 const METHOD_V2_GET_WORKFLOW: ::grpcio::Method<super::service::GetWorkflowRequest, super::service::SingleWorkflowResponse> = ::grpcio::Method {
     ty: ::grpcio::MethodType::Unary,
     name: "/clarifai.api.V2/GetWorkflow",
@@ -1639,6 +1660,54 @@ impl V2Client {
         self.post_model_version_metrics_async_opt(req, ::grpcio::CallOption::default())
     }
 
+    pub fn list_model_references_opt(&self, req: &super::service::ListModelReferencesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiModelReferenceResponse> {
+        self.client.unary_call(&METHOD_V2_LIST_MODEL_REFERENCES, req, opt)
+    }
+
+    pub fn list_model_references(&self, req: &super::service::ListModelReferencesRequest) -> ::grpcio::Result<super::service::MultiModelReferenceResponse> {
+        self.list_model_references_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_model_references_async_opt(&self, req: &super::service::ListModelReferencesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiModelReferenceResponse>> {
+        self.client.unary_call_async(&METHOD_V2_LIST_MODEL_REFERENCES, req, opt)
+    }
+
+    pub fn list_model_references_async(&self, req: &super::service::ListModelReferencesRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiModelReferenceResponse>> {
+        self.list_model_references_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn get_model_version_input_example_opt(&self, req: &super::service::GetModelVersionInputExampleRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::SingleModelVersionInputExampleResponse> {
+        self.client.unary_call(&METHOD_V2_GET_MODEL_VERSION_INPUT_EXAMPLE, req, opt)
+    }
+
+    pub fn get_model_version_input_example(&self, req: &super::service::GetModelVersionInputExampleRequest) -> ::grpcio::Result<super::service::SingleModelVersionInputExampleResponse> {
+        self.get_model_version_input_example_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn get_model_version_input_example_async_opt(&self, req: &super::service::GetModelVersionInputExampleRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleModelVersionInputExampleResponse>> {
+        self.client.unary_call_async(&METHOD_V2_GET_MODEL_VERSION_INPUT_EXAMPLE, req, opt)
+    }
+
+    pub fn get_model_version_input_example_async(&self, req: &super::service::GetModelVersionInputExampleRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleModelVersionInputExampleResponse>> {
+        self.get_model_version_input_example_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_model_version_input_examples_opt(&self, req: &super::service::ListModelVersionInputExamplesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiModelVersionInputExampleResponse> {
+        self.client.unary_call(&METHOD_V2_LIST_MODEL_VERSION_INPUT_EXAMPLES, req, opt)
+    }
+
+    pub fn list_model_version_input_examples(&self, req: &super::service::ListModelVersionInputExamplesRequest) -> ::grpcio::Result<super::service::MultiModelVersionInputExampleResponse> {
+        self.list_model_version_input_examples_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_model_version_input_examples_async_opt(&self, req: &super::service::ListModelVersionInputExamplesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiModelVersionInputExampleResponse>> {
+        self.client.unary_call_async(&METHOD_V2_LIST_MODEL_VERSION_INPUT_EXAMPLES, req, opt)
+    }
+
+    pub fn list_model_version_input_examples_async(&self, req: &super::service::ListModelVersionInputExamplesRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiModelVersionInputExampleResponse>> {
+        self.list_model_version_input_examples_async_opt(req, ::grpcio::CallOption::default())
+    }
+
     pub fn get_workflow_opt(&self, req: &super::service::GetWorkflowRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::SingleWorkflowResponse> {
         self.client.unary_call(&METHOD_V2_GET_WORKFLOW, req, opt)
     }
@@ -2593,6 +2662,9 @@ pub trait V2 {
     fn delete_model_version(&mut self, ctx: ::grpcio::RpcContext, req: super::service::DeleteModelVersionRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
     fn get_model_version_metrics(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetModelVersionMetricsRequest, sink: ::grpcio::UnarySink<super::service::SingleModelVersionResponse>);
     fn post_model_version_metrics(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostModelVersionMetricsRequest, sink: ::grpcio::UnarySink<super::service::SingleModelVersionResponse>);
+    fn list_model_references(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListModelReferencesRequest, sink: ::grpcio::UnarySink<super::service::MultiModelReferenceResponse>);
+    fn get_model_version_input_example(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetModelVersionInputExampleRequest, sink: ::grpcio::UnarySink<super::service::SingleModelVersionInputExampleResponse>);
+    fn list_model_version_input_examples(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListModelVersionInputExamplesRequest, sink: ::grpcio::UnarySink<super::service::MultiModelVersionInputExampleResponse>);
     fn get_workflow(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetWorkflowRequest, sink: ::grpcio::UnarySink<super::service::SingleWorkflowResponse>);
     fn list_workflows(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListWorkflowsRequest, sink: ::grpcio::UnarySink<super::service::MultiWorkflowResponse>);
     fn post_workflows(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostWorkflowsRequest, sink: ::grpcio::UnarySink<super::service::MultiWorkflowResponse>);
@@ -2864,6 +2936,18 @@ pub fn create_v2<S: V2 + Send + Clone + 'static>(s: S) -> ::grpcio::Service {
     let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_POST_MODEL_VERSION_METRICS, move |ctx, req, resp| {
         instance.post_model_version_metrics(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_LIST_MODEL_REFERENCES, move |ctx, req, resp| {
+        instance.list_model_references(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_GET_MODEL_VERSION_INPUT_EXAMPLE, move |ctx, req, resp| {
+        instance.get_model_version_input_example(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_LIST_MODEL_VERSION_INPUT_EXAMPLES, move |ctx, req, resp| {
+        instance.list_model_version_input_examples(ctx, req, resp)
     });
     let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_GET_WORKFLOW, move |ctx, req, resp| {
