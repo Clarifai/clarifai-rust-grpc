@@ -268,6 +268,13 @@ const METHOD_V2_GET_MODEL_TYPE: ::grpcio::Method<super::service::GetModelTypeReq
     resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
 };
 
+const METHOD_V2_LIST_OPEN_SOURCE_LICENSES: ::grpcio::Method<super::service::ListOpenSourceLicensesRequest, super::service::ListOpenSourceLicensesResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/ListOpenSourceLicenses",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
 const METHOD_V2_LIST_MODEL_TYPES: ::grpcio::Method<super::service::ListModelTypesRequest, super::service::MultiModelTypeResponse> = ::grpcio::Method {
     ty: ::grpcio::MethodType::Unary,
     name: "/clarifai.api.V2/ListModelTypes",
@@ -1386,6 +1393,22 @@ impl V2Client {
 
     pub fn get_model_type_async(&self, req: &super::service::GetModelTypeRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleModelTypeResponse>> {
         self.get_model_type_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_open_source_licenses_opt(&self, req: &super::service::ListOpenSourceLicensesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::ListOpenSourceLicensesResponse> {
+        self.client.unary_call(&METHOD_V2_LIST_OPEN_SOURCE_LICENSES, req, opt)
+    }
+
+    pub fn list_open_source_licenses(&self, req: &super::service::ListOpenSourceLicensesRequest) -> ::grpcio::Result<super::service::ListOpenSourceLicensesResponse> {
+        self.list_open_source_licenses_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_open_source_licenses_async_opt(&self, req: &super::service::ListOpenSourceLicensesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::ListOpenSourceLicensesResponse>> {
+        self.client.unary_call_async(&METHOD_V2_LIST_OPEN_SOURCE_LICENSES, req, opt)
+    }
+
+    pub fn list_open_source_licenses_async(&self, req: &super::service::ListOpenSourceLicensesRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::ListOpenSourceLicensesResponse>> {
+        self.list_open_source_licenses_async_opt(req, ::grpcio::CallOption::default())
     }
 
     pub fn list_model_types_opt(&self, req: &super::service::ListModelTypesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiModelTypeResponse> {
@@ -2645,6 +2668,7 @@ pub trait V2 {
     fn post_inputs_searches(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostInputsSearchesRequest, sink: ::grpcio::UnarySink<super::service::MultiSearchResponse>);
     fn post_model_outputs(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostModelOutputsRequest, sink: ::grpcio::UnarySink<super::service::MultiOutputResponse>);
     fn get_model_type(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetModelTypeRequest, sink: ::grpcio::UnarySink<super::service::SingleModelTypeResponse>);
+    fn list_open_source_licenses(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListOpenSourceLicensesRequest, sink: ::grpcio::UnarySink<super::service::ListOpenSourceLicensesResponse>);
     fn list_model_types(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListModelTypesRequest, sink: ::grpcio::UnarySink<super::service::MultiModelTypeResponse>);
     fn get_model(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetModelRequest, sink: ::grpcio::UnarySink<super::service::SingleModelResponse>);
     fn get_model_output_info(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetModelRequest, sink: ::grpcio::UnarySink<super::service::SingleModelResponse>);
@@ -2868,6 +2892,10 @@ pub fn create_v2<S: V2 + Send + Clone + 'static>(s: S) -> ::grpcio::Service {
     let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_GET_MODEL_TYPE, move |ctx, req, resp| {
         instance.get_model_type(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_LIST_OPEN_SOURCE_LICENSES, move |ctx, req, resp| {
+        instance.list_open_source_licenses(ctx, req, resp)
     });
     let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_LIST_MODEL_TYPES, move |ctx, req, resp| {
