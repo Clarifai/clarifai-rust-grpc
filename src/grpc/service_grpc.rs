@@ -268,6 +268,13 @@ const METHOD_V2_GET_MODEL_TYPE: ::grpcio::Method<super::service::GetModelTypeReq
     resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
 };
 
+const METHOD_V2_LIST_OPEN_SOURCE_LICENSES: ::grpcio::Method<super::service::ListOpenSourceLicensesRequest, super::service::ListOpenSourceLicensesResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/ListOpenSourceLicenses",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
 const METHOD_V2_LIST_MODEL_TYPES: ::grpcio::Method<super::service::ListModelTypesRequest, super::service::MultiModelTypeResponse> = ::grpcio::Method {
     ty: ::grpcio::MethodType::Unary,
     name: "/clarifai.api.V2/ListModelTypes",
@@ -460,6 +467,34 @@ const METHOD_V2_POST_WORKFLOW_RESULTS: ::grpcio::Method<super::service::PostWork
 const METHOD_V2_POST_WORKFLOW_RESULTS_SIMILARITY: ::grpcio::Method<super::service::PostWorkflowResultsSimilarityRequest, super::service::PostWorkflowResultsSimilarityResponse> = ::grpcio::Method {
     ty: ::grpcio::MethodType::Unary,
     name: "/clarifai.api.V2/PostWorkflowResultsSimilarity",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_LIST_WORKFLOW_VERSIONS: ::grpcio::Method<super::service::ListWorkflowVersionsRequest, super::service::MultiWorkflowVersionResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/ListWorkflowVersions",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_GET_WORKFLOW_VERSION: ::grpcio::Method<super::service::GetWorkflowVersionRequest, super::service::SingleWorkflowVersionResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/GetWorkflowVersion",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_DELETE_WORKFLOW_VERSIONS: ::grpcio::Method<super::service::DeleteWorkflowVersionsRequest, super::status::BaseResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/DeleteWorkflowVersions",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_PATCH_WORKFLOW_VERSIONS: ::grpcio::Method<super::service::PatchWorkflowVersionsRequest, super::service::MultiWorkflowVersionResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/PatchWorkflowVersions",
     req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
     resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
 };
@@ -796,6 +831,20 @@ const METHOD_V2_POST_STAT_VALUES: ::grpcio::Method<super::service::PostStatValue
 const METHOD_V2_POST_STAT_VALUES_AGGREGATE: ::grpcio::Method<super::service::PostStatValuesAggregateRequest, super::service::MultiStatValueAggregateResponse> = ::grpcio::Method {
     ty: ::grpcio::MethodType::Unary,
     name: "/clarifai.api.V2/PostStatValuesAggregate",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_POST_TRENDING_METRICS_VIEW: ::grpcio::Method<super::service::PostTrendingMetricsViewRequest, super::status::BaseResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/PostTrendingMetricsView",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_LIST_TRENDING_METRICS_VIEWS: ::grpcio::Method<super::service::ListTrendingMetricsViewsRequest, super::service::MultiTrendingMetricsViewResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/ListTrendingMetricsViews",
     req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
     resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
 };
@@ -1388,6 +1437,22 @@ impl V2Client {
         self.get_model_type_async_opt(req, ::grpcio::CallOption::default())
     }
 
+    pub fn list_open_source_licenses_opt(&self, req: &super::service::ListOpenSourceLicensesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::ListOpenSourceLicensesResponse> {
+        self.client.unary_call(&METHOD_V2_LIST_OPEN_SOURCE_LICENSES, req, opt)
+    }
+
+    pub fn list_open_source_licenses(&self, req: &super::service::ListOpenSourceLicensesRequest) -> ::grpcio::Result<super::service::ListOpenSourceLicensesResponse> {
+        self.list_open_source_licenses_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_open_source_licenses_async_opt(&self, req: &super::service::ListOpenSourceLicensesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::ListOpenSourceLicensesResponse>> {
+        self.client.unary_call_async(&METHOD_V2_LIST_OPEN_SOURCE_LICENSES, req, opt)
+    }
+
+    pub fn list_open_source_licenses_async(&self, req: &super::service::ListOpenSourceLicensesRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::ListOpenSourceLicensesResponse>> {
+        self.list_open_source_licenses_async_opt(req, ::grpcio::CallOption::default())
+    }
+
     pub fn list_model_types_opt(&self, req: &super::service::ListModelTypesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiModelTypeResponse> {
         self.client.unary_call(&METHOD_V2_LIST_MODEL_TYPES, req, opt)
     }
@@ -1834,6 +1899,70 @@ impl V2Client {
 
     pub fn post_workflow_results_similarity_async(&self, req: &super::service::PostWorkflowResultsSimilarityRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::PostWorkflowResultsSimilarityResponse>> {
         self.post_workflow_results_similarity_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_workflow_versions_opt(&self, req: &super::service::ListWorkflowVersionsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiWorkflowVersionResponse> {
+        self.client.unary_call(&METHOD_V2_LIST_WORKFLOW_VERSIONS, req, opt)
+    }
+
+    pub fn list_workflow_versions(&self, req: &super::service::ListWorkflowVersionsRequest) -> ::grpcio::Result<super::service::MultiWorkflowVersionResponse> {
+        self.list_workflow_versions_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_workflow_versions_async_opt(&self, req: &super::service::ListWorkflowVersionsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiWorkflowVersionResponse>> {
+        self.client.unary_call_async(&METHOD_V2_LIST_WORKFLOW_VERSIONS, req, opt)
+    }
+
+    pub fn list_workflow_versions_async(&self, req: &super::service::ListWorkflowVersionsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiWorkflowVersionResponse>> {
+        self.list_workflow_versions_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn get_workflow_version_opt(&self, req: &super::service::GetWorkflowVersionRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::SingleWorkflowVersionResponse> {
+        self.client.unary_call(&METHOD_V2_GET_WORKFLOW_VERSION, req, opt)
+    }
+
+    pub fn get_workflow_version(&self, req: &super::service::GetWorkflowVersionRequest) -> ::grpcio::Result<super::service::SingleWorkflowVersionResponse> {
+        self.get_workflow_version_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn get_workflow_version_async_opt(&self, req: &super::service::GetWorkflowVersionRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleWorkflowVersionResponse>> {
+        self.client.unary_call_async(&METHOD_V2_GET_WORKFLOW_VERSION, req, opt)
+    }
+
+    pub fn get_workflow_version_async(&self, req: &super::service::GetWorkflowVersionRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleWorkflowVersionResponse>> {
+        self.get_workflow_version_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn delete_workflow_versions_opt(&self, req: &super::service::DeleteWorkflowVersionsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::status::BaseResponse> {
+        self.client.unary_call(&METHOD_V2_DELETE_WORKFLOW_VERSIONS, req, opt)
+    }
+
+    pub fn delete_workflow_versions(&self, req: &super::service::DeleteWorkflowVersionsRequest) -> ::grpcio::Result<super::status::BaseResponse> {
+        self.delete_workflow_versions_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn delete_workflow_versions_async_opt(&self, req: &super::service::DeleteWorkflowVersionsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::status::BaseResponse>> {
+        self.client.unary_call_async(&METHOD_V2_DELETE_WORKFLOW_VERSIONS, req, opt)
+    }
+
+    pub fn delete_workflow_versions_async(&self, req: &super::service::DeleteWorkflowVersionsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::status::BaseResponse>> {
+        self.delete_workflow_versions_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn patch_workflow_versions_opt(&self, req: &super::service::PatchWorkflowVersionsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiWorkflowVersionResponse> {
+        self.client.unary_call(&METHOD_V2_PATCH_WORKFLOW_VERSIONS, req, opt)
+    }
+
+    pub fn patch_workflow_versions(&self, req: &super::service::PatchWorkflowVersionsRequest) -> ::grpcio::Result<super::service::MultiWorkflowVersionResponse> {
+        self.patch_workflow_versions_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn patch_workflow_versions_async_opt(&self, req: &super::service::PatchWorkflowVersionsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiWorkflowVersionResponse>> {
+        self.client.unary_call_async(&METHOD_V2_PATCH_WORKFLOW_VERSIONS, req, opt)
+    }
+
+    pub fn patch_workflow_versions_async(&self, req: &super::service::PatchWorkflowVersionsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiWorkflowVersionResponse>> {
+        self.patch_workflow_versions_async_opt(req, ::grpcio::CallOption::default())
     }
 
     pub fn get_key_opt(&self, req: &super::service::GetKeyRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::SingleKeyResponse> {
@@ -2603,6 +2732,38 @@ impl V2Client {
     pub fn post_stat_values_aggregate_async(&self, req: &super::service::PostStatValuesAggregateRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiStatValueAggregateResponse>> {
         self.post_stat_values_aggregate_async_opt(req, ::grpcio::CallOption::default())
     }
+
+    pub fn post_trending_metrics_view_opt(&self, req: &super::service::PostTrendingMetricsViewRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::status::BaseResponse> {
+        self.client.unary_call(&METHOD_V2_POST_TRENDING_METRICS_VIEW, req, opt)
+    }
+
+    pub fn post_trending_metrics_view(&self, req: &super::service::PostTrendingMetricsViewRequest) -> ::grpcio::Result<super::status::BaseResponse> {
+        self.post_trending_metrics_view_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn post_trending_metrics_view_async_opt(&self, req: &super::service::PostTrendingMetricsViewRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::status::BaseResponse>> {
+        self.client.unary_call_async(&METHOD_V2_POST_TRENDING_METRICS_VIEW, req, opt)
+    }
+
+    pub fn post_trending_metrics_view_async(&self, req: &super::service::PostTrendingMetricsViewRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::status::BaseResponse>> {
+        self.post_trending_metrics_view_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_trending_metrics_views_opt(&self, req: &super::service::ListTrendingMetricsViewsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiTrendingMetricsViewResponse> {
+        self.client.unary_call(&METHOD_V2_LIST_TRENDING_METRICS_VIEWS, req, opt)
+    }
+
+    pub fn list_trending_metrics_views(&self, req: &super::service::ListTrendingMetricsViewsRequest) -> ::grpcio::Result<super::service::MultiTrendingMetricsViewResponse> {
+        self.list_trending_metrics_views_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_trending_metrics_views_async_opt(&self, req: &super::service::ListTrendingMetricsViewsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiTrendingMetricsViewResponse>> {
+        self.client.unary_call_async(&METHOD_V2_LIST_TRENDING_METRICS_VIEWS, req, opt)
+    }
+
+    pub fn list_trending_metrics_views_async(&self, req: &super::service::ListTrendingMetricsViewsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiTrendingMetricsViewResponse>> {
+        self.list_trending_metrics_views_async_opt(req, ::grpcio::CallOption::default())
+    }
     pub fn spawn<F>(&self, f: F) where F: ::futures::Future<Output = ()> + Send + 'static {
         self.client.spawn(f)
     }
@@ -2645,6 +2806,7 @@ pub trait V2 {
     fn post_inputs_searches(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostInputsSearchesRequest, sink: ::grpcio::UnarySink<super::service::MultiSearchResponse>);
     fn post_model_outputs(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostModelOutputsRequest, sink: ::grpcio::UnarySink<super::service::MultiOutputResponse>);
     fn get_model_type(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetModelTypeRequest, sink: ::grpcio::UnarySink<super::service::SingleModelTypeResponse>);
+    fn list_open_source_licenses(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListOpenSourceLicensesRequest, sink: ::grpcio::UnarySink<super::service::ListOpenSourceLicensesResponse>);
     fn list_model_types(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListModelTypesRequest, sink: ::grpcio::UnarySink<super::service::MultiModelTypeResponse>);
     fn get_model(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetModelRequest, sink: ::grpcio::UnarySink<super::service::SingleModelResponse>);
     fn get_model_output_info(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetModelRequest, sink: ::grpcio::UnarySink<super::service::SingleModelResponse>);
@@ -2673,6 +2835,10 @@ pub trait V2 {
     fn delete_workflows(&mut self, ctx: ::grpcio::RpcContext, req: super::service::DeleteWorkflowsRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
     fn post_workflow_results(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostWorkflowResultsRequest, sink: ::grpcio::UnarySink<super::service::PostWorkflowResultsResponse>);
     fn post_workflow_results_similarity(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostWorkflowResultsSimilarityRequest, sink: ::grpcio::UnarySink<super::service::PostWorkflowResultsSimilarityResponse>);
+    fn list_workflow_versions(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListWorkflowVersionsRequest, sink: ::grpcio::UnarySink<super::service::MultiWorkflowVersionResponse>);
+    fn get_workflow_version(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetWorkflowVersionRequest, sink: ::grpcio::UnarySink<super::service::SingleWorkflowVersionResponse>);
+    fn delete_workflow_versions(&mut self, ctx: ::grpcio::RpcContext, req: super::service::DeleteWorkflowVersionsRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
+    fn patch_workflow_versions(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PatchWorkflowVersionsRequest, sink: ::grpcio::UnarySink<super::service::MultiWorkflowVersionResponse>);
     fn get_key(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetKeyRequest, sink: ::grpcio::UnarySink<super::service::SingleKeyResponse>);
     fn list_keys(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListKeysRequest, sink: ::grpcio::UnarySink<super::service::MultiKeyResponse>);
     fn list_app_keys(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListAppKeysRequest, sink: ::grpcio::UnarySink<super::service::MultiKeyResponse>);
@@ -2721,6 +2887,8 @@ pub trait V2 {
     fn delete_collectors(&mut self, ctx: ::grpcio::RpcContext, req: super::service::DeleteCollectorsRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
     fn post_stat_values(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostStatValuesRequest, sink: ::grpcio::UnarySink<super::service::MultiStatValueResponse>);
     fn post_stat_values_aggregate(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostStatValuesAggregateRequest, sink: ::grpcio::UnarySink<super::service::MultiStatValueAggregateResponse>);
+    fn post_trending_metrics_view(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostTrendingMetricsViewRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
+    fn list_trending_metrics_views(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListTrendingMetricsViewsRequest, sink: ::grpcio::UnarySink<super::service::MultiTrendingMetricsViewResponse>);
 }
 
 pub fn create_v2<S: V2 + Send + Clone + 'static>(s: S) -> ::grpcio::Service {
@@ -2870,6 +3038,10 @@ pub fn create_v2<S: V2 + Send + Clone + 'static>(s: S) -> ::grpcio::Service {
         instance.get_model_type(ctx, req, resp)
     });
     let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_LIST_OPEN_SOURCE_LICENSES, move |ctx, req, resp| {
+        instance.list_open_source_licenses(ctx, req, resp)
+    });
+    let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_LIST_MODEL_TYPES, move |ctx, req, resp| {
         instance.list_model_types(ctx, req, resp)
     });
@@ -2980,6 +3152,22 @@ pub fn create_v2<S: V2 + Send + Clone + 'static>(s: S) -> ::grpcio::Service {
     let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_POST_WORKFLOW_RESULTS_SIMILARITY, move |ctx, req, resp| {
         instance.post_workflow_results_similarity(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_LIST_WORKFLOW_VERSIONS, move |ctx, req, resp| {
+        instance.list_workflow_versions(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_GET_WORKFLOW_VERSION, move |ctx, req, resp| {
+        instance.get_workflow_version(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_DELETE_WORKFLOW_VERSIONS, move |ctx, req, resp| {
+        instance.delete_workflow_versions(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_PATCH_WORKFLOW_VERSIONS, move |ctx, req, resp| {
+        instance.patch_workflow_versions(ctx, req, resp)
     });
     let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_GET_KEY, move |ctx, req, resp| {
@@ -3169,9 +3357,17 @@ pub fn create_v2<S: V2 + Send + Clone + 'static>(s: S) -> ::grpcio::Service {
     builder = builder.add_unary_handler(&METHOD_V2_POST_STAT_VALUES, move |ctx, req, resp| {
         instance.post_stat_values(ctx, req, resp)
     });
-    let mut instance = s;
+    let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_POST_STAT_VALUES_AGGREGATE, move |ctx, req, resp| {
         instance.post_stat_values_aggregate(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_POST_TRENDING_METRICS_VIEW, move |ctx, req, resp| {
+        instance.post_trending_metrics_view(ctx, req, resp)
+    });
+    let mut instance = s;
+    builder = builder.add_unary_handler(&METHOD_V2_LIST_TRENDING_METRICS_VIEWS, move |ctx, req, resp| {
+        instance.list_trending_metrics_views(ctx, req, resp)
     });
     builder.build()
 }
