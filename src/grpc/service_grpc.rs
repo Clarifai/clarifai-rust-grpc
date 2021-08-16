@@ -842,6 +842,13 @@ const METHOD_V2_POST_TRENDING_METRICS_VIEW: ::grpcio::Method<super::service::Pos
     resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
 };
 
+const METHOD_V2_LIST_TRENDING_METRICS_VIEWS: ::grpcio::Method<super::service::ListTrendingMetricsViewsRequest, super::service::MultiTrendingMetricsViewResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/ListTrendingMetricsViews",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
 #[derive(Clone)]
 pub struct V2Client {
     client: ::grpcio::Client,
@@ -2741,6 +2748,22 @@ impl V2Client {
     pub fn post_trending_metrics_view_async(&self, req: &super::service::PostTrendingMetricsViewRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::status::BaseResponse>> {
         self.post_trending_metrics_view_async_opt(req, ::grpcio::CallOption::default())
     }
+
+    pub fn list_trending_metrics_views_opt(&self, req: &super::service::ListTrendingMetricsViewsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiTrendingMetricsViewResponse> {
+        self.client.unary_call(&METHOD_V2_LIST_TRENDING_METRICS_VIEWS, req, opt)
+    }
+
+    pub fn list_trending_metrics_views(&self, req: &super::service::ListTrendingMetricsViewsRequest) -> ::grpcio::Result<super::service::MultiTrendingMetricsViewResponse> {
+        self.list_trending_metrics_views_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_trending_metrics_views_async_opt(&self, req: &super::service::ListTrendingMetricsViewsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiTrendingMetricsViewResponse>> {
+        self.client.unary_call_async(&METHOD_V2_LIST_TRENDING_METRICS_VIEWS, req, opt)
+    }
+
+    pub fn list_trending_metrics_views_async(&self, req: &super::service::ListTrendingMetricsViewsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiTrendingMetricsViewResponse>> {
+        self.list_trending_metrics_views_async_opt(req, ::grpcio::CallOption::default())
+    }
     pub fn spawn<F>(&self, f: F) where F: ::futures::Future<Output = ()> + Send + 'static {
         self.client.spawn(f)
     }
@@ -2865,6 +2888,7 @@ pub trait V2 {
     fn post_stat_values(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostStatValuesRequest, sink: ::grpcio::UnarySink<super::service::MultiStatValueResponse>);
     fn post_stat_values_aggregate(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostStatValuesAggregateRequest, sink: ::grpcio::UnarySink<super::service::MultiStatValueAggregateResponse>);
     fn post_trending_metrics_view(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostTrendingMetricsViewRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
+    fn list_trending_metrics_views(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListTrendingMetricsViewsRequest, sink: ::grpcio::UnarySink<super::service::MultiTrendingMetricsViewResponse>);
 }
 
 pub fn create_v2<S: V2 + Send + Clone + 'static>(s: S) -> ::grpcio::Service {
@@ -3337,9 +3361,13 @@ pub fn create_v2<S: V2 + Send + Clone + 'static>(s: S) -> ::grpcio::Service {
     builder = builder.add_unary_handler(&METHOD_V2_POST_STAT_VALUES_AGGREGATE, move |ctx, req, resp| {
         instance.post_stat_values_aggregate(ctx, req, resp)
     });
-    let mut instance = s;
+    let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_POST_TRENDING_METRICS_VIEW, move |ctx, req, resp| {
         instance.post_trending_metrics_view(ctx, req, resp)
+    });
+    let mut instance = s;
+    builder = builder.add_unary_handler(&METHOD_V2_LIST_TRENDING_METRICS_VIEWS, move |ctx, req, resp| {
+        instance.list_trending_metrics_views(ctx, req, resp)
     });
     builder.build()
 }
