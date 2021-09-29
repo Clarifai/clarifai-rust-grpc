@@ -359,6 +359,20 @@ const METHOD_V2_LIST_MODEL_VERSIONS: ::grpcio::Method<super::service::ListModelV
     resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
 };
 
+const METHOD_V2_POST_MODEL_VERSIONS_PUBLISH: ::grpcio::Method<super::service::PostModelVersionsPublishRequest, super::status::BaseResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/PostModelVersionsPublish",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_DELETE_MODEL_VERSIONS_UN_PUBLISH: ::grpcio::Method<super::service::DeleteModelVersionsUnpublishRequest, super::status::BaseResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/DeleteModelVersionsUnPublish",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
 const METHOD_V2_POST_MODEL_VERSIONS: ::grpcio::Method<super::service::PostModelVersionsRequest, super::service::SingleModelResponse> = ::grpcio::Method {
     ty: ::grpcio::MethodType::Unary,
     name: "/clarifai.api.V2/PostModelVersions",
@@ -544,6 +558,20 @@ const METHOD_V2_PATCH_KEYS: ::grpcio::Method<super::service::PatchKeysRequest, s
 const METHOD_V2_MY_SCOPES: ::grpcio::Method<super::service::MyScopesRequest, super::service::MultiScopeResponse> = ::grpcio::Method {
     ty: ::grpcio::MethodType::Unary,
     name: "/clarifai.api.V2/MyScopes",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_MY_SCOPES_USER: ::grpcio::Method<super::service::MyScopesUserRequest, super::service::MultiScopeUserResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/MyScopesUser",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_MY_SCOPES_ROOT: ::grpcio::Method<super::service::MyScopesRootRequest, super::service::MultiScopeRootResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/MyScopesRoot",
     req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
     resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
 };
@@ -1645,6 +1673,38 @@ impl V2Client {
         self.list_model_versions_async_opt(req, ::grpcio::CallOption::default())
     }
 
+    pub fn post_model_versions_publish_opt(&self, req: &super::service::PostModelVersionsPublishRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::status::BaseResponse> {
+        self.client.unary_call(&METHOD_V2_POST_MODEL_VERSIONS_PUBLISH, req, opt)
+    }
+
+    pub fn post_model_versions_publish(&self, req: &super::service::PostModelVersionsPublishRequest) -> ::grpcio::Result<super::status::BaseResponse> {
+        self.post_model_versions_publish_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn post_model_versions_publish_async_opt(&self, req: &super::service::PostModelVersionsPublishRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::status::BaseResponse>> {
+        self.client.unary_call_async(&METHOD_V2_POST_MODEL_VERSIONS_PUBLISH, req, opt)
+    }
+
+    pub fn post_model_versions_publish_async(&self, req: &super::service::PostModelVersionsPublishRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::status::BaseResponse>> {
+        self.post_model_versions_publish_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn delete_model_versions_un_publish_opt(&self, req: &super::service::DeleteModelVersionsUnpublishRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::status::BaseResponse> {
+        self.client.unary_call(&METHOD_V2_DELETE_MODEL_VERSIONS_UN_PUBLISH, req, opt)
+    }
+
+    pub fn delete_model_versions_un_publish(&self, req: &super::service::DeleteModelVersionsUnpublishRequest) -> ::grpcio::Result<super::status::BaseResponse> {
+        self.delete_model_versions_un_publish_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn delete_model_versions_un_publish_async_opt(&self, req: &super::service::DeleteModelVersionsUnpublishRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::status::BaseResponse>> {
+        self.client.unary_call_async(&METHOD_V2_DELETE_MODEL_VERSIONS_UN_PUBLISH, req, opt)
+    }
+
+    pub fn delete_model_versions_un_publish_async(&self, req: &super::service::DeleteModelVersionsUnpublishRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::status::BaseResponse>> {
+        self.delete_model_versions_un_publish_async_opt(req, ::grpcio::CallOption::default())
+    }
+
     pub fn post_model_versions_opt(&self, req: &super::service::PostModelVersionsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::SingleModelResponse> {
         self.client.unary_call(&METHOD_V2_POST_MODEL_VERSIONS, req, opt)
     }
@@ -2075,6 +2135,38 @@ impl V2Client {
 
     pub fn my_scopes_async(&self, req: &super::service::MyScopesRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiScopeResponse>> {
         self.my_scopes_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn my_scopes_user_opt(&self, req: &super::service::MyScopesUserRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiScopeUserResponse> {
+        self.client.unary_call(&METHOD_V2_MY_SCOPES_USER, req, opt)
+    }
+
+    pub fn my_scopes_user(&self, req: &super::service::MyScopesUserRequest) -> ::grpcio::Result<super::service::MultiScopeUserResponse> {
+        self.my_scopes_user_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn my_scopes_user_async_opt(&self, req: &super::service::MyScopesUserRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiScopeUserResponse>> {
+        self.client.unary_call_async(&METHOD_V2_MY_SCOPES_USER, req, opt)
+    }
+
+    pub fn my_scopes_user_async(&self, req: &super::service::MyScopesUserRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiScopeUserResponse>> {
+        self.my_scopes_user_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn my_scopes_root_opt(&self, req: &super::service::MyScopesRootRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiScopeRootResponse> {
+        self.client.unary_call(&METHOD_V2_MY_SCOPES_ROOT, req, opt)
+    }
+
+    pub fn my_scopes_root(&self, req: &super::service::MyScopesRootRequest) -> ::grpcio::Result<super::service::MultiScopeRootResponse> {
+        self.my_scopes_root_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn my_scopes_root_async_opt(&self, req: &super::service::MyScopesRootRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiScopeRootResponse>> {
+        self.client.unary_call_async(&METHOD_V2_MY_SCOPES_ROOT, req, opt)
+    }
+
+    pub fn my_scopes_root_async(&self, req: &super::service::MyScopesRootRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiScopeRootResponse>> {
+        self.my_scopes_root_async_opt(req, ::grpcio::CallOption::default())
     }
 
     pub fn list_scopes_opt(&self, req: &super::service::ListScopesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiScopeDepsResponse> {
@@ -2819,6 +2911,8 @@ pub trait V2 {
     fn list_model_inputs(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListModelInputsRequest, sink: ::grpcio::UnarySink<super::service::MultiInputResponse>);
     fn get_model_version(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetModelVersionRequest, sink: ::grpcio::UnarySink<super::service::SingleModelVersionResponse>);
     fn list_model_versions(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListModelVersionsRequest, sink: ::grpcio::UnarySink<super::service::MultiModelVersionResponse>);
+    fn post_model_versions_publish(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostModelVersionsPublishRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
+    fn delete_model_versions_un_publish(&mut self, ctx: ::grpcio::RpcContext, req: super::service::DeleteModelVersionsUnpublishRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
     fn post_model_versions(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostModelVersionsRequest, sink: ::grpcio::UnarySink<super::service::SingleModelResponse>);
     fn patch_model_versions(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PatchModelVersionsRequest, sink: ::grpcio::UnarySink<super::service::MultiModelVersionResponse>);
     fn delete_model_version(&mut self, ctx: ::grpcio::RpcContext, req: super::service::DeleteModelVersionRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
@@ -2846,6 +2940,8 @@ pub trait V2 {
     fn post_keys(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostKeysRequest, sink: ::grpcio::UnarySink<super::service::MultiKeyResponse>);
     fn patch_keys(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PatchKeysRequest, sink: ::grpcio::UnarySink<super::service::MultiKeyResponse>);
     fn my_scopes(&mut self, ctx: ::grpcio::RpcContext, req: super::service::MyScopesRequest, sink: ::grpcio::UnarySink<super::service::MultiScopeResponse>);
+    fn my_scopes_user(&mut self, ctx: ::grpcio::RpcContext, req: super::service::MyScopesUserRequest, sink: ::grpcio::UnarySink<super::service::MultiScopeUserResponse>);
+    fn my_scopes_root(&mut self, ctx: ::grpcio::RpcContext, req: super::service::MyScopesRootRequest, sink: ::grpcio::UnarySink<super::service::MultiScopeRootResponse>);
     fn list_scopes(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListScopesRequest, sink: ::grpcio::UnarySink<super::service::MultiScopeDepsResponse>);
     fn get_app(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetAppRequest, sink: ::grpcio::UnarySink<super::service::SingleAppResponse>);
     fn list_apps(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListAppsRequest, sink: ::grpcio::UnarySink<super::service::MultiAppResponse>);
@@ -3090,6 +3186,14 @@ pub fn create_v2<S: V2 + Send + Clone + 'static>(s: S) -> ::grpcio::Service {
         instance.list_model_versions(ctx, req, resp)
     });
     let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_POST_MODEL_VERSIONS_PUBLISH, move |ctx, req, resp| {
+        instance.post_model_versions_publish(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_DELETE_MODEL_VERSIONS_UN_PUBLISH, move |ctx, req, resp| {
+        instance.delete_model_versions_un_publish(ctx, req, resp)
+    });
+    let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_POST_MODEL_VERSIONS, move |ctx, req, resp| {
         instance.post_model_versions(ctx, req, resp)
     });
@@ -3196,6 +3300,14 @@ pub fn create_v2<S: V2 + Send + Clone + 'static>(s: S) -> ::grpcio::Service {
     let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_MY_SCOPES, move |ctx, req, resp| {
         instance.my_scopes(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_MY_SCOPES_USER, move |ctx, req, resp| {
+        instance.my_scopes_user(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_MY_SCOPES_ROOT, move |ctx, req, resp| {
+        instance.my_scopes_root(ctx, req, resp)
     });
     let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_LIST_SCOPES, move |ctx, req, resp| {
