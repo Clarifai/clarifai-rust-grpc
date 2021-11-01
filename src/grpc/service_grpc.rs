@@ -338,6 +338,27 @@ const METHOD_V2_DELETE_MODELS: ::grpcio::Method<super::service::DeleteModelsRequ
     resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
 };
 
+const METHOD_V2_PATCH_MODEL_TOOLKITS: ::grpcio::Method<super::service::PatchModelToolkitsRequest, super::service::MultiModelToolkitResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/PatchModelToolkits",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_PATCH_MODEL_USE_CASES: ::grpcio::Method<super::service::PatchModelUseCasesRequest, super::service::MultiModelUseCaseResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/PatchModelUseCases",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_PATCH_MODEL_LANGUAGES: ::grpcio::Method<super::service::PatchModelLanguagesRequest, super::service::MultiModelLanguageResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/PatchModelLanguages",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
 const METHOD_V2_LIST_MODEL_INPUTS: ::grpcio::Method<super::service::ListModelInputsRequest, super::service::MultiInputResponse> = ::grpcio::Method {
     ty: ::grpcio::MethodType::Unary,
     name: "/clarifai.api.V2/ListModelInputs",
@@ -366,9 +387,9 @@ const METHOD_V2_POST_MODEL_VERSIONS_PUBLISH: ::grpcio::Method<super::service::Po
     resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
 };
 
-const METHOD_V2_DELETE_MODEL_VERSIONS_UN_PUBLISH: ::grpcio::Method<super::service::DeleteModelVersionsUnpublishRequest, super::status::BaseResponse> = ::grpcio::Method {
+const METHOD_V2_POST_MODEL_VERSIONS_UN_PUBLISH: ::grpcio::Method<super::service::PostModelVersionsUnPublishRequest, super::status::BaseResponse> = ::grpcio::Method {
     ty: ::grpcio::MethodType::Unary,
-    name: "/clarifai.api.V2/DeleteModelVersionsUnPublish",
+    name: "/clarifai.api.V2/PostModelVersionsUnPublish",
     req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
     resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
 };
@@ -1625,6 +1646,54 @@ impl V2Client {
         self.delete_models_async_opt(req, ::grpcio::CallOption::default())
     }
 
+    pub fn patch_model_toolkits_opt(&self, req: &super::service::PatchModelToolkitsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiModelToolkitResponse> {
+        self.client.unary_call(&METHOD_V2_PATCH_MODEL_TOOLKITS, req, opt)
+    }
+
+    pub fn patch_model_toolkits(&self, req: &super::service::PatchModelToolkitsRequest) -> ::grpcio::Result<super::service::MultiModelToolkitResponse> {
+        self.patch_model_toolkits_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn patch_model_toolkits_async_opt(&self, req: &super::service::PatchModelToolkitsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiModelToolkitResponse>> {
+        self.client.unary_call_async(&METHOD_V2_PATCH_MODEL_TOOLKITS, req, opt)
+    }
+
+    pub fn patch_model_toolkits_async(&self, req: &super::service::PatchModelToolkitsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiModelToolkitResponse>> {
+        self.patch_model_toolkits_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn patch_model_use_cases_opt(&self, req: &super::service::PatchModelUseCasesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiModelUseCaseResponse> {
+        self.client.unary_call(&METHOD_V2_PATCH_MODEL_USE_CASES, req, opt)
+    }
+
+    pub fn patch_model_use_cases(&self, req: &super::service::PatchModelUseCasesRequest) -> ::grpcio::Result<super::service::MultiModelUseCaseResponse> {
+        self.patch_model_use_cases_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn patch_model_use_cases_async_opt(&self, req: &super::service::PatchModelUseCasesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiModelUseCaseResponse>> {
+        self.client.unary_call_async(&METHOD_V2_PATCH_MODEL_USE_CASES, req, opt)
+    }
+
+    pub fn patch_model_use_cases_async(&self, req: &super::service::PatchModelUseCasesRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiModelUseCaseResponse>> {
+        self.patch_model_use_cases_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn patch_model_languages_opt(&self, req: &super::service::PatchModelLanguagesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiModelLanguageResponse> {
+        self.client.unary_call(&METHOD_V2_PATCH_MODEL_LANGUAGES, req, opt)
+    }
+
+    pub fn patch_model_languages(&self, req: &super::service::PatchModelLanguagesRequest) -> ::grpcio::Result<super::service::MultiModelLanguageResponse> {
+        self.patch_model_languages_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn patch_model_languages_async_opt(&self, req: &super::service::PatchModelLanguagesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiModelLanguageResponse>> {
+        self.client.unary_call_async(&METHOD_V2_PATCH_MODEL_LANGUAGES, req, opt)
+    }
+
+    pub fn patch_model_languages_async(&self, req: &super::service::PatchModelLanguagesRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiModelLanguageResponse>> {
+        self.patch_model_languages_async_opt(req, ::grpcio::CallOption::default())
+    }
+
     pub fn list_model_inputs_opt(&self, req: &super::service::ListModelInputsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiInputResponse> {
         self.client.unary_call(&METHOD_V2_LIST_MODEL_INPUTS, req, opt)
     }
@@ -1689,20 +1758,20 @@ impl V2Client {
         self.post_model_versions_publish_async_opt(req, ::grpcio::CallOption::default())
     }
 
-    pub fn delete_model_versions_un_publish_opt(&self, req: &super::service::DeleteModelVersionsUnpublishRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::status::BaseResponse> {
-        self.client.unary_call(&METHOD_V2_DELETE_MODEL_VERSIONS_UN_PUBLISH, req, opt)
+    pub fn post_model_versions_un_publish_opt(&self, req: &super::service::PostModelVersionsUnPublishRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::status::BaseResponse> {
+        self.client.unary_call(&METHOD_V2_POST_MODEL_VERSIONS_UN_PUBLISH, req, opt)
     }
 
-    pub fn delete_model_versions_un_publish(&self, req: &super::service::DeleteModelVersionsUnpublishRequest) -> ::grpcio::Result<super::status::BaseResponse> {
-        self.delete_model_versions_un_publish_opt(req, ::grpcio::CallOption::default())
+    pub fn post_model_versions_un_publish(&self, req: &super::service::PostModelVersionsUnPublishRequest) -> ::grpcio::Result<super::status::BaseResponse> {
+        self.post_model_versions_un_publish_opt(req, ::grpcio::CallOption::default())
     }
 
-    pub fn delete_model_versions_un_publish_async_opt(&self, req: &super::service::DeleteModelVersionsUnpublishRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::status::BaseResponse>> {
-        self.client.unary_call_async(&METHOD_V2_DELETE_MODEL_VERSIONS_UN_PUBLISH, req, opt)
+    pub fn post_model_versions_un_publish_async_opt(&self, req: &super::service::PostModelVersionsUnPublishRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::status::BaseResponse>> {
+        self.client.unary_call_async(&METHOD_V2_POST_MODEL_VERSIONS_UN_PUBLISH, req, opt)
     }
 
-    pub fn delete_model_versions_un_publish_async(&self, req: &super::service::DeleteModelVersionsUnpublishRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::status::BaseResponse>> {
-        self.delete_model_versions_un_publish_async_opt(req, ::grpcio::CallOption::default())
+    pub fn post_model_versions_un_publish_async(&self, req: &super::service::PostModelVersionsUnPublishRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::status::BaseResponse>> {
+        self.post_model_versions_un_publish_async_opt(req, ::grpcio::CallOption::default())
     }
 
     pub fn post_model_versions_opt(&self, req: &super::service::PostModelVersionsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::SingleModelResponse> {
@@ -2908,11 +2977,14 @@ pub trait V2 {
     fn patch_models(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PatchModelsRequest, sink: ::grpcio::UnarySink<super::service::MultiModelResponse>);
     fn delete_model(&mut self, ctx: ::grpcio::RpcContext, req: super::service::DeleteModelRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
     fn delete_models(&mut self, ctx: ::grpcio::RpcContext, req: super::service::DeleteModelsRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
+    fn patch_model_toolkits(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PatchModelToolkitsRequest, sink: ::grpcio::UnarySink<super::service::MultiModelToolkitResponse>);
+    fn patch_model_use_cases(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PatchModelUseCasesRequest, sink: ::grpcio::UnarySink<super::service::MultiModelUseCaseResponse>);
+    fn patch_model_languages(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PatchModelLanguagesRequest, sink: ::grpcio::UnarySink<super::service::MultiModelLanguageResponse>);
     fn list_model_inputs(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListModelInputsRequest, sink: ::grpcio::UnarySink<super::service::MultiInputResponse>);
     fn get_model_version(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetModelVersionRequest, sink: ::grpcio::UnarySink<super::service::SingleModelVersionResponse>);
     fn list_model_versions(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListModelVersionsRequest, sink: ::grpcio::UnarySink<super::service::MultiModelVersionResponse>);
     fn post_model_versions_publish(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostModelVersionsPublishRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
-    fn delete_model_versions_un_publish(&mut self, ctx: ::grpcio::RpcContext, req: super::service::DeleteModelVersionsUnpublishRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
+    fn post_model_versions_un_publish(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostModelVersionsUnPublishRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
     fn post_model_versions(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostModelVersionsRequest, sink: ::grpcio::UnarySink<super::service::SingleModelResponse>);
     fn patch_model_versions(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PatchModelVersionsRequest, sink: ::grpcio::UnarySink<super::service::MultiModelVersionResponse>);
     fn delete_model_version(&mut self, ctx: ::grpcio::RpcContext, req: super::service::DeleteModelVersionRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
@@ -3174,6 +3246,18 @@ pub fn create_v2<S: V2 + Send + Clone + 'static>(s: S) -> ::grpcio::Service {
         instance.delete_models(ctx, req, resp)
     });
     let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_PATCH_MODEL_TOOLKITS, move |ctx, req, resp| {
+        instance.patch_model_toolkits(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_PATCH_MODEL_USE_CASES, move |ctx, req, resp| {
+        instance.patch_model_use_cases(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_PATCH_MODEL_LANGUAGES, move |ctx, req, resp| {
+        instance.patch_model_languages(ctx, req, resp)
+    });
+    let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_LIST_MODEL_INPUTS, move |ctx, req, resp| {
         instance.list_model_inputs(ctx, req, resp)
     });
@@ -3190,8 +3274,8 @@ pub fn create_v2<S: V2 + Send + Clone + 'static>(s: S) -> ::grpcio::Service {
         instance.post_model_versions_publish(ctx, req, resp)
     });
     let mut instance = s.clone();
-    builder = builder.add_unary_handler(&METHOD_V2_DELETE_MODEL_VERSIONS_UN_PUBLISH, move |ctx, req, resp| {
-        instance.delete_model_versions_un_publish(ctx, req, resp)
+    builder = builder.add_unary_handler(&METHOD_V2_POST_MODEL_VERSIONS_UN_PUBLISH, move |ctx, req, resp| {
+        instance.post_model_versions_un_publish(ctx, req, resp)
     });
     let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_POST_MODEL_VERSIONS, move |ctx, req, resp| {
