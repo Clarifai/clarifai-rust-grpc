@@ -835,6 +835,41 @@ const METHOD_V2_DELETE_TASKS: ::grpcio::Method<super::service::DeleteTasksReques
     resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
 };
 
+const METHOD_V2_POST_LABEL_ORDERS: ::grpcio::Method<super::service::PostLabelOrdersRequest, super::service::MultiLabelOrderResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/PostLabelOrders",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_GET_LABEL_ORDER: ::grpcio::Method<super::service::GetLabelOrderRequest, super::service::SingleLabelOrderResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/GetLabelOrder",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_LIST_LABEL_ORDERS: ::grpcio::Method<super::service::ListLabelOrdersRequest, super::service::MultiLabelOrderResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/ListLabelOrders",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_PATCH_LABEL_ORDERS: ::grpcio::Method<super::service::PatchLabelOrdersRequest, super::service::MultiLabelOrderResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/PatchLabelOrders",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_DELETE_LABEL_ORDERS: ::grpcio::Method<super::service::DeleteLabelOrdersRequest, super::status::BaseResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/DeleteLabelOrders",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
 const METHOD_V2_POST_COLLECTORS: ::grpcio::Method<super::service::PostCollectorsRequest, super::service::MultiCollectorResponse> = ::grpcio::Method {
     ty: ::grpcio::MethodType::Unary,
     name: "/clarifai.api.V2/PostCollectors",
@@ -2782,6 +2817,86 @@ impl V2Client {
         self.delete_tasks_async_opt(req, ::grpcio::CallOption::default())
     }
 
+    pub fn post_label_orders_opt(&self, req: &super::service::PostLabelOrdersRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiLabelOrderResponse> {
+        self.client.unary_call(&METHOD_V2_POST_LABEL_ORDERS, req, opt)
+    }
+
+    pub fn post_label_orders(&self, req: &super::service::PostLabelOrdersRequest) -> ::grpcio::Result<super::service::MultiLabelOrderResponse> {
+        self.post_label_orders_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn post_label_orders_async_opt(&self, req: &super::service::PostLabelOrdersRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiLabelOrderResponse>> {
+        self.client.unary_call_async(&METHOD_V2_POST_LABEL_ORDERS, req, opt)
+    }
+
+    pub fn post_label_orders_async(&self, req: &super::service::PostLabelOrdersRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiLabelOrderResponse>> {
+        self.post_label_orders_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn get_label_order_opt(&self, req: &super::service::GetLabelOrderRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::SingleLabelOrderResponse> {
+        self.client.unary_call(&METHOD_V2_GET_LABEL_ORDER, req, opt)
+    }
+
+    pub fn get_label_order(&self, req: &super::service::GetLabelOrderRequest) -> ::grpcio::Result<super::service::SingleLabelOrderResponse> {
+        self.get_label_order_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn get_label_order_async_opt(&self, req: &super::service::GetLabelOrderRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleLabelOrderResponse>> {
+        self.client.unary_call_async(&METHOD_V2_GET_LABEL_ORDER, req, opt)
+    }
+
+    pub fn get_label_order_async(&self, req: &super::service::GetLabelOrderRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleLabelOrderResponse>> {
+        self.get_label_order_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_label_orders_opt(&self, req: &super::service::ListLabelOrdersRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiLabelOrderResponse> {
+        self.client.unary_call(&METHOD_V2_LIST_LABEL_ORDERS, req, opt)
+    }
+
+    pub fn list_label_orders(&self, req: &super::service::ListLabelOrdersRequest) -> ::grpcio::Result<super::service::MultiLabelOrderResponse> {
+        self.list_label_orders_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_label_orders_async_opt(&self, req: &super::service::ListLabelOrdersRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiLabelOrderResponse>> {
+        self.client.unary_call_async(&METHOD_V2_LIST_LABEL_ORDERS, req, opt)
+    }
+
+    pub fn list_label_orders_async(&self, req: &super::service::ListLabelOrdersRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiLabelOrderResponse>> {
+        self.list_label_orders_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn patch_label_orders_opt(&self, req: &super::service::PatchLabelOrdersRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiLabelOrderResponse> {
+        self.client.unary_call(&METHOD_V2_PATCH_LABEL_ORDERS, req, opt)
+    }
+
+    pub fn patch_label_orders(&self, req: &super::service::PatchLabelOrdersRequest) -> ::grpcio::Result<super::service::MultiLabelOrderResponse> {
+        self.patch_label_orders_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn patch_label_orders_async_opt(&self, req: &super::service::PatchLabelOrdersRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiLabelOrderResponse>> {
+        self.client.unary_call_async(&METHOD_V2_PATCH_LABEL_ORDERS, req, opt)
+    }
+
+    pub fn patch_label_orders_async(&self, req: &super::service::PatchLabelOrdersRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiLabelOrderResponse>> {
+        self.patch_label_orders_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn delete_label_orders_opt(&self, req: &super::service::DeleteLabelOrdersRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::status::BaseResponse> {
+        self.client.unary_call(&METHOD_V2_DELETE_LABEL_ORDERS, req, opt)
+    }
+
+    pub fn delete_label_orders(&self, req: &super::service::DeleteLabelOrdersRequest) -> ::grpcio::Result<super::status::BaseResponse> {
+        self.delete_label_orders_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn delete_label_orders_async_opt(&self, req: &super::service::DeleteLabelOrdersRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::status::BaseResponse>> {
+        self.client.unary_call_async(&METHOD_V2_DELETE_LABEL_ORDERS, req, opt)
+    }
+
+    pub fn delete_label_orders_async(&self, req: &super::service::DeleteLabelOrdersRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::status::BaseResponse>> {
+        self.delete_label_orders_async_opt(req, ::grpcio::CallOption::default())
+    }
+
     pub fn post_collectors_opt(&self, req: &super::service::PostCollectorsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiCollectorResponse> {
         self.client.unary_call(&METHOD_V2_POST_COLLECTORS, req, opt)
     }
@@ -3048,6 +3163,11 @@ pub trait V2 {
     fn list_tasks(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListTasksRequest, sink: ::grpcio::UnarySink<super::service::MultiTaskResponse>);
     fn patch_tasks(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PatchTasksRequest, sink: ::grpcio::UnarySink<super::service::MultiTaskResponse>);
     fn delete_tasks(&mut self, ctx: ::grpcio::RpcContext, req: super::service::DeleteTasksRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
+    fn post_label_orders(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostLabelOrdersRequest, sink: ::grpcio::UnarySink<super::service::MultiLabelOrderResponse>);
+    fn get_label_order(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetLabelOrderRequest, sink: ::grpcio::UnarySink<super::service::SingleLabelOrderResponse>);
+    fn list_label_orders(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListLabelOrdersRequest, sink: ::grpcio::UnarySink<super::service::MultiLabelOrderResponse>);
+    fn patch_label_orders(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PatchLabelOrdersRequest, sink: ::grpcio::UnarySink<super::service::MultiLabelOrderResponse>);
+    fn delete_label_orders(&mut self, ctx: ::grpcio::RpcContext, req: super::service::DeleteLabelOrdersRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
     fn post_collectors(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostCollectorsRequest, sink: ::grpcio::UnarySink<super::service::MultiCollectorResponse>);
     fn get_collector(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetCollectorRequest, sink: ::grpcio::UnarySink<super::service::SingleCollectorResponse>);
     fn list_collectors(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListCollectorsRequest, sink: ::grpcio::UnarySink<super::service::MultiCollectorResponse>);
@@ -3528,6 +3648,26 @@ pub fn create_v2<S: V2 + Send + Clone + 'static>(s: S) -> ::grpcio::Service {
     let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_DELETE_TASKS, move |ctx, req, resp| {
         instance.delete_tasks(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_POST_LABEL_ORDERS, move |ctx, req, resp| {
+        instance.post_label_orders(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_GET_LABEL_ORDER, move |ctx, req, resp| {
+        instance.get_label_order(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_LIST_LABEL_ORDERS, move |ctx, req, resp| {
+        instance.list_label_orders(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_PATCH_LABEL_ORDERS, move |ctx, req, resp| {
+        instance.patch_label_orders(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_DELETE_LABEL_ORDERS, move |ctx, req, resp| {
+        instance.delete_label_orders(ctx, req, resp)
     });
     let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_POST_COLLECTORS, move |ctx, req, resp| {
