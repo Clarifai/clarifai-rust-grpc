@@ -177,6 +177,13 @@ const METHOD_V2_DELETE_ANNOTATIONS: ::grpcio::Method<super::service::DeleteAnnot
     resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
 };
 
+const METHOD_V2_PATCH_ANNOTATIONS_SEARCHES: ::grpcio::Method<super::service::PatchAnnotationsSearchesRequest, super::service::MultiSearchResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/PatchAnnotationsSearches",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
 const METHOD_V2_POST_ANNOTATIONS_SEARCHES: ::grpcio::Method<super::service::PostAnnotationsSearchesRequest, super::service::MultiSearchResponse> = ::grpcio::Method {
     ty: ::grpcio::MethodType::Unary,
     name: "/clarifai.api.V2/PostAnnotationsSearches",
@@ -243,6 +250,13 @@ const METHOD_V2_DELETE_INPUT: ::grpcio::Method<super::service::DeleteInputReques
 const METHOD_V2_DELETE_INPUTS: ::grpcio::Method<super::service::DeleteInputsRequest, super::status::BaseResponse> = ::grpcio::Method {
     ty: ::grpcio::MethodType::Unary,
     name: "/clarifai.api.V2/DeleteInputs",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_PATCH_INPUTS_SEARCHES: ::grpcio::Method<super::service::PatchInputsSearchesRequest, super::service::MultiSearchResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/PatchInputsSearches",
     req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
     resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
 };
@@ -320,6 +334,13 @@ const METHOD_V2_POST_MODELS: ::grpcio::Method<super::service::PostModelsRequest,
 const METHOD_V2_PATCH_MODELS: ::grpcio::Method<super::service::PatchModelsRequest, super::service::MultiModelResponse> = ::grpcio::Method {
     ty: ::grpcio::MethodType::Unary,
     name: "/clarifai.api.V2/PatchModels",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_PATCH_MODEL_IDS: ::grpcio::Method<super::service::PatchModelIdsRequest, super::service::MultiModelResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/PatchModelIds",
     req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
     resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
 };
@@ -663,6 +684,13 @@ const METHOD_V2_GET_SEARCH: ::grpcio::Method<super::service::GetSearchRequest, s
 const METHOD_V2_LIST_SEARCHES: ::grpcio::Method<super::service::ListSearchesRequest, super::service::MultiSearchResponse> = ::grpcio::Method {
     ty: ::grpcio::MethodType::Unary,
     name: "/clarifai.api.V2/ListSearches",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_PATCH_SEARCHES: ::grpcio::Method<super::service::PatchSearchesRequest, super::service::MultiSearchResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/PatchSearches",
     req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
     resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
 };
@@ -1313,6 +1341,22 @@ impl V2Client {
         self.delete_annotations_async_opt(req, ::grpcio::CallOption::default())
     }
 
+    pub fn patch_annotations_searches_opt(&self, req: &super::service::PatchAnnotationsSearchesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiSearchResponse> {
+        self.client.unary_call(&METHOD_V2_PATCH_ANNOTATIONS_SEARCHES, req, opt)
+    }
+
+    pub fn patch_annotations_searches(&self, req: &super::service::PatchAnnotationsSearchesRequest) -> ::grpcio::Result<super::service::MultiSearchResponse> {
+        self.patch_annotations_searches_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn patch_annotations_searches_async_opt(&self, req: &super::service::PatchAnnotationsSearchesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiSearchResponse>> {
+        self.client.unary_call_async(&METHOD_V2_PATCH_ANNOTATIONS_SEARCHES, req, opt)
+    }
+
+    pub fn patch_annotations_searches_async(&self, req: &super::service::PatchAnnotationsSearchesRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiSearchResponse>> {
+        self.patch_annotations_searches_async_opt(req, ::grpcio::CallOption::default())
+    }
+
     pub fn post_annotations_searches_opt(&self, req: &super::service::PostAnnotationsSearchesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiSearchResponse> {
         self.client.unary_call(&METHOD_V2_POST_ANNOTATIONS_SEARCHES, req, opt)
     }
@@ -1471,6 +1515,22 @@ impl V2Client {
 
     pub fn delete_inputs_async(&self, req: &super::service::DeleteInputsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::status::BaseResponse>> {
         self.delete_inputs_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn patch_inputs_searches_opt(&self, req: &super::service::PatchInputsSearchesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiSearchResponse> {
+        self.client.unary_call(&METHOD_V2_PATCH_INPUTS_SEARCHES, req, opt)
+    }
+
+    pub fn patch_inputs_searches(&self, req: &super::service::PatchInputsSearchesRequest) -> ::grpcio::Result<super::service::MultiSearchResponse> {
+        self.patch_inputs_searches_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn patch_inputs_searches_async_opt(&self, req: &super::service::PatchInputsSearchesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiSearchResponse>> {
+        self.client.unary_call_async(&METHOD_V2_PATCH_INPUTS_SEARCHES, req, opt)
+    }
+
+    pub fn patch_inputs_searches_async(&self, req: &super::service::PatchInputsSearchesRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiSearchResponse>> {
+        self.patch_inputs_searches_async_opt(req, ::grpcio::CallOption::default())
     }
 
     pub fn post_inputs_searches_opt(&self, req: &super::service::PostInputsSearchesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiSearchResponse> {
@@ -1647,6 +1707,22 @@ impl V2Client {
 
     pub fn patch_models_async(&self, req: &super::service::PatchModelsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiModelResponse>> {
         self.patch_models_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn patch_model_ids_opt(&self, req: &super::service::PatchModelIdsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiModelResponse> {
+        self.client.unary_call(&METHOD_V2_PATCH_MODEL_IDS, req, opt)
+    }
+
+    pub fn patch_model_ids(&self, req: &super::service::PatchModelIdsRequest) -> ::grpcio::Result<super::service::MultiModelResponse> {
+        self.patch_model_ids_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn patch_model_ids_async_opt(&self, req: &super::service::PatchModelIdsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiModelResponse>> {
+        self.client.unary_call_async(&METHOD_V2_PATCH_MODEL_IDS, req, opt)
+    }
+
+    pub fn patch_model_ids_async(&self, req: &super::service::PatchModelIdsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiModelResponse>> {
+        self.patch_model_ids_async_opt(req, ::grpcio::CallOption::default())
     }
 
     pub fn delete_model_opt(&self, req: &super::service::DeleteModelRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::status::BaseResponse> {
@@ -2433,6 +2509,22 @@ impl V2Client {
         self.list_searches_async_opt(req, ::grpcio::CallOption::default())
     }
 
+    pub fn patch_searches_opt(&self, req: &super::service::PatchSearchesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiSearchResponse> {
+        self.client.unary_call(&METHOD_V2_PATCH_SEARCHES, req, opt)
+    }
+
+    pub fn patch_searches(&self, req: &super::service::PatchSearchesRequest) -> ::grpcio::Result<super::service::MultiSearchResponse> {
+        self.patch_searches_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn patch_searches_async_opt(&self, req: &super::service::PatchSearchesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiSearchResponse>> {
+        self.client.unary_call_async(&METHOD_V2_PATCH_SEARCHES, req, opt)
+    }
+
+    pub fn patch_searches_async(&self, req: &super::service::PatchSearchesRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiSearchResponse>> {
+        self.patch_searches_async_opt(req, ::grpcio::CallOption::default())
+    }
+
     pub fn post_searches_opt(&self, req: &super::service::PostSearchesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiSearchResponse> {
         self.client.unary_call(&METHOD_V2_POST_SEARCHES, req, opt)
     }
@@ -3069,6 +3161,7 @@ pub trait V2 {
     fn patch_annotations_status(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PatchAnnotationsStatusRequest, sink: ::grpcio::UnarySink<super::service::PatchAnnotationsStatusResponse>);
     fn delete_annotation(&mut self, ctx: ::grpcio::RpcContext, req: super::service::DeleteAnnotationRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
     fn delete_annotations(&mut self, ctx: ::grpcio::RpcContext, req: super::service::DeleteAnnotationsRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
+    fn patch_annotations_searches(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PatchAnnotationsSearchesRequest, sink: ::grpcio::UnarySink<super::service::MultiSearchResponse>);
     fn post_annotations_searches(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostAnnotationsSearchesRequest, sink: ::grpcio::UnarySink<super::service::MultiSearchResponse>);
     fn get_input_count(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetInputCountRequest, sink: ::grpcio::UnarySink<super::service::SingleInputCountResponse>);
     fn stream_inputs(&mut self, ctx: ::grpcio::RpcContext, req: super::service::StreamInputsRequest, sink: ::grpcio::UnarySink<super::service::MultiInputResponse>);
@@ -3079,6 +3172,7 @@ pub trait V2 {
     fn patch_inputs(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PatchInputsRequest, sink: ::grpcio::UnarySink<super::service::MultiInputResponse>);
     fn delete_input(&mut self, ctx: ::grpcio::RpcContext, req: super::service::DeleteInputRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
     fn delete_inputs(&mut self, ctx: ::grpcio::RpcContext, req: super::service::DeleteInputsRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
+    fn patch_inputs_searches(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PatchInputsSearchesRequest, sink: ::grpcio::UnarySink<super::service::MultiSearchResponse>);
     fn post_inputs_searches(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostInputsSearchesRequest, sink: ::grpcio::UnarySink<super::service::MultiSearchResponse>);
     fn post_model_outputs(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostModelOutputsRequest, sink: ::grpcio::UnarySink<super::service::MultiOutputResponse>);
     fn get_model_type(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetModelTypeRequest, sink: ::grpcio::UnarySink<super::service::SingleModelTypeResponse>);
@@ -3090,6 +3184,7 @@ pub trait V2 {
     fn post_models_searches(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostModelsSearchesRequest, sink: ::grpcio::UnarySink<super::service::MultiModelResponse>);
     fn post_models(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostModelsRequest, sink: ::grpcio::UnarySink<super::service::SingleModelResponse>);
     fn patch_models(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PatchModelsRequest, sink: ::grpcio::UnarySink<super::service::MultiModelResponse>);
+    fn patch_model_ids(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PatchModelIdsRequest, sink: ::grpcio::UnarySink<super::service::MultiModelResponse>);
     fn delete_model(&mut self, ctx: ::grpcio::RpcContext, req: super::service::DeleteModelRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
     fn delete_models(&mut self, ctx: ::grpcio::RpcContext, req: super::service::DeleteModelsRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
     fn patch_model_toolkits(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PatchModelToolkitsRequest, sink: ::grpcio::UnarySink<super::service::MultiModelToolkitResponse>);
@@ -3139,6 +3234,7 @@ pub trait V2 {
     fn post_validate_password(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostValidatePasswordRequest, sink: ::grpcio::UnarySink<super::service::SinglePasswordValidationResponse>);
     fn get_search(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetSearchRequest, sink: ::grpcio::UnarySink<super::service::SingleSearchResponse>);
     fn list_searches(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListSearchesRequest, sink: ::grpcio::UnarySink<super::service::MultiSearchResponse>);
+    fn patch_searches(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PatchSearchesRequest, sink: ::grpcio::UnarySink<super::service::MultiSearchResponse>);
     fn post_searches(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostSearchesRequest, sink: ::grpcio::UnarySink<super::service::MultiSearchResponse>);
     fn post_searches_by_id(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostSearchesByIDRequest, sink: ::grpcio::UnarySink<super::service::MultiSearchResponse>);
     fn post_annotation_search_metrics(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostAnnotationSearchMetricsRequest, sink: ::grpcio::UnarySink<super::service::MultiAnnotationSearchMetricsResponse>);
@@ -3274,6 +3370,10 @@ pub fn create_v2<S: V2 + Send + Clone + 'static>(s: S) -> ::grpcio::Service {
         instance.delete_annotations(ctx, req, resp)
     });
     let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_PATCH_ANNOTATIONS_SEARCHES, move |ctx, req, resp| {
+        instance.patch_annotations_searches(ctx, req, resp)
+    });
+    let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_POST_ANNOTATIONS_SEARCHES, move |ctx, req, resp| {
         instance.post_annotations_searches(ctx, req, resp)
     });
@@ -3312,6 +3412,10 @@ pub fn create_v2<S: V2 + Send + Clone + 'static>(s: S) -> ::grpcio::Service {
     let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_DELETE_INPUTS, move |ctx, req, resp| {
         instance.delete_inputs(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_PATCH_INPUTS_SEARCHES, move |ctx, req, resp| {
+        instance.patch_inputs_searches(ctx, req, resp)
     });
     let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_POST_INPUTS_SEARCHES, move |ctx, req, resp| {
@@ -3356,6 +3460,10 @@ pub fn create_v2<S: V2 + Send + Clone + 'static>(s: S) -> ::grpcio::Service {
     let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_PATCH_MODELS, move |ctx, req, resp| {
         instance.patch_models(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_PATCH_MODEL_IDS, move |ctx, req, resp| {
+        instance.patch_model_ids(ctx, req, resp)
     });
     let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_DELETE_MODEL, move |ctx, req, resp| {
@@ -3552,6 +3660,10 @@ pub fn create_v2<S: V2 + Send + Clone + 'static>(s: S) -> ::grpcio::Service {
     let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_LIST_SEARCHES, move |ctx, req, resp| {
         instance.list_searches(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_PATCH_SEARCHES, move |ctx, req, resp| {
+        instance.patch_searches(ctx, req, resp)
     });
     let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_POST_SEARCHES, move |ctx, req, resp| {
