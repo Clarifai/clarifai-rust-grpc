@@ -13,5 +13,5 @@ repository = "https://github.com/Clarifai/clarifai-rust-grpc"
 
 [dependencies]
 grpcio = "0.6.0"
-protobuf = "2.3"
+protobuf = "3.2"
 futures = "0.3"
