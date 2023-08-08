@@ -15,3 +15,8 @@ repository = "https://github.com/Clarifai/clarifai-rust-grpc"
 grpcio = "0.12.1"
 protobuf = "3.2"
 futures = "0.3"
+
+[lib]
+name = "my_grpc_lib"
+path = "src/grpc/mod.rs"
+
