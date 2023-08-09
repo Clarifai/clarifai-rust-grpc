@@ -2,14 +2,16 @@ use std::env;
 use std::vec::Vec;
 
 use grpcio::{CallOption, MetadataBuilder};
-
 use protobuf::{MessageField};
 
-use clarifai_grpc::resources;
-use clarifai_grpc::service;
-use clarifai_grpc::service_grpc::V2Client;
-use clarifai_grpc::status::Status;
-use clarifai_grpc::status_code::StatusCode;
+extern crate clarifai_grpc;
+
+use clarifai_grpc::clarifai_channel;
+use clarifai_grpc::grpc::resources;
+use clarifai_grpc::grpc::service;
+use clarifai_grpc::grpc::service_grpc::V2Client;
+use clarifai_grpc::grpc::status::Status;
+use clarifai_grpc::grpc::status_code::StatusCode;
 use std::thread::sleep;
 use std::time::Duration;
 
@@ -239,7 +241,7 @@ fn test_post_patch_and_delete_input() {
 }
 
 fn client() -> V2Client {
-    let client = V2Client::new(V2Client::grpc());
+    let client = V2Client::new(clarifai_channel::grpc());
     client
 }
 
