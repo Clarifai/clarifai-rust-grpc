@@ -1,7 +1,8 @@
 use std::env;
+use std::vec::Vec;
 
 use grpcio::{CallOption, MetadataBuilder};
-use protobuf::{ProtobufEnum, RepeatedField, SingularPtrField};
+use protobuf::{MessageField};
 
 extern crate clarifai_grpc;
 
@@ -55,9 +56,9 @@ fn test_list_model_with_pagination() {
 fn test_post_model_outputs_url() {
     let request = service::PostModelOutputsRequest {
         model_id: GENERAL_MODEL_ID.to_string(),
-        inputs: RepeatedField::from(vec![resources::Input {
-            data: SingularPtrField::some(resources::Data {
-                image: SingularPtrField::some(resources::Image {
+        inputs: Vec::from(vec![resources::Input {
+            data: MessageField::some(resources::Data {
+                image: MessageField::some(resources::Image {
                     url: DOG_IMAGE_URL.to_string(),
                     ..Default::default()
                 }),
@@ -81,9 +82,9 @@ fn test_post_model_outputs_url() {
 fn test_failed_post_model_outputs() {
     let request = service::PostModelOutputsRequest {
         model_id: GENERAL_MODEL_ID.to_string(),
-        inputs: RepeatedField::from(vec![resources::Input {
-            data: SingularPtrField::some(resources::Data {
-                image: SingularPtrField::some(resources::Image {
+        inputs: Vec::from(vec![resources::Input {
+            data: MessageField::some(resources::Data {
+                image: MessageField::some(resources::Image {
                     url: NON_EXISTING_IMAGE_URL.to_string(),
                     ..Default::default()
                 }),
@@ -105,10 +106,10 @@ fn test_failed_post_model_outputs() {
 fn test_mixed_success_post_model_outputs() {
     let request = service::PostModelOutputsRequest {
         model_id: GENERAL_MODEL_ID.to_string(),
-        inputs: RepeatedField::from(vec![
+        inputs: Vec::from(vec![
             resources::Input {
-                data: SingularPtrField::some(resources::Data {
-                    image: SingularPtrField::some(resources::Image {
+                data: MessageField::some(resources::Data {
+                    image: MessageField::some(resources::Image {
                         url: DOG_IMAGE_URL.to_string(),
                         ..Default::default()
                     }),
@@ -117,8 +118,8 @@ fn test_mixed_success_post_model_outputs() {
                 ..Default::default()
             },
             resources::Input {
-                data: SingularPtrField::some(resources::Data {
-                    image: SingularPtrField::some(resources::Image {
+                data: MessageField::some(resources::Data {
+                    image: MessageField::some(resources::Image {
                         url: NON_EXISTING_IMAGE_URL.to_string(),
                         ..Default::default()
                     }),
@@ -150,14 +151,14 @@ fn test_post_patch_and_delete_input() {
     let post_inputs_response = client()
         .post_inputs_opt(
             &service::PostInputsRequest {
-                inputs: RepeatedField::from(vec![resources::Input {
-                    data: SingularPtrField::some(resources::Data {
-                        image: SingularPtrField::some(resources::Image {
+                inputs: Vec::from(vec![resources::Input {
+                    data: MessageField::some(resources::Data {
+                        image: MessageField::some(resources::Image {
                             url: TRUCK_IMAGE_URL.to_string(),
                             allow_duplicate_url: true,
                             ..Default::default()
                         }),
-                        concepts: RepeatedField::from(vec![resources::Concept {
+                        concepts: Vec::from(vec![resources::Concept {
                             id: "red-truck".to_string(),
                             ..Default::default()
                         }]),
@@ -208,10 +209,10 @@ fn test_post_patch_and_delete_input() {
         .patch_inputs_opt(
             &service::PatchInputsRequest {
                 action: "overwrite".to_string(),
-                inputs: RepeatedField::from(vec![resources::Input {
+                inputs: Vec::from(vec![resources::Input {
                     id: input_id.to_string(),
-                    data: SingularPtrField::some(resources::Data {
-                        concepts: RepeatedField::from(vec![resources::Concept {
+                    data: MessageField::some(resources::Data {
+                        concepts: Vec::from(vec![resources::Concept {
                             id: "very-red-truck".to_string(),
                             ..Default::default()
                         }]),
