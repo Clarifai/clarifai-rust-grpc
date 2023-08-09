@@ -4,6 +4,11 @@ pub mod grpc {
     pub mod service_grpc;
     pub mod status;
     pub mod status_code;
+    pub mod matrix;
+    pub mod extension;
+    pub mod extensions;
+    pub mod scope;
+    pub mod types;
 }
 
 pub mod clarifai_channel {
