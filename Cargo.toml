@@ -17,6 +17,6 @@ protobuf = "3.2"
 futures = "0.3"
 
 [lib]
-name = "my_grpc_lib"
-path = "src/grpc/mod.rs"
+name = "clarifai_grpc"
+path = "src/lib.rs"
 
