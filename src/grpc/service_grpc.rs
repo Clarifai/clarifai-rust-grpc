@@ -58,6 +58,13 @@ const METHOD_V2_LIST_CONCEPTS: ::grpcio::Method<super::service::ListConceptsRequ
     resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
 };
 
+const METHOD_V2_LIST_MODEL_CONCEPTS: ::grpcio::Method<super::service::ListModelConceptsRequest, super::service::MultiConceptResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/ListModelConcepts",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
 const METHOD_V2_POST_CONCEPTS_SEARCHES: ::grpcio::Method<super::service::PostConceptsSearchesRequest, super::service::MultiConceptResponse> = ::grpcio::Method {
     ty: ::grpcio::MethodType::Unary,
     name: "/clarifai.api.V2/PostConceptsSearches",
@@ -177,9 +184,23 @@ const METHOD_V2_DELETE_ANNOTATIONS: ::grpcio::Method<super::service::DeleteAnnot
     resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
 };
 
+const METHOD_V2_PATCH_ANNOTATIONS_SEARCHES: ::grpcio::Method<super::service::PatchAnnotationsSearchesRequest, super::service::MultiSearchResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/PatchAnnotationsSearches",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
 const METHOD_V2_POST_ANNOTATIONS_SEARCHES: ::grpcio::Method<super::service::PostAnnotationsSearchesRequest, super::service::MultiSearchResponse> = ::grpcio::Method {
     ty: ::grpcio::MethodType::Unary,
     name: "/clarifai.api.V2/PostAnnotationsSearches",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_LIST_ANNOTATION_WORKERS: ::grpcio::Method<super::service::ListAnnotationWorkersRequest, super::service::MultiWorkerResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/ListAnnotationWorkers",
     req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
     resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
 };
@@ -208,6 +229,13 @@ const METHOD_V2_GET_INPUT_SAMPLES: ::grpcio::Method<super::service::GetInputSamp
 const METHOD_V2_GET_INPUT: ::grpcio::Method<super::service::GetInputRequest, super::service::SingleInputResponse> = ::grpcio::Method {
     ty: ::grpcio::MethodType::Unary,
     name: "/clarifai.api.V2/GetInput",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_GET_INPUT_VIDEO_MANIFEST: ::grpcio::Method<super::service::GetVideoManifestRequest, super::service::GetVideoManifestResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/GetInputVideoManifest",
     req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
     resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
 };
@@ -247,6 +275,13 @@ const METHOD_V2_DELETE_INPUTS: ::grpcio::Method<super::service::DeleteInputsRequ
     resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
 };
 
+const METHOD_V2_PATCH_INPUTS_SEARCHES: ::grpcio::Method<super::service::PatchInputsSearchesRequest, super::service::MultiSearchResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/PatchInputsSearches",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
 const METHOD_V2_POST_INPUTS_SEARCHES: ::grpcio::Method<super::service::PostInputsSearchesRequest, super::service::MultiSearchResponse> = ::grpcio::Method {
     ty: ::grpcio::MethodType::Unary,
     name: "/clarifai.api.V2/PostInputsSearches",
@@ -257,6 +292,118 @@ const METHOD_V2_POST_INPUTS_SEARCHES: ::grpcio::Method<super::service::PostInput
 const METHOD_V2_POST_MODEL_OUTPUTS: ::grpcio::Method<super::service::PostModelOutputsRequest, super::service::MultiOutputResponse> = ::grpcio::Method {
     ty: ::grpcio::MethodType::Unary,
     name: "/clarifai.api.V2/PostModelOutputs",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_LIST_DATASETS: ::grpcio::Method<super::service::ListDatasetsRequest, super::service::MultiDatasetResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/ListDatasets",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_GET_DATASET: ::grpcio::Method<super::service::GetDatasetRequest, super::service::SingleDatasetResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/GetDataset",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_POST_DATASETS: ::grpcio::Method<super::service::PostDatasetsRequest, super::service::MultiDatasetResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/PostDatasets",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_PATCH_DATASETS: ::grpcio::Method<super::service::PatchDatasetsRequest, super::service::MultiDatasetResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/PatchDatasets",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_DELETE_DATASETS: ::grpcio::Method<super::service::DeleteDatasetsRequest, super::status::BaseResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/DeleteDatasets",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_LIST_DATASET_INPUTS: ::grpcio::Method<super::service::ListDatasetInputsRequest, super::service::MultiDatasetInputResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/ListDatasetInputs",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_GET_DATASET_INPUT: ::grpcio::Method<super::service::GetDatasetInputRequest, super::service::SingleDatasetInputResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/GetDatasetInput",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_POST_DATASET_INPUTS: ::grpcio::Method<super::service::PostDatasetInputsRequest, super::service::MultiDatasetInputResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/PostDatasetInputs",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_DELETE_DATASET_INPUTS: ::grpcio::Method<super::service::DeleteDatasetInputsRequest, super::status::BaseResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/DeleteDatasetInputs",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_LIST_DATASET_VERSIONS: ::grpcio::Method<super::service::ListDatasetVersionsRequest, super::service::MultiDatasetVersionResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/ListDatasetVersions",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_GET_DATASET_VERSION: ::grpcio::Method<super::service::GetDatasetVersionRequest, super::service::SingleDatasetVersionResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/GetDatasetVersion",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_LIST_DATASET_VERSION_METRICS_GROUPS: ::grpcio::Method<super::service::ListDatasetVersionMetricsGroupsRequest, super::service::MultiDatasetVersionMetricsGroupResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/ListDatasetVersionMetricsGroups",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_POST_DATASET_VERSIONS: ::grpcio::Method<super::service::PostDatasetVersionsRequest, super::service::MultiDatasetVersionResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/PostDatasetVersions",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_PATCH_DATASET_VERSIONS: ::grpcio::Method<super::service::PatchDatasetVersionsRequest, super::service::MultiDatasetVersionResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/PatchDatasetVersions",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_DELETE_DATASET_VERSIONS: ::grpcio::Method<super::service::DeleteDatasetVersionsRequest, super::status::BaseResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/DeleteDatasetVersions",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_PUT_DATASET_VERSION_EXPORTS: ::grpcio::Method<super::service::PutDatasetVersionExportsRequest, super::service::MultiDatasetVersionExportResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/PutDatasetVersionExports",
     req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
     resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
 };
@@ -303,6 +450,13 @@ const METHOD_V2_LIST_MODELS: ::grpcio::Method<super::service::ListModelsRequest,
     resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
 };
 
+const METHOD_V2_GET_RESOURCE_COUNTS: ::grpcio::Method<super::service::GetResourceCountsRequest, super::service::GetResourceCountsResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/GetResourceCounts",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
 const METHOD_V2_POST_MODELS_SEARCHES: ::grpcio::Method<super::service::PostModelsSearchesRequest, super::service::MultiModelResponse> = ::grpcio::Method {
     ty: ::grpcio::MethodType::Unary,
     name: "/clarifai.api.V2/PostModelsSearches",
@@ -324,6 +478,13 @@ const METHOD_V2_PATCH_MODELS: ::grpcio::Method<super::service::PatchModelsReques
     resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
 };
 
+const METHOD_V2_PATCH_MODEL_IDS: ::grpcio::Method<super::service::PatchModelIdsRequest, super::service::MultiModelResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/PatchModelIds",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
 const METHOD_V2_DELETE_MODEL: ::grpcio::Method<super::service::DeleteModelRequest, super::status::BaseResponse> = ::grpcio::Method {
     ty: ::grpcio::MethodType::Unary,
     name: "/clarifai.api.V2/DeleteModel",
@@ -334,6 +495,13 @@ const METHOD_V2_DELETE_MODEL: ::grpcio::Method<super::service::DeleteModelReques
 const METHOD_V2_DELETE_MODELS: ::grpcio::Method<super::service::DeleteModelsRequest, super::status::BaseResponse> = ::grpcio::Method {
     ty: ::grpcio::MethodType::Unary,
     name: "/clarifai.api.V2/DeleteModels",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_PATCH_MODEL_CHECK_CONSENTS: ::grpcio::Method<super::service::PatchModelCheckConsentsRequest, super::service::MultiModelCheckConsentResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/PatchModelCheckConsents",
     req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
     resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
 };
@@ -376,6 +544,20 @@ const METHOD_V2_GET_MODEL_VERSION: ::grpcio::Method<super::service::GetModelVers
 const METHOD_V2_LIST_MODEL_VERSIONS: ::grpcio::Method<super::service::ListModelVersionsRequest, super::service::MultiModelVersionResponse> = ::grpcio::Method {
     ty: ::grpcio::MethodType::Unary,
     name: "/clarifai.api.V2/ListModelVersions",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_POST_WORKFLOW_VERSIONS_UN_PUBLISH: ::grpcio::Method<super::service::PostWorkflowVersionsUnPublishRequest, super::status::BaseResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/PostWorkflowVersionsUnPublish",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_POST_WORKFLOW_VERSIONS_PUBLISH: ::grpcio::Method<super::service::PostWorkflowVersionsPublishRequest, super::status::BaseResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/PostWorkflowVersionsPublish",
     req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
     resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
 };
@@ -429,6 +611,48 @@ const METHOD_V2_POST_MODEL_VERSION_METRICS: ::grpcio::Method<super::service::Pos
     resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
 };
 
+const METHOD_V2_POST_MODEL_VERSION_EVALUATIONS: ::grpcio::Method<super::service::PostModelVersionEvaluationsRequest, super::service::MultiEvalMetricsResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/PostModelVersionEvaluations",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_LIST_MODEL_VERSION_EVALUATIONS: ::grpcio::Method<super::service::ListModelVersionEvaluationsRequest, super::service::MultiEvalMetricsResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/ListModelVersionEvaluations",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_GET_MODEL_VERSION_EVALUATION: ::grpcio::Method<super::service::GetModelVersionEvaluationRequest, super::service::SingleEvalMetricsResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/GetModelVersionEvaluation",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_POST_EVALUATIONS: ::grpcio::Method<super::service::PostEvaluationsRequest, super::service::MultiEvalMetricsResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/PostEvaluations",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_LIST_EVALUATIONS: ::grpcio::Method<super::service::ListEvaluationsRequest, super::service::MultiEvalMetricsResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/ListEvaluations",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_GET_EVALUATION: ::grpcio::Method<super::service::GetEvaluationRequest, super::service::SingleEvalMetricsResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/GetEvaluation",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
 const METHOD_V2_LIST_MODEL_REFERENCES: ::grpcio::Method<super::service::ListModelReferencesRequest, super::service::MultiModelReferenceResponse> = ::grpcio::Method {
     ty: ::grpcio::MethodType::Unary,
     name: "/clarifai.api.V2/ListModelReferences",
@@ -474,6 +698,13 @@ const METHOD_V2_POST_WORKFLOWS: ::grpcio::Method<super::service::PostWorkflowsRe
 const METHOD_V2_PATCH_WORKFLOWS: ::grpcio::Method<super::service::PatchWorkflowsRequest, super::service::MultiWorkflowResponse> = ::grpcio::Method {
     ty: ::grpcio::MethodType::Unary,
     name: "/clarifai.api.V2/PatchWorkflows",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_PATCH_WORKFLOW_IDS: ::grpcio::Method<super::service::PatchWorkflowIdsRequest, super::service::MultiWorkflowResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/PatchWorkflowIds",
     req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
     resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
 };
@@ -639,9 +870,30 @@ const METHOD_V2_PATCH_APPS: ::grpcio::Method<super::service::PatchAppsRequest, s
     resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
 };
 
+const METHOD_V2_PATCH_APPS_IDS: ::grpcio::Method<super::service::PatchAppsIdsRequest, super::service::MultiAppResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/PatchAppsIds",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_PATCH_APP: ::grpcio::Method<super::service::PatchAppRequest, super::service::SingleAppResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/PatchApp",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
 const METHOD_V2_POST_APPS_SEARCHES: ::grpcio::Method<super::service::PostAppsSearchesRequest, super::service::MultiAppResponse> = ::grpcio::Method {
     ty: ::grpcio::MethodType::Unary,
     name: "/clarifai.api.V2/PostAppsSearches",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_GET_USER: ::grpcio::Method<super::service::GetUserRequest, super::service::SingleUserResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/GetUser",
     req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
     resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
 };
@@ -663,6 +915,13 @@ const METHOD_V2_GET_SEARCH: ::grpcio::Method<super::service::GetSearchRequest, s
 const METHOD_V2_LIST_SEARCHES: ::grpcio::Method<super::service::ListSearchesRequest, super::service::MultiSearchResponse> = ::grpcio::Method {
     ty: ::grpcio::MethodType::Unary,
     name: "/clarifai.api.V2/ListSearches",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_PATCH_SEARCHES: ::grpcio::Method<super::service::PatchSearchesRequest, super::service::MultiSearchResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/PatchSearches",
     req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
     resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
 };
@@ -712,6 +971,41 @@ const METHOD_V2_DELETE_ANNOTATION_SEARCH_METRICS: ::grpcio::Method<super::servic
 const METHOD_V2_DELETE_SEARCH: ::grpcio::Method<super::service::DeleteSearchRequest, super::status::BaseResponse> = ::grpcio::Method {
     ty: ::grpcio::MethodType::Unary,
     name: "/clarifai.api.V2/DeleteSearch",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_LIST_ANNOTATION_FILTERS: ::grpcio::Method<super::service::ListAnnotationFiltersRequest, super::service::MultiAnnotationFilterResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/ListAnnotationFilters",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_GET_ANNOTATION_FILTER: ::grpcio::Method<super::service::GetAnnotationFilterRequest, super::service::SingleAnnotationFilterResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/GetAnnotationFilter",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_POST_ANNOTATION_FILTERS: ::grpcio::Method<super::service::PostAnnotationFiltersRequest, super::service::MultiAnnotationFilterResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/PostAnnotationFilters",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_PATCH_ANNOTATION_FILTERS: ::grpcio::Method<super::service::PatchAnnotationFiltersRequest, super::service::MultiAnnotationFilterResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/PatchAnnotationFilters",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_DELETE_ANNOTATION_FILTERS: ::grpcio::Method<super::service::DeleteAnnotationFiltersRequest, super::status::BaseResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/DeleteAnnotationFilters",
     req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
     resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
 };
@@ -933,9 +1227,303 @@ const METHOD_V2_LIST_TRENDING_METRICS_VIEWS: ::grpcio::Method<super::service::Li
     resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
 };
 
+const METHOD_V2_GET_MODULE: ::grpcio::Method<super::service::GetModuleRequest, super::service::SingleModuleResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/GetModule",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_LIST_MODULES: ::grpcio::Method<super::service::ListModulesRequest, super::service::MultiModuleResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/ListModules",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_POST_MODULES: ::grpcio::Method<super::service::PostModulesRequest, super::service::MultiModuleResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/PostModules",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_PATCH_MODULES: ::grpcio::Method<super::service::PatchModulesRequest, super::service::MultiModuleResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/PatchModules",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_DELETE_MODULES: ::grpcio::Method<super::service::DeleteModulesRequest, super::status::BaseResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/DeleteModules",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_GET_MODULE_VERSION: ::grpcio::Method<super::service::GetModuleVersionRequest, super::service::SingleModuleVersionResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/GetModuleVersion",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_LIST_MODULE_VERSIONS: ::grpcio::Method<super::service::ListModuleVersionsRequest, super::service::MultiModuleVersionResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/ListModuleVersions",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_POST_MODULE_VERSIONS: ::grpcio::Method<super::service::PostModuleVersionsRequest, super::service::MultiModuleVersionResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/PostModuleVersions",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_DELETE_MODULE_VERSIONS: ::grpcio::Method<super::service::DeleteModuleVersionsRequest, super::status::BaseResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/DeleteModuleVersions",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_GET_MODULE_VERSION_USAGE_COUNT: ::grpcio::Method<super::service::GetModuleVersionUsageCountRequest, super::service::SingleModuleVersionUsageCountResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/GetModuleVersionUsageCount",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_GET_INSTALLED_MODULE_VERSION: ::grpcio::Method<super::service::GetInstalledModuleVersionRequest, super::service::SingleInstalledModuleVersionResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/GetInstalledModuleVersion",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_LIST_INSTALLED_MODULE_VERSIONS: ::grpcio::Method<super::service::ListInstalledModuleVersionsRequest, super::service::MultiInstalledModuleVersionResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/ListInstalledModuleVersions",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_POST_INSTALLED_MODULE_VERSIONS: ::grpcio::Method<super::service::PostInstalledModuleVersionsRequest, super::service::MultiInstalledModuleVersionResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/PostInstalledModuleVersions",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_DELETE_INSTALLED_MODULE_VERSIONS: ::grpcio::Method<super::service::DeleteInstalledModuleVersionsRequest, super::status::BaseResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/DeleteInstalledModuleVersions",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_POST_INSTALLED_MODULE_VERSIONS_KEY: ::grpcio::Method<super::service::PostInstalledModuleVersionsKeyRequest, super::service::SingleKeyResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/PostInstalledModuleVersionsKey",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_POST_BULK_OPERATIONS: ::grpcio::Method<super::service::PostBulkOperationsRequest, super::service::MultiBulkOperationsResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/PostBulkOperations",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_LIST_BULK_OPERATIONS: ::grpcio::Method<super::service::ListBulkOperationsRequest, super::service::MultiBulkOperationsResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/ListBulkOperations",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_GET_BULK_OPERATION: ::grpcio::Method<super::service::GetBulkOperationRequest, super::service::SingleBulkOperationsResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/GetBulkOperation",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_CANCEL_BULK_OPERATIONS: ::grpcio::Method<super::service::CancelBulkOperationRequest, super::service::MultiBulkOperationsResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/CancelBulkOperations",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_DELETE_BULK_OPERATIONS: ::grpcio::Method<super::service::DeleteBulkOperationRequest, super::status::BaseResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/DeleteBulkOperations",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_LIST_NEXT_TASK_ASSIGNMENTS: ::grpcio::Method<super::service::ListNextTaskAssignmentsRequest, super::service::MultiInputResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/ListNextTaskAssignments",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_PUT_TASK_ASSIGNMENTS: ::grpcio::Method<super::service::PutTaskAssignmentsRequest, super::status::BaseResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/PutTaskAssignments",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_LIST_INPUTS_ADD_JOBS: ::grpcio::Method<super::service::ListInputsAddJobsRequest, super::service::MultiInputsAddJobResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/ListInputsAddJobs",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_GET_INPUTS_ADD_JOB: ::grpcio::Method<super::service::GetInputsAddJobRequest, super::service::SingleInputsAddJobResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/GetInputsAddJob",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_CANCEL_INPUTS_ADD_JOB: ::grpcio::Method<super::service::CancelInputsAddJobRequest, super::service::SingleInputsAddJobResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/CancelInputsAddJob",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_POST_UPLOADS: ::grpcio::Method<super::service::PostUploadsRequest, super::service::MultiUploadResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/PostUploads",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_PUT_UPLOAD_CONTENT_PARTS: ::grpcio::Method<super::service::PutUploadContentPartsRequest, super::service::SingleUploadResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/PutUploadContentParts",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_GET_UPLOAD: ::grpcio::Method<super::service::GetUploadRequest, super::service::SingleUploadResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/GetUpload",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_LIST_UPLOADS: ::grpcio::Method<super::service::ListUploadsRequest, super::service::MultiUploadResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/ListUploads",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_DELETE_UPLOADS: ::grpcio::Method<super::service::DeleteUploadsRequest, super::status::BaseResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/DeleteUploads",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_POST_INPUTS_DATA_SOURCES: ::grpcio::Method<super::service::PostInputsDataSourcesRequest, super::service::MultiInputsAddJobResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/PostInputsDataSources",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_GET_INPUTS_EXTRACTION_JOB: ::grpcio::Method<super::service::GetInputsExtractionJobRequest, super::service::SingleInputsExtractionJobResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/GetInputsExtractionJob",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_LIST_INPUTS_EXTRACTION_JOBS: ::grpcio::Method<super::service::ListInputsExtractionJobsRequest, super::service::MultiInputsExtractionJobResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/ListInputsExtractionJobs",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_CANCEL_INPUTS_EXTRACTION_JOBS: ::grpcio::Method<super::service::CancelInputsExtractionJobsRequest, super::service::MultiInputsExtractionJobResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/CancelInputsExtractionJobs",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_POST_INPUTS_UPLOADS: ::grpcio::Method<super::service::PostInputsUploadsRequest, super::service::MultiInputsAddJobResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/PostInputsUploads",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_GET_RUNNER: ::grpcio::Method<super::service::GetRunnerRequest, super::service::SingleRunnerResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/GetRunner",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_LIST_RUNNERS: ::grpcio::Method<super::service::ListRunnersRequest, super::service::MultiRunnerResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/ListRunners",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_POST_RUNNERS: ::grpcio::Method<super::service::PostRunnersRequest, super::service::MultiRunnerResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/PostRunners",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_DELETE_RUNNERS: ::grpcio::Method<super::service::DeleteRunnersRequest, super::status::BaseResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/DeleteRunners",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_LIST_RUNNER_ITEMS: ::grpcio::Method<super::service::ListRunnerItemsRequest, super::service::MultiRunnerItemResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/ListRunnerItems",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_POST_RUNNER_ITEM_OUTPUTS: ::grpcio::Method<super::service::PostRunnerItemOutputsRequest, super::service::MultiRunnerItemOutputResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/PostRunnerItemOutputs",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
+const METHOD_V2_POST_MODEL_VERSIONS_TRAINING_TIME_ESTIMATE: ::grpcio::Method<super::service::PostModelVersionsTrainingTimeEstimateRequest, super::service::MultiTrainingTimeEstimateResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/clarifai.api.V2/PostModelVersionsTrainingTimeEstimate",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
 #[derive(Clone)]
 pub struct V2Client {
-    client: ::grpcio::Client,
+    pub client: ::grpcio::Client,
 }
 
 impl V2Client {
@@ -1039,6 +1627,22 @@ impl V2Client {
 
     pub fn list_concepts_async(&self, req: &super::service::ListConceptsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiConceptResponse>> {
         self.list_concepts_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_model_concepts_opt(&self, req: &super::service::ListModelConceptsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiConceptResponse> {
+        self.client.unary_call(&METHOD_V2_LIST_MODEL_CONCEPTS, req, opt)
+    }
+
+    pub fn list_model_concepts(&self, req: &super::service::ListModelConceptsRequest) -> ::grpcio::Result<super::service::MultiConceptResponse> {
+        self.list_model_concepts_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_model_concepts_async_opt(&self, req: &super::service::ListModelConceptsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiConceptResponse>> {
+        self.client.unary_call_async(&METHOD_V2_LIST_MODEL_CONCEPTS, req, opt)
+    }
+
+    pub fn list_model_concepts_async(&self, req: &super::service::ListModelConceptsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiConceptResponse>> {
+        self.list_model_concepts_async_opt(req, ::grpcio::CallOption::default())
     }
 
     pub fn post_concepts_searches_opt(&self, req: &super::service::PostConceptsSearchesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiConceptResponse> {
@@ -1313,6 +1917,22 @@ impl V2Client {
         self.delete_annotations_async_opt(req, ::grpcio::CallOption::default())
     }
 
+    pub fn patch_annotations_searches_opt(&self, req: &super::service::PatchAnnotationsSearchesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiSearchResponse> {
+        self.client.unary_call(&METHOD_V2_PATCH_ANNOTATIONS_SEARCHES, req, opt)
+    }
+
+    pub fn patch_annotations_searches(&self, req: &super::service::PatchAnnotationsSearchesRequest) -> ::grpcio::Result<super::service::MultiSearchResponse> {
+        self.patch_annotations_searches_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn patch_annotations_searches_async_opt(&self, req: &super::service::PatchAnnotationsSearchesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiSearchResponse>> {
+        self.client.unary_call_async(&METHOD_V2_PATCH_ANNOTATIONS_SEARCHES, req, opt)
+    }
+
+    pub fn patch_annotations_searches_async(&self, req: &super::service::PatchAnnotationsSearchesRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiSearchResponse>> {
+        self.patch_annotations_searches_async_opt(req, ::grpcio::CallOption::default())
+    }
+
     pub fn post_annotations_searches_opt(&self, req: &super::service::PostAnnotationsSearchesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiSearchResponse> {
         self.client.unary_call(&METHOD_V2_POST_ANNOTATIONS_SEARCHES, req, opt)
     }
@@ -1327,6 +1947,22 @@ impl V2Client {
 
     pub fn post_annotations_searches_async(&self, req: &super::service::PostAnnotationsSearchesRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiSearchResponse>> {
         self.post_annotations_searches_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_annotation_workers_opt(&self, req: &super::service::ListAnnotationWorkersRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiWorkerResponse> {
+        self.client.unary_call(&METHOD_V2_LIST_ANNOTATION_WORKERS, req, opt)
+    }
+
+    pub fn list_annotation_workers(&self, req: &super::service::ListAnnotationWorkersRequest) -> ::grpcio::Result<super::service::MultiWorkerResponse> {
+        self.list_annotation_workers_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_annotation_workers_async_opt(&self, req: &super::service::ListAnnotationWorkersRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiWorkerResponse>> {
+        self.client.unary_call_async(&METHOD_V2_LIST_ANNOTATION_WORKERS, req, opt)
+    }
+
+    pub fn list_annotation_workers_async(&self, req: &super::service::ListAnnotationWorkersRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiWorkerResponse>> {
+        self.list_annotation_workers_async_opt(req, ::grpcio::CallOption::default())
     }
 
     pub fn get_input_count_opt(&self, req: &super::service::GetInputCountRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::SingleInputCountResponse> {
@@ -1391,6 +2027,22 @@ impl V2Client {
 
     pub fn get_input_async(&self, req: &super::service::GetInputRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleInputResponse>> {
         self.get_input_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn get_input_video_manifest_opt(&self, req: &super::service::GetVideoManifestRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::GetVideoManifestResponse> {
+        self.client.unary_call(&METHOD_V2_GET_INPUT_VIDEO_MANIFEST, req, opt)
+    }
+
+    pub fn get_input_video_manifest(&self, req: &super::service::GetVideoManifestRequest) -> ::grpcio::Result<super::service::GetVideoManifestResponse> {
+        self.get_input_video_manifest_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn get_input_video_manifest_async_opt(&self, req: &super::service::GetVideoManifestRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::GetVideoManifestResponse>> {
+        self.client.unary_call_async(&METHOD_V2_GET_INPUT_VIDEO_MANIFEST, req, opt)
+    }
+
+    pub fn get_input_video_manifest_async(&self, req: &super::service::GetVideoManifestRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::GetVideoManifestResponse>> {
+        self.get_input_video_manifest_async_opt(req, ::grpcio::CallOption::default())
     }
 
     pub fn list_inputs_opt(&self, req: &super::service::ListInputsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiInputResponse> {
@@ -1473,6 +2125,22 @@ impl V2Client {
         self.delete_inputs_async_opt(req, ::grpcio::CallOption::default())
     }
 
+    pub fn patch_inputs_searches_opt(&self, req: &super::service::PatchInputsSearchesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiSearchResponse> {
+        self.client.unary_call(&METHOD_V2_PATCH_INPUTS_SEARCHES, req, opt)
+    }
+
+    pub fn patch_inputs_searches(&self, req: &super::service::PatchInputsSearchesRequest) -> ::grpcio::Result<super::service::MultiSearchResponse> {
+        self.patch_inputs_searches_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn patch_inputs_searches_async_opt(&self, req: &super::service::PatchInputsSearchesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiSearchResponse>> {
+        self.client.unary_call_async(&METHOD_V2_PATCH_INPUTS_SEARCHES, req, opt)
+    }
+
+    pub fn patch_inputs_searches_async(&self, req: &super::service::PatchInputsSearchesRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiSearchResponse>> {
+        self.patch_inputs_searches_async_opt(req, ::grpcio::CallOption::default())
+    }
+
     pub fn post_inputs_searches_opt(&self, req: &super::service::PostInputsSearchesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiSearchResponse> {
         self.client.unary_call(&METHOD_V2_POST_INPUTS_SEARCHES, req, opt)
     }
@@ -1503,6 +2171,262 @@ impl V2Client {
 
     pub fn post_model_outputs_async(&self, req: &super::service::PostModelOutputsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiOutputResponse>> {
         self.post_model_outputs_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_datasets_opt(&self, req: &super::service::ListDatasetsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiDatasetResponse> {
+        self.client.unary_call(&METHOD_V2_LIST_DATASETS, req, opt)
+    }
+
+    pub fn list_datasets(&self, req: &super::service::ListDatasetsRequest) -> ::grpcio::Result<super::service::MultiDatasetResponse> {
+        self.list_datasets_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_datasets_async_opt(&self, req: &super::service::ListDatasetsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiDatasetResponse>> {
+        self.client.unary_call_async(&METHOD_V2_LIST_DATASETS, req, opt)
+    }
+
+    pub fn list_datasets_async(&self, req: &super::service::ListDatasetsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiDatasetResponse>> {
+        self.list_datasets_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn get_dataset_opt(&self, req: &super::service::GetDatasetRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::SingleDatasetResponse> {
+        self.client.unary_call(&METHOD_V2_GET_DATASET, req, opt)
+    }
+
+    pub fn get_dataset(&self, req: &super::service::GetDatasetRequest) -> ::grpcio::Result<super::service::SingleDatasetResponse> {
+        self.get_dataset_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn get_dataset_async_opt(&self, req: &super::service::GetDatasetRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleDatasetResponse>> {
+        self.client.unary_call_async(&METHOD_V2_GET_DATASET, req, opt)
+    }
+
+    pub fn get_dataset_async(&self, req: &super::service::GetDatasetRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleDatasetResponse>> {
+        self.get_dataset_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn post_datasets_opt(&self, req: &super::service::PostDatasetsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiDatasetResponse> {
+        self.client.unary_call(&METHOD_V2_POST_DATASETS, req, opt)
+    }
+
+    pub fn post_datasets(&self, req: &super::service::PostDatasetsRequest) -> ::grpcio::Result<super::service::MultiDatasetResponse> {
+        self.post_datasets_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn post_datasets_async_opt(&self, req: &super::service::PostDatasetsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiDatasetResponse>> {
+        self.client.unary_call_async(&METHOD_V2_POST_DATASETS, req, opt)
+    }
+
+    pub fn post_datasets_async(&self, req: &super::service::PostDatasetsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiDatasetResponse>> {
+        self.post_datasets_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn patch_datasets_opt(&self, req: &super::service::PatchDatasetsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiDatasetResponse> {
+        self.client.unary_call(&METHOD_V2_PATCH_DATASETS, req, opt)
+    }
+
+    pub fn patch_datasets(&self, req: &super::service::PatchDatasetsRequest) -> ::grpcio::Result<super::service::MultiDatasetResponse> {
+        self.patch_datasets_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn patch_datasets_async_opt(&self, req: &super::service::PatchDatasetsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiDatasetResponse>> {
+        self.client.unary_call_async(&METHOD_V2_PATCH_DATASETS, req, opt)
+    }
+
+    pub fn patch_datasets_async(&self, req: &super::service::PatchDatasetsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiDatasetResponse>> {
+        self.patch_datasets_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn delete_datasets_opt(&self, req: &super::service::DeleteDatasetsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::status::BaseResponse> {
+        self.client.unary_call(&METHOD_V2_DELETE_DATASETS, req, opt)
+    }
+
+    pub fn delete_datasets(&self, req: &super::service::DeleteDatasetsRequest) -> ::grpcio::Result<super::status::BaseResponse> {
+        self.delete_datasets_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn delete_datasets_async_opt(&self, req: &super::service::DeleteDatasetsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::status::BaseResponse>> {
+        self.client.unary_call_async(&METHOD_V2_DELETE_DATASETS, req, opt)
+    }
+
+    pub fn delete_datasets_async(&self, req: &super::service::DeleteDatasetsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::status::BaseResponse>> {
+        self.delete_datasets_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_dataset_inputs_opt(&self, req: &super::service::ListDatasetInputsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiDatasetInputResponse> {
+        self.client.unary_call(&METHOD_V2_LIST_DATASET_INPUTS, req, opt)
+    }
+
+    pub fn list_dataset_inputs(&self, req: &super::service::ListDatasetInputsRequest) -> ::grpcio::Result<super::service::MultiDatasetInputResponse> {
+        self.list_dataset_inputs_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_dataset_inputs_async_opt(&self, req: &super::service::ListDatasetInputsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiDatasetInputResponse>> {
+        self.client.unary_call_async(&METHOD_V2_LIST_DATASET_INPUTS, req, opt)
+    }
+
+    pub fn list_dataset_inputs_async(&self, req: &super::service::ListDatasetInputsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiDatasetInputResponse>> {
+        self.list_dataset_inputs_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn get_dataset_input_opt(&self, req: &super::service::GetDatasetInputRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::SingleDatasetInputResponse> {
+        self.client.unary_call(&METHOD_V2_GET_DATASET_INPUT, req, opt)
+    }
+
+    pub fn get_dataset_input(&self, req: &super::service::GetDatasetInputRequest) -> ::grpcio::Result<super::service::SingleDatasetInputResponse> {
+        self.get_dataset_input_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn get_dataset_input_async_opt(&self, req: &super::service::GetDatasetInputRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleDatasetInputResponse>> {
+        self.client.unary_call_async(&METHOD_V2_GET_DATASET_INPUT, req, opt)
+    }
+
+    pub fn get_dataset_input_async(&self, req: &super::service::GetDatasetInputRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleDatasetInputResponse>> {
+        self.get_dataset_input_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn post_dataset_inputs_opt(&self, req: &super::service::PostDatasetInputsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiDatasetInputResponse> {
+        self.client.unary_call(&METHOD_V2_POST_DATASET_INPUTS, req, opt)
+    }
+
+    pub fn post_dataset_inputs(&self, req: &super::service::PostDatasetInputsRequest) -> ::grpcio::Result<super::service::MultiDatasetInputResponse> {
+        self.post_dataset_inputs_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn post_dataset_inputs_async_opt(&self, req: &super::service::PostDatasetInputsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiDatasetInputResponse>> {
+        self.client.unary_call_async(&METHOD_V2_POST_DATASET_INPUTS, req, opt)
+    }
+
+    pub fn post_dataset_inputs_async(&self, req: &super::service::PostDatasetInputsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiDatasetInputResponse>> {
+        self.post_dataset_inputs_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn delete_dataset_inputs_opt(&self, req: &super::service::DeleteDatasetInputsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::status::BaseResponse> {
+        self.client.unary_call(&METHOD_V2_DELETE_DATASET_INPUTS, req, opt)
+    }
+
+    pub fn delete_dataset_inputs(&self, req: &super::service::DeleteDatasetInputsRequest) -> ::grpcio::Result<super::status::BaseResponse> {
+        self.delete_dataset_inputs_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn delete_dataset_inputs_async_opt(&self, req: &super::service::DeleteDatasetInputsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::status::BaseResponse>> {
+        self.client.unary_call_async(&METHOD_V2_DELETE_DATASET_INPUTS, req, opt)
+    }
+
+    pub fn delete_dataset_inputs_async(&self, req: &super::service::DeleteDatasetInputsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::status::BaseResponse>> {
+        self.delete_dataset_inputs_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_dataset_versions_opt(&self, req: &super::service::ListDatasetVersionsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiDatasetVersionResponse> {
+        self.client.unary_call(&METHOD_V2_LIST_DATASET_VERSIONS, req, opt)
+    }
+
+    pub fn list_dataset_versions(&self, req: &super::service::ListDatasetVersionsRequest) -> ::grpcio::Result<super::service::MultiDatasetVersionResponse> {
+        self.list_dataset_versions_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_dataset_versions_async_opt(&self, req: &super::service::ListDatasetVersionsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiDatasetVersionResponse>> {
+        self.client.unary_call_async(&METHOD_V2_LIST_DATASET_VERSIONS, req, opt)
+    }
+
+    pub fn list_dataset_versions_async(&self, req: &super::service::ListDatasetVersionsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiDatasetVersionResponse>> {
+        self.list_dataset_versions_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn get_dataset_version_opt(&self, req: &super::service::GetDatasetVersionRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::SingleDatasetVersionResponse> {
+        self.client.unary_call(&METHOD_V2_GET_DATASET_VERSION, req, opt)
+    }
+
+    pub fn get_dataset_version(&self, req: &super::service::GetDatasetVersionRequest) -> ::grpcio::Result<super::service::SingleDatasetVersionResponse> {
+        self.get_dataset_version_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn get_dataset_version_async_opt(&self, req: &super::service::GetDatasetVersionRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleDatasetVersionResponse>> {
+        self.client.unary_call_async(&METHOD_V2_GET_DATASET_VERSION, req, opt)
+    }
+
+    pub fn get_dataset_version_async(&self, req: &super::service::GetDatasetVersionRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleDatasetVersionResponse>> {
+        self.get_dataset_version_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_dataset_version_metrics_groups_opt(&self, req: &super::service::ListDatasetVersionMetricsGroupsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiDatasetVersionMetricsGroupResponse> {
+        self.client.unary_call(&METHOD_V2_LIST_DATASET_VERSION_METRICS_GROUPS, req, opt)
+    }
+
+    pub fn list_dataset_version_metrics_groups(&self, req: &super::service::ListDatasetVersionMetricsGroupsRequest) -> ::grpcio::Result<super::service::MultiDatasetVersionMetricsGroupResponse> {
+        self.list_dataset_version_metrics_groups_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_dataset_version_metrics_groups_async_opt(&self, req: &super::service::ListDatasetVersionMetricsGroupsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiDatasetVersionMetricsGroupResponse>> {
+        self.client.unary_call_async(&METHOD_V2_LIST_DATASET_VERSION_METRICS_GROUPS, req, opt)
+    }
+
+    pub fn list_dataset_version_metrics_groups_async(&self, req: &super::service::ListDatasetVersionMetricsGroupsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiDatasetVersionMetricsGroupResponse>> {
+        self.list_dataset_version_metrics_groups_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn post_dataset_versions_opt(&self, req: &super::service::PostDatasetVersionsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiDatasetVersionResponse> {
+        self.client.unary_call(&METHOD_V2_POST_DATASET_VERSIONS, req, opt)
+    }
+
+    pub fn post_dataset_versions(&self, req: &super::service::PostDatasetVersionsRequest) -> ::grpcio::Result<super::service::MultiDatasetVersionResponse> {
+        self.post_dataset_versions_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn post_dataset_versions_async_opt(&self, req: &super::service::PostDatasetVersionsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiDatasetVersionResponse>> {
+        self.client.unary_call_async(&METHOD_V2_POST_DATASET_VERSIONS, req, opt)
+    }
+
+    pub fn post_dataset_versions_async(&self, req: &super::service::PostDatasetVersionsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiDatasetVersionResponse>> {
+        self.post_dataset_versions_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn patch_dataset_versions_opt(&self, req: &super::service::PatchDatasetVersionsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiDatasetVersionResponse> {
+        self.client.unary_call(&METHOD_V2_PATCH_DATASET_VERSIONS, req, opt)
+    }
+
+    pub fn patch_dataset_versions(&self, req: &super::service::PatchDatasetVersionsRequest) -> ::grpcio::Result<super::service::MultiDatasetVersionResponse> {
+        self.patch_dataset_versions_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn patch_dataset_versions_async_opt(&self, req: &super::service::PatchDatasetVersionsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiDatasetVersionResponse>> {
+        self.client.unary_call_async(&METHOD_V2_PATCH_DATASET_VERSIONS, req, opt)
+    }
+
+    pub fn patch_dataset_versions_async(&self, req: &super::service::PatchDatasetVersionsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiDatasetVersionResponse>> {
+        self.patch_dataset_versions_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn delete_dataset_versions_opt(&self, req: &super::service::DeleteDatasetVersionsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::status::BaseResponse> {
+        self.client.unary_call(&METHOD_V2_DELETE_DATASET_VERSIONS, req, opt)
+    }
+
+    pub fn delete_dataset_versions(&self, req: &super::service::DeleteDatasetVersionsRequest) -> ::grpcio::Result<super::status::BaseResponse> {
+        self.delete_dataset_versions_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn delete_dataset_versions_async_opt(&self, req: &super::service::DeleteDatasetVersionsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::status::BaseResponse>> {
+        self.client.unary_call_async(&METHOD_V2_DELETE_DATASET_VERSIONS, req, opt)
+    }
+
+    pub fn delete_dataset_versions_async(&self, req: &super::service::DeleteDatasetVersionsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::status::BaseResponse>> {
+        self.delete_dataset_versions_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn put_dataset_version_exports_opt(&self, req: &super::service::PutDatasetVersionExportsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiDatasetVersionExportResponse> {
+        self.client.unary_call(&METHOD_V2_PUT_DATASET_VERSION_EXPORTS, req, opt)
+    }
+
+    pub fn put_dataset_version_exports(&self, req: &super::service::PutDatasetVersionExportsRequest) -> ::grpcio::Result<super::service::MultiDatasetVersionExportResponse> {
+        self.put_dataset_version_exports_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn put_dataset_version_exports_async_opt(&self, req: &super::service::PutDatasetVersionExportsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiDatasetVersionExportResponse>> {
+        self.client.unary_call_async(&METHOD_V2_PUT_DATASET_VERSION_EXPORTS, req, opt)
+    }
+
+    pub fn put_dataset_version_exports_async(&self, req: &super::service::PutDatasetVersionExportsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiDatasetVersionExportResponse>> {
+        self.put_dataset_version_exports_async_opt(req, ::grpcio::CallOption::default())
     }
 
     pub fn get_model_type_opt(&self, req: &super::service::GetModelTypeRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::SingleModelTypeResponse> {
@@ -1601,6 +2525,22 @@ impl V2Client {
         self.list_models_async_opt(req, ::grpcio::CallOption::default())
     }
 
+    pub fn get_resource_counts_opt(&self, req: &super::service::GetResourceCountsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::GetResourceCountsResponse> {
+        self.client.unary_call(&METHOD_V2_GET_RESOURCE_COUNTS, req, opt)
+    }
+
+    pub fn get_resource_counts(&self, req: &super::service::GetResourceCountsRequest) -> ::grpcio::Result<super::service::GetResourceCountsResponse> {
+        self.get_resource_counts_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn get_resource_counts_async_opt(&self, req: &super::service::GetResourceCountsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::GetResourceCountsResponse>> {
+        self.client.unary_call_async(&METHOD_V2_GET_RESOURCE_COUNTS, req, opt)
+    }
+
+    pub fn get_resource_counts_async(&self, req: &super::service::GetResourceCountsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::GetResourceCountsResponse>> {
+        self.get_resource_counts_async_opt(req, ::grpcio::CallOption::default())
+    }
+
     pub fn post_models_searches_opt(&self, req: &super::service::PostModelsSearchesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiModelResponse> {
         self.client.unary_call(&METHOD_V2_POST_MODELS_SEARCHES, req, opt)
     }
@@ -1649,6 +2589,22 @@ impl V2Client {
         self.patch_models_async_opt(req, ::grpcio::CallOption::default())
     }
 
+    pub fn patch_model_ids_opt(&self, req: &super::service::PatchModelIdsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiModelResponse> {
+        self.client.unary_call(&METHOD_V2_PATCH_MODEL_IDS, req, opt)
+    }
+
+    pub fn patch_model_ids(&self, req: &super::service::PatchModelIdsRequest) -> ::grpcio::Result<super::service::MultiModelResponse> {
+        self.patch_model_ids_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn patch_model_ids_async_opt(&self, req: &super::service::PatchModelIdsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiModelResponse>> {
+        self.client.unary_call_async(&METHOD_V2_PATCH_MODEL_IDS, req, opt)
+    }
+
+    pub fn patch_model_ids_async(&self, req: &super::service::PatchModelIdsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiModelResponse>> {
+        self.patch_model_ids_async_opt(req, ::grpcio::CallOption::default())
+    }
+
     pub fn delete_model_opt(&self, req: &super::service::DeleteModelRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::status::BaseResponse> {
         self.client.unary_call(&METHOD_V2_DELETE_MODEL, req, opt)
     }
@@ -1679,6 +2635,22 @@ impl V2Client {
 
     pub fn delete_models_async(&self, req: &super::service::DeleteModelsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::status::BaseResponse>> {
         self.delete_models_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn patch_model_check_consents_opt(&self, req: &super::service::PatchModelCheckConsentsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiModelCheckConsentResponse> {
+        self.client.unary_call(&METHOD_V2_PATCH_MODEL_CHECK_CONSENTS, req, opt)
+    }
+
+    pub fn patch_model_check_consents(&self, req: &super::service::PatchModelCheckConsentsRequest) -> ::grpcio::Result<super::service::MultiModelCheckConsentResponse> {
+        self.patch_model_check_consents_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn patch_model_check_consents_async_opt(&self, req: &super::service::PatchModelCheckConsentsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiModelCheckConsentResponse>> {
+        self.client.unary_call_async(&METHOD_V2_PATCH_MODEL_CHECK_CONSENTS, req, opt)
+    }
+
+    pub fn patch_model_check_consents_async(&self, req: &super::service::PatchModelCheckConsentsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiModelCheckConsentResponse>> {
+        self.patch_model_check_consents_async_opt(req, ::grpcio::CallOption::default())
     }
 
     pub fn patch_model_toolkits_opt(&self, req: &super::service::PatchModelToolkitsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiModelToolkitResponse> {
@@ -1775,6 +2747,38 @@ impl V2Client {
 
     pub fn list_model_versions_async(&self, req: &super::service::ListModelVersionsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiModelVersionResponse>> {
         self.list_model_versions_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn post_workflow_versions_un_publish_opt(&self, req: &super::service::PostWorkflowVersionsUnPublishRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::status::BaseResponse> {
+        self.client.unary_call(&METHOD_V2_POST_WORKFLOW_VERSIONS_UN_PUBLISH, req, opt)
+    }
+
+    pub fn post_workflow_versions_un_publish(&self, req: &super::service::PostWorkflowVersionsUnPublishRequest) -> ::grpcio::Result<super::status::BaseResponse> {
+        self.post_workflow_versions_un_publish_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn post_workflow_versions_un_publish_async_opt(&self, req: &super::service::PostWorkflowVersionsUnPublishRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::status::BaseResponse>> {
+        self.client.unary_call_async(&METHOD_V2_POST_WORKFLOW_VERSIONS_UN_PUBLISH, req, opt)
+    }
+
+    pub fn post_workflow_versions_un_publish_async(&self, req: &super::service::PostWorkflowVersionsUnPublishRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::status::BaseResponse>> {
+        self.post_workflow_versions_un_publish_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn post_workflow_versions_publish_opt(&self, req: &super::service::PostWorkflowVersionsPublishRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::status::BaseResponse> {
+        self.client.unary_call(&METHOD_V2_POST_WORKFLOW_VERSIONS_PUBLISH, req, opt)
+    }
+
+    pub fn post_workflow_versions_publish(&self, req: &super::service::PostWorkflowVersionsPublishRequest) -> ::grpcio::Result<super::status::BaseResponse> {
+        self.post_workflow_versions_publish_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn post_workflow_versions_publish_async_opt(&self, req: &super::service::PostWorkflowVersionsPublishRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::status::BaseResponse>> {
+        self.client.unary_call_async(&METHOD_V2_POST_WORKFLOW_VERSIONS_PUBLISH, req, opt)
+    }
+
+    pub fn post_workflow_versions_publish_async(&self, req: &super::service::PostWorkflowVersionsPublishRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::status::BaseResponse>> {
+        self.post_workflow_versions_publish_async_opt(req, ::grpcio::CallOption::default())
     }
 
     pub fn post_model_versions_publish_opt(&self, req: &super::service::PostModelVersionsPublishRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::status::BaseResponse> {
@@ -1889,6 +2893,102 @@ impl V2Client {
         self.post_model_version_metrics_async_opt(req, ::grpcio::CallOption::default())
     }
 
+    pub fn post_model_version_evaluations_opt(&self, req: &super::service::PostModelVersionEvaluationsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiEvalMetricsResponse> {
+        self.client.unary_call(&METHOD_V2_POST_MODEL_VERSION_EVALUATIONS, req, opt)
+    }
+
+    pub fn post_model_version_evaluations(&self, req: &super::service::PostModelVersionEvaluationsRequest) -> ::grpcio::Result<super::service::MultiEvalMetricsResponse> {
+        self.post_model_version_evaluations_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn post_model_version_evaluations_async_opt(&self, req: &super::service::PostModelVersionEvaluationsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiEvalMetricsResponse>> {
+        self.client.unary_call_async(&METHOD_V2_POST_MODEL_VERSION_EVALUATIONS, req, opt)
+    }
+
+    pub fn post_model_version_evaluations_async(&self, req: &super::service::PostModelVersionEvaluationsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiEvalMetricsResponse>> {
+        self.post_model_version_evaluations_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_model_version_evaluations_opt(&self, req: &super::service::ListModelVersionEvaluationsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiEvalMetricsResponse> {
+        self.client.unary_call(&METHOD_V2_LIST_MODEL_VERSION_EVALUATIONS, req, opt)
+    }
+
+    pub fn list_model_version_evaluations(&self, req: &super::service::ListModelVersionEvaluationsRequest) -> ::grpcio::Result<super::service::MultiEvalMetricsResponse> {
+        self.list_model_version_evaluations_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_model_version_evaluations_async_opt(&self, req: &super::service::ListModelVersionEvaluationsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiEvalMetricsResponse>> {
+        self.client.unary_call_async(&METHOD_V2_LIST_MODEL_VERSION_EVALUATIONS, req, opt)
+    }
+
+    pub fn list_model_version_evaluations_async(&self, req: &super::service::ListModelVersionEvaluationsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiEvalMetricsResponse>> {
+        self.list_model_version_evaluations_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn get_model_version_evaluation_opt(&self, req: &super::service::GetModelVersionEvaluationRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::SingleEvalMetricsResponse> {
+        self.client.unary_call(&METHOD_V2_GET_MODEL_VERSION_EVALUATION, req, opt)
+    }
+
+    pub fn get_model_version_evaluation(&self, req: &super::service::GetModelVersionEvaluationRequest) -> ::grpcio::Result<super::service::SingleEvalMetricsResponse> {
+        self.get_model_version_evaluation_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn get_model_version_evaluation_async_opt(&self, req: &super::service::GetModelVersionEvaluationRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleEvalMetricsResponse>> {
+        self.client.unary_call_async(&METHOD_V2_GET_MODEL_VERSION_EVALUATION, req, opt)
+    }
+
+    pub fn get_model_version_evaluation_async(&self, req: &super::service::GetModelVersionEvaluationRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleEvalMetricsResponse>> {
+        self.get_model_version_evaluation_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn post_evaluations_opt(&self, req: &super::service::PostEvaluationsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiEvalMetricsResponse> {
+        self.client.unary_call(&METHOD_V2_POST_EVALUATIONS, req, opt)
+    }
+
+    pub fn post_evaluations(&self, req: &super::service::PostEvaluationsRequest) -> ::grpcio::Result<super::service::MultiEvalMetricsResponse> {
+        self.post_evaluations_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn post_evaluations_async_opt(&self, req: &super::service::PostEvaluationsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiEvalMetricsResponse>> {
+        self.client.unary_call_async(&METHOD_V2_POST_EVALUATIONS, req, opt)
+    }
+
+    pub fn post_evaluations_async(&self, req: &super::service::PostEvaluationsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiEvalMetricsResponse>> {
+        self.post_evaluations_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_evaluations_opt(&self, req: &super::service::ListEvaluationsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiEvalMetricsResponse> {
+        self.client.unary_call(&METHOD_V2_LIST_EVALUATIONS, req, opt)
+    }
+
+    pub fn list_evaluations(&self, req: &super::service::ListEvaluationsRequest) -> ::grpcio::Result<super::service::MultiEvalMetricsResponse> {
+        self.list_evaluations_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_evaluations_async_opt(&self, req: &super::service::ListEvaluationsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiEvalMetricsResponse>> {
+        self.client.unary_call_async(&METHOD_V2_LIST_EVALUATIONS, req, opt)
+    }
+
+    pub fn list_evaluations_async(&self, req: &super::service::ListEvaluationsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiEvalMetricsResponse>> {
+        self.list_evaluations_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn get_evaluation_opt(&self, req: &super::service::GetEvaluationRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::SingleEvalMetricsResponse> {
+        self.client.unary_call(&METHOD_V2_GET_EVALUATION, req, opt)
+    }
+
+    pub fn get_evaluation(&self, req: &super::service::GetEvaluationRequest) -> ::grpcio::Result<super::service::SingleEvalMetricsResponse> {
+        self.get_evaluation_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn get_evaluation_async_opt(&self, req: &super::service::GetEvaluationRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleEvalMetricsResponse>> {
+        self.client.unary_call_async(&METHOD_V2_GET_EVALUATION, req, opt)
+    }
+
+    pub fn get_evaluation_async(&self, req: &super::service::GetEvaluationRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleEvalMetricsResponse>> {
+        self.get_evaluation_async_opt(req, ::grpcio::CallOption::default())
+    }
+
     pub fn list_model_references_opt(&self, req: &super::service::ListModelReferencesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiModelReferenceResponse> {
         self.client.unary_call(&METHOD_V2_LIST_MODEL_REFERENCES, req, opt)
     }
@@ -1999,6 +3099,22 @@ impl V2Client {
 
     pub fn patch_workflows_async(&self, req: &super::service::PatchWorkflowsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiWorkflowResponse>> {
         self.patch_workflows_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn patch_workflow_ids_opt(&self, req: &super::service::PatchWorkflowIdsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiWorkflowResponse> {
+        self.client.unary_call(&METHOD_V2_PATCH_WORKFLOW_IDS, req, opt)
+    }
+
+    pub fn patch_workflow_ids(&self, req: &super::service::PatchWorkflowIdsRequest) -> ::grpcio::Result<super::service::MultiWorkflowResponse> {
+        self.patch_workflow_ids_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn patch_workflow_ids_async_opt(&self, req: &super::service::PatchWorkflowIdsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiWorkflowResponse>> {
+        self.client.unary_call_async(&METHOD_V2_PATCH_WORKFLOW_IDS, req, opt)
+    }
+
+    pub fn patch_workflow_ids_async(&self, req: &super::service::PatchWorkflowIdsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiWorkflowResponse>> {
+        self.patch_workflow_ids_async_opt(req, ::grpcio::CallOption::default())
     }
 
     pub fn delete_workflow_opt(&self, req: &super::service::DeleteWorkflowRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::status::BaseResponse> {
@@ -2369,6 +3485,38 @@ impl V2Client {
         self.patch_apps_async_opt(req, ::grpcio::CallOption::default())
     }
 
+    pub fn patch_apps_ids_opt(&self, req: &super::service::PatchAppsIdsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiAppResponse> {
+        self.client.unary_call(&METHOD_V2_PATCH_APPS_IDS, req, opt)
+    }
+
+    pub fn patch_apps_ids(&self, req: &super::service::PatchAppsIdsRequest) -> ::grpcio::Result<super::service::MultiAppResponse> {
+        self.patch_apps_ids_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn patch_apps_ids_async_opt(&self, req: &super::service::PatchAppsIdsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiAppResponse>> {
+        self.client.unary_call_async(&METHOD_V2_PATCH_APPS_IDS, req, opt)
+    }
+
+    pub fn patch_apps_ids_async(&self, req: &super::service::PatchAppsIdsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiAppResponse>> {
+        self.patch_apps_ids_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn patch_app_opt(&self, req: &super::service::PatchAppRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::SingleAppResponse> {
+        self.client.unary_call(&METHOD_V2_PATCH_APP, req, opt)
+    }
+
+    pub fn patch_app(&self, req: &super::service::PatchAppRequest) -> ::grpcio::Result<super::service::SingleAppResponse> {
+        self.patch_app_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn patch_app_async_opt(&self, req: &super::service::PatchAppRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleAppResponse>> {
+        self.client.unary_call_async(&METHOD_V2_PATCH_APP, req, opt)
+    }
+
+    pub fn patch_app_async(&self, req: &super::service::PatchAppRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleAppResponse>> {
+        self.patch_app_async_opt(req, ::grpcio::CallOption::default())
+    }
+
     pub fn post_apps_searches_opt(&self, req: &super::service::PostAppsSearchesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiAppResponse> {
         self.client.unary_call(&METHOD_V2_POST_APPS_SEARCHES, req, opt)
     }
@@ -2383,6 +3531,22 @@ impl V2Client {
 
     pub fn post_apps_searches_async(&self, req: &super::service::PostAppsSearchesRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiAppResponse>> {
         self.post_apps_searches_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn get_user_opt(&self, req: &super::service::GetUserRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::SingleUserResponse> {
+        self.client.unary_call(&METHOD_V2_GET_USER, req, opt)
+    }
+
+    pub fn get_user(&self, req: &super::service::GetUserRequest) -> ::grpcio::Result<super::service::SingleUserResponse> {
+        self.get_user_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn get_user_async_opt(&self, req: &super::service::GetUserRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleUserResponse>> {
+        self.client.unary_call_async(&METHOD_V2_GET_USER, req, opt)
+    }
+
+    pub fn get_user_async(&self, req: &super::service::GetUserRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleUserResponse>> {
+        self.get_user_async_opt(req, ::grpcio::CallOption::default())
     }
 
     pub fn post_validate_password_opt(&self, req: &super::service::PostValidatePasswordRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::SinglePasswordValidationResponse> {
@@ -2431,6 +3595,22 @@ impl V2Client {
 
     pub fn list_searches_async(&self, req: &super::service::ListSearchesRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiSearchResponse>> {
         self.list_searches_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn patch_searches_opt(&self, req: &super::service::PatchSearchesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiSearchResponse> {
+        self.client.unary_call(&METHOD_V2_PATCH_SEARCHES, req, opt)
+    }
+
+    pub fn patch_searches(&self, req: &super::service::PatchSearchesRequest) -> ::grpcio::Result<super::service::MultiSearchResponse> {
+        self.patch_searches_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn patch_searches_async_opt(&self, req: &super::service::PatchSearchesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiSearchResponse>> {
+        self.client.unary_call_async(&METHOD_V2_PATCH_SEARCHES, req, opt)
+    }
+
+    pub fn patch_searches_async(&self, req: &super::service::PatchSearchesRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiSearchResponse>> {
+        self.patch_searches_async_opt(req, ::grpcio::CallOption::default())
     }
 
     pub fn post_searches_opt(&self, req: &super::service::PostSearchesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiSearchResponse> {
@@ -2543,6 +3723,86 @@ impl V2Client {
 
     pub fn delete_search_async(&self, req: &super::service::DeleteSearchRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::status::BaseResponse>> {
         self.delete_search_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_annotation_filters_opt(&self, req: &super::service::ListAnnotationFiltersRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiAnnotationFilterResponse> {
+        self.client.unary_call(&METHOD_V2_LIST_ANNOTATION_FILTERS, req, opt)
+    }
+
+    pub fn list_annotation_filters(&self, req: &super::service::ListAnnotationFiltersRequest) -> ::grpcio::Result<super::service::MultiAnnotationFilterResponse> {
+        self.list_annotation_filters_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_annotation_filters_async_opt(&self, req: &super::service::ListAnnotationFiltersRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiAnnotationFilterResponse>> {
+        self.client.unary_call_async(&METHOD_V2_LIST_ANNOTATION_FILTERS, req, opt)
+    }
+
+    pub fn list_annotation_filters_async(&self, req: &super::service::ListAnnotationFiltersRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiAnnotationFilterResponse>> {
+        self.list_annotation_filters_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn get_annotation_filter_opt(&self, req: &super::service::GetAnnotationFilterRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::SingleAnnotationFilterResponse> {
+        self.client.unary_call(&METHOD_V2_GET_ANNOTATION_FILTER, req, opt)
+    }
+
+    pub fn get_annotation_filter(&self, req: &super::service::GetAnnotationFilterRequest) -> ::grpcio::Result<super::service::SingleAnnotationFilterResponse> {
+        self.get_annotation_filter_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn get_annotation_filter_async_opt(&self, req: &super::service::GetAnnotationFilterRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleAnnotationFilterResponse>> {
+        self.client.unary_call_async(&METHOD_V2_GET_ANNOTATION_FILTER, req, opt)
+    }
+
+    pub fn get_annotation_filter_async(&self, req: &super::service::GetAnnotationFilterRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleAnnotationFilterResponse>> {
+        self.get_annotation_filter_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn post_annotation_filters_opt(&self, req: &super::service::PostAnnotationFiltersRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiAnnotationFilterResponse> {
+        self.client.unary_call(&METHOD_V2_POST_ANNOTATION_FILTERS, req, opt)
+    }
+
+    pub fn post_annotation_filters(&self, req: &super::service::PostAnnotationFiltersRequest) -> ::grpcio::Result<super::service::MultiAnnotationFilterResponse> {
+        self.post_annotation_filters_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn post_annotation_filters_async_opt(&self, req: &super::service::PostAnnotationFiltersRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiAnnotationFilterResponse>> {
+        self.client.unary_call_async(&METHOD_V2_POST_ANNOTATION_FILTERS, req, opt)
+    }
+
+    pub fn post_annotation_filters_async(&self, req: &super::service::PostAnnotationFiltersRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiAnnotationFilterResponse>> {
+        self.post_annotation_filters_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn patch_annotation_filters_opt(&self, req: &super::service::PatchAnnotationFiltersRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiAnnotationFilterResponse> {
+        self.client.unary_call(&METHOD_V2_PATCH_ANNOTATION_FILTERS, req, opt)
+    }
+
+    pub fn patch_annotation_filters(&self, req: &super::service::PatchAnnotationFiltersRequest) -> ::grpcio::Result<super::service::MultiAnnotationFilterResponse> {
+        self.patch_annotation_filters_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn patch_annotation_filters_async_opt(&self, req: &super::service::PatchAnnotationFiltersRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiAnnotationFilterResponse>> {
+        self.client.unary_call_async(&METHOD_V2_PATCH_ANNOTATION_FILTERS, req, opt)
+    }
+
+    pub fn patch_annotation_filters_async(&self, req: &super::service::PatchAnnotationFiltersRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiAnnotationFilterResponse>> {
+        self.patch_annotation_filters_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn delete_annotation_filters_opt(&self, req: &super::service::DeleteAnnotationFiltersRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::status::BaseResponse> {
+        self.client.unary_call(&METHOD_V2_DELETE_ANNOTATION_FILTERS, req, opt)
+    }
+
+    pub fn delete_annotation_filters(&self, req: &super::service::DeleteAnnotationFiltersRequest) -> ::grpcio::Result<super::status::BaseResponse> {
+        self.delete_annotation_filters_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn delete_annotation_filters_async_opt(&self, req: &super::service::DeleteAnnotationFiltersRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::status::BaseResponse>> {
+        self.client.unary_call_async(&METHOD_V2_DELETE_ANNOTATION_FILTERS, req, opt)
+    }
+
+    pub fn delete_annotation_filters_async(&self, req: &super::service::DeleteAnnotationFiltersRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::status::BaseResponse>> {
+        self.delete_annotation_filters_async_opt(req, ::grpcio::CallOption::default())
     }
 
     pub fn list_status_codes_opt(&self, req: &super::service::ListStatusCodesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiStatusCodeResponse> {
@@ -3040,143 +4300,1329 @@ impl V2Client {
     pub fn list_trending_metrics_views_async(&self, req: &super::service::ListTrendingMetricsViewsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiTrendingMetricsViewResponse>> {
         self.list_trending_metrics_views_async_opt(req, ::grpcio::CallOption::default())
     }
-    pub fn spawn<F>(&self, f: F) where F: ::futures::Future<Output = ()> + Send + 'static {
+
+    pub fn get_module_opt(&self, req: &super::service::GetModuleRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::SingleModuleResponse> {
+        self.client.unary_call(&METHOD_V2_GET_MODULE, req, opt)
+    }
+
+    pub fn get_module(&self, req: &super::service::GetModuleRequest) -> ::grpcio::Result<super::service::SingleModuleResponse> {
+        self.get_module_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn get_module_async_opt(&self, req: &super::service::GetModuleRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleModuleResponse>> {
+        self.client.unary_call_async(&METHOD_V2_GET_MODULE, req, opt)
+    }
+
+    pub fn get_module_async(&self, req: &super::service::GetModuleRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleModuleResponse>> {
+        self.get_module_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_modules_opt(&self, req: &super::service::ListModulesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiModuleResponse> {
+        self.client.unary_call(&METHOD_V2_LIST_MODULES, req, opt)
+    }
+
+    pub fn list_modules(&self, req: &super::service::ListModulesRequest) -> ::grpcio::Result<super::service::MultiModuleResponse> {
+        self.list_modules_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_modules_async_opt(&self, req: &super::service::ListModulesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiModuleResponse>> {
+        self.client.unary_call_async(&METHOD_V2_LIST_MODULES, req, opt)
+    }
+
+    pub fn list_modules_async(&self, req: &super::service::ListModulesRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiModuleResponse>> {
+        self.list_modules_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn post_modules_opt(&self, req: &super::service::PostModulesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiModuleResponse> {
+        self.client.unary_call(&METHOD_V2_POST_MODULES, req, opt)
+    }
+
+    pub fn post_modules(&self, req: &super::service::PostModulesRequest) -> ::grpcio::Result<super::service::MultiModuleResponse> {
+        self.post_modules_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn post_modules_async_opt(&self, req: &super::service::PostModulesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiModuleResponse>> {
+        self.client.unary_call_async(&METHOD_V2_POST_MODULES, req, opt)
+    }
+
+    pub fn post_modules_async(&self, req: &super::service::PostModulesRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiModuleResponse>> {
+        self.post_modules_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn patch_modules_opt(&self, req: &super::service::PatchModulesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiModuleResponse> {
+        self.client.unary_call(&METHOD_V2_PATCH_MODULES, req, opt)
+    }
+
+    pub fn patch_modules(&self, req: &super::service::PatchModulesRequest) -> ::grpcio::Result<super::service::MultiModuleResponse> {
+        self.patch_modules_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn patch_modules_async_opt(&self, req: &super::service::PatchModulesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiModuleResponse>> {
+        self.client.unary_call_async(&METHOD_V2_PATCH_MODULES, req, opt)
+    }
+
+    pub fn patch_modules_async(&self, req: &super::service::PatchModulesRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiModuleResponse>> {
+        self.patch_modules_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn delete_modules_opt(&self, req: &super::service::DeleteModulesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::status::BaseResponse> {
+        self.client.unary_call(&METHOD_V2_DELETE_MODULES, req, opt)
+    }
+
+    pub fn delete_modules(&self, req: &super::service::DeleteModulesRequest) -> ::grpcio::Result<super::status::BaseResponse> {
+        self.delete_modules_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn delete_modules_async_opt(&self, req: &super::service::DeleteModulesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::status::BaseResponse>> {
+        self.client.unary_call_async(&METHOD_V2_DELETE_MODULES, req, opt)
+    }
+
+    pub fn delete_modules_async(&self, req: &super::service::DeleteModulesRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::status::BaseResponse>> {
+        self.delete_modules_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn get_module_version_opt(&self, req: &super::service::GetModuleVersionRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::SingleModuleVersionResponse> {
+        self.client.unary_call(&METHOD_V2_GET_MODULE_VERSION, req, opt)
+    }
+
+    pub fn get_module_version(&self, req: &super::service::GetModuleVersionRequest) -> ::grpcio::Result<super::service::SingleModuleVersionResponse> {
+        self.get_module_version_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn get_module_version_async_opt(&self, req: &super::service::GetModuleVersionRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleModuleVersionResponse>> {
+        self.client.unary_call_async(&METHOD_V2_GET_MODULE_VERSION, req, opt)
+    }
+
+    pub fn get_module_version_async(&self, req: &super::service::GetModuleVersionRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleModuleVersionResponse>> {
+        self.get_module_version_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_module_versions_opt(&self, req: &super::service::ListModuleVersionsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiModuleVersionResponse> {
+        self.client.unary_call(&METHOD_V2_LIST_MODULE_VERSIONS, req, opt)
+    }
+
+    pub fn list_module_versions(&self, req: &super::service::ListModuleVersionsRequest) -> ::grpcio::Result<super::service::MultiModuleVersionResponse> {
+        self.list_module_versions_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_module_versions_async_opt(&self, req: &super::service::ListModuleVersionsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiModuleVersionResponse>> {
+        self.client.unary_call_async(&METHOD_V2_LIST_MODULE_VERSIONS, req, opt)
+    }
+
+    pub fn list_module_versions_async(&self, req: &super::service::ListModuleVersionsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiModuleVersionResponse>> {
+        self.list_module_versions_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn post_module_versions_opt(&self, req: &super::service::PostModuleVersionsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiModuleVersionResponse> {
+        self.client.unary_call(&METHOD_V2_POST_MODULE_VERSIONS, req, opt)
+    }
+
+    pub fn post_module_versions(&self, req: &super::service::PostModuleVersionsRequest) -> ::grpcio::Result<super::service::MultiModuleVersionResponse> {
+        self.post_module_versions_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn post_module_versions_async_opt(&self, req: &super::service::PostModuleVersionsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiModuleVersionResponse>> {
+        self.client.unary_call_async(&METHOD_V2_POST_MODULE_VERSIONS, req, opt)
+    }
+
+    pub fn post_module_versions_async(&self, req: &super::service::PostModuleVersionsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiModuleVersionResponse>> {
+        self.post_module_versions_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn delete_module_versions_opt(&self, req: &super::service::DeleteModuleVersionsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::status::BaseResponse> {
+        self.client.unary_call(&METHOD_V2_DELETE_MODULE_VERSIONS, req, opt)
+    }
+
+    pub fn delete_module_versions(&self, req: &super::service::DeleteModuleVersionsRequest) -> ::grpcio::Result<super::status::BaseResponse> {
+        self.delete_module_versions_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn delete_module_versions_async_opt(&self, req: &super::service::DeleteModuleVersionsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::status::BaseResponse>> {
+        self.client.unary_call_async(&METHOD_V2_DELETE_MODULE_VERSIONS, req, opt)
+    }
+
+    pub fn delete_module_versions_async(&self, req: &super::service::DeleteModuleVersionsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::status::BaseResponse>> {
+        self.delete_module_versions_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn get_module_version_usage_count_opt(&self, req: &super::service::GetModuleVersionUsageCountRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::SingleModuleVersionUsageCountResponse> {
+        self.client.unary_call(&METHOD_V2_GET_MODULE_VERSION_USAGE_COUNT, req, opt)
+    }
+
+    pub fn get_module_version_usage_count(&self, req: &super::service::GetModuleVersionUsageCountRequest) -> ::grpcio::Result<super::service::SingleModuleVersionUsageCountResponse> {
+        self.get_module_version_usage_count_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn get_module_version_usage_count_async_opt(&self, req: &super::service::GetModuleVersionUsageCountRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleModuleVersionUsageCountResponse>> {
+        self.client.unary_call_async(&METHOD_V2_GET_MODULE_VERSION_USAGE_COUNT, req, opt)
+    }
+
+    pub fn get_module_version_usage_count_async(&self, req: &super::service::GetModuleVersionUsageCountRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleModuleVersionUsageCountResponse>> {
+        self.get_module_version_usage_count_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn get_installed_module_version_opt(&self, req: &super::service::GetInstalledModuleVersionRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::SingleInstalledModuleVersionResponse> {
+        self.client.unary_call(&METHOD_V2_GET_INSTALLED_MODULE_VERSION, req, opt)
+    }
+
+    pub fn get_installed_module_version(&self, req: &super::service::GetInstalledModuleVersionRequest) -> ::grpcio::Result<super::service::SingleInstalledModuleVersionResponse> {
+        self.get_installed_module_version_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn get_installed_module_version_async_opt(&self, req: &super::service::GetInstalledModuleVersionRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleInstalledModuleVersionResponse>> {
+        self.client.unary_call_async(&METHOD_V2_GET_INSTALLED_MODULE_VERSION, req, opt)
+    }
+
+    pub fn get_installed_module_version_async(&self, req: &super::service::GetInstalledModuleVersionRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleInstalledModuleVersionResponse>> {
+        self.get_installed_module_version_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_installed_module_versions_opt(&self, req: &super::service::ListInstalledModuleVersionsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiInstalledModuleVersionResponse> {
+        self.client.unary_call(&METHOD_V2_LIST_INSTALLED_MODULE_VERSIONS, req, opt)
+    }
+
+    pub fn list_installed_module_versions(&self, req: &super::service::ListInstalledModuleVersionsRequest) -> ::grpcio::Result<super::service::MultiInstalledModuleVersionResponse> {
+        self.list_installed_module_versions_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_installed_module_versions_async_opt(&self, req: &super::service::ListInstalledModuleVersionsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiInstalledModuleVersionResponse>> {
+        self.client.unary_call_async(&METHOD_V2_LIST_INSTALLED_MODULE_VERSIONS, req, opt)
+    }
+
+    pub fn list_installed_module_versions_async(&self, req: &super::service::ListInstalledModuleVersionsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiInstalledModuleVersionResponse>> {
+        self.list_installed_module_versions_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn post_installed_module_versions_opt(&self, req: &super::service::PostInstalledModuleVersionsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiInstalledModuleVersionResponse> {
+        self.client.unary_call(&METHOD_V2_POST_INSTALLED_MODULE_VERSIONS, req, opt)
+    }
+
+    pub fn post_installed_module_versions(&self, req: &super::service::PostInstalledModuleVersionsRequest) -> ::grpcio::Result<super::service::MultiInstalledModuleVersionResponse> {
+        self.post_installed_module_versions_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn post_installed_module_versions_async_opt(&self, req: &super::service::PostInstalledModuleVersionsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiInstalledModuleVersionResponse>> {
+        self.client.unary_call_async(&METHOD_V2_POST_INSTALLED_MODULE_VERSIONS, req, opt)
+    }
+
+    pub fn post_installed_module_versions_async(&self, req: &super::service::PostInstalledModuleVersionsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiInstalledModuleVersionResponse>> {
+        self.post_installed_module_versions_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn delete_installed_module_versions_opt(&self, req: &super::service::DeleteInstalledModuleVersionsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::status::BaseResponse> {
+        self.client.unary_call(&METHOD_V2_DELETE_INSTALLED_MODULE_VERSIONS, req, opt)
+    }
+
+    pub fn delete_installed_module_versions(&self, req: &super::service::DeleteInstalledModuleVersionsRequest) -> ::grpcio::Result<super::status::BaseResponse> {
+        self.delete_installed_module_versions_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn delete_installed_module_versions_async_opt(&self, req: &super::service::DeleteInstalledModuleVersionsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::status::BaseResponse>> {
+        self.client.unary_call_async(&METHOD_V2_DELETE_INSTALLED_MODULE_VERSIONS, req, opt)
+    }
+
+    pub fn delete_installed_module_versions_async(&self, req: &super::service::DeleteInstalledModuleVersionsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::status::BaseResponse>> {
+        self.delete_installed_module_versions_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn post_installed_module_versions_key_opt(&self, req: &super::service::PostInstalledModuleVersionsKeyRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::SingleKeyResponse> {
+        self.client.unary_call(&METHOD_V2_POST_INSTALLED_MODULE_VERSIONS_KEY, req, opt)
+    }
+
+    pub fn post_installed_module_versions_key(&self, req: &super::service::PostInstalledModuleVersionsKeyRequest) -> ::grpcio::Result<super::service::SingleKeyResponse> {
+        self.post_installed_module_versions_key_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn post_installed_module_versions_key_async_opt(&self, req: &super::service::PostInstalledModuleVersionsKeyRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleKeyResponse>> {
+        self.client.unary_call_async(&METHOD_V2_POST_INSTALLED_MODULE_VERSIONS_KEY, req, opt)
+    }
+
+    pub fn post_installed_module_versions_key_async(&self, req: &super::service::PostInstalledModuleVersionsKeyRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleKeyResponse>> {
+        self.post_installed_module_versions_key_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn post_bulk_operations_opt(&self, req: &super::service::PostBulkOperationsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiBulkOperationsResponse> {
+        self.client.unary_call(&METHOD_V2_POST_BULK_OPERATIONS, req, opt)
+    }
+
+    pub fn post_bulk_operations(&self, req: &super::service::PostBulkOperationsRequest) -> ::grpcio::Result<super::service::MultiBulkOperationsResponse> {
+        self.post_bulk_operations_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn post_bulk_operations_async_opt(&self, req: &super::service::PostBulkOperationsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiBulkOperationsResponse>> {
+        self.client.unary_call_async(&METHOD_V2_POST_BULK_OPERATIONS, req, opt)
+    }
+
+    pub fn post_bulk_operations_async(&self, req: &super::service::PostBulkOperationsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiBulkOperationsResponse>> {
+        self.post_bulk_operations_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_bulk_operations_opt(&self, req: &super::service::ListBulkOperationsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiBulkOperationsResponse> {
+        self.client.unary_call(&METHOD_V2_LIST_BULK_OPERATIONS, req, opt)
+    }
+
+    pub fn list_bulk_operations(&self, req: &super::service::ListBulkOperationsRequest) -> ::grpcio::Result<super::service::MultiBulkOperationsResponse> {
+        self.list_bulk_operations_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_bulk_operations_async_opt(&self, req: &super::service::ListBulkOperationsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiBulkOperationsResponse>> {
+        self.client.unary_call_async(&METHOD_V2_LIST_BULK_OPERATIONS, req, opt)
+    }
+
+    pub fn list_bulk_operations_async(&self, req: &super::service::ListBulkOperationsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiBulkOperationsResponse>> {
+        self.list_bulk_operations_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn get_bulk_operation_opt(&self, req: &super::service::GetBulkOperationRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::SingleBulkOperationsResponse> {
+        self.client.unary_call(&METHOD_V2_GET_BULK_OPERATION, req, opt)
+    }
+
+    pub fn get_bulk_operation(&self, req: &super::service::GetBulkOperationRequest) -> ::grpcio::Result<super::service::SingleBulkOperationsResponse> {
+        self.get_bulk_operation_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn get_bulk_operation_async_opt(&self, req: &super::service::GetBulkOperationRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleBulkOperationsResponse>> {
+        self.client.unary_call_async(&METHOD_V2_GET_BULK_OPERATION, req, opt)
+    }
+
+    pub fn get_bulk_operation_async(&self, req: &super::service::GetBulkOperationRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleBulkOperationsResponse>> {
+        self.get_bulk_operation_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn cancel_bulk_operations_opt(&self, req: &super::service::CancelBulkOperationRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiBulkOperationsResponse> {
+        self.client.unary_call(&METHOD_V2_CANCEL_BULK_OPERATIONS, req, opt)
+    }
+
+    pub fn cancel_bulk_operations(&self, req: &super::service::CancelBulkOperationRequest) -> ::grpcio::Result<super::service::MultiBulkOperationsResponse> {
+        self.cancel_bulk_operations_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn cancel_bulk_operations_async_opt(&self, req: &super::service::CancelBulkOperationRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiBulkOperationsResponse>> {
+        self.client.unary_call_async(&METHOD_V2_CANCEL_BULK_OPERATIONS, req, opt)
+    }
+
+    pub fn cancel_bulk_operations_async(&self, req: &super::service::CancelBulkOperationRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiBulkOperationsResponse>> {
+        self.cancel_bulk_operations_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn delete_bulk_operations_opt(&self, req: &super::service::DeleteBulkOperationRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::status::BaseResponse> {
+        self.client.unary_call(&METHOD_V2_DELETE_BULK_OPERATIONS, req, opt)
+    }
+
+    pub fn delete_bulk_operations(&self, req: &super::service::DeleteBulkOperationRequest) -> ::grpcio::Result<super::status::BaseResponse> {
+        self.delete_bulk_operations_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn delete_bulk_operations_async_opt(&self, req: &super::service::DeleteBulkOperationRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::status::BaseResponse>> {
+        self.client.unary_call_async(&METHOD_V2_DELETE_BULK_OPERATIONS, req, opt)
+    }
+
+    pub fn delete_bulk_operations_async(&self, req: &super::service::DeleteBulkOperationRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::status::BaseResponse>> {
+        self.delete_bulk_operations_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_next_task_assignments_opt(&self, req: &super::service::ListNextTaskAssignmentsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiInputResponse> {
+        self.client.unary_call(&METHOD_V2_LIST_NEXT_TASK_ASSIGNMENTS, req, opt)
+    }
+
+    pub fn list_next_task_assignments(&self, req: &super::service::ListNextTaskAssignmentsRequest) -> ::grpcio::Result<super::service::MultiInputResponse> {
+        self.list_next_task_assignments_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_next_task_assignments_async_opt(&self, req: &super::service::ListNextTaskAssignmentsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiInputResponse>> {
+        self.client.unary_call_async(&METHOD_V2_LIST_NEXT_TASK_ASSIGNMENTS, req, opt)
+    }
+
+    pub fn list_next_task_assignments_async(&self, req: &super::service::ListNextTaskAssignmentsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiInputResponse>> {
+        self.list_next_task_assignments_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn put_task_assignments_opt(&self, req: &super::service::PutTaskAssignmentsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::status::BaseResponse> {
+        self.client.unary_call(&METHOD_V2_PUT_TASK_ASSIGNMENTS, req, opt)
+    }
+
+    pub fn put_task_assignments(&self, req: &super::service::PutTaskAssignmentsRequest) -> ::grpcio::Result<super::status::BaseResponse> {
+        self.put_task_assignments_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn put_task_assignments_async_opt(&self, req: &super::service::PutTaskAssignmentsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::status::BaseResponse>> {
+        self.client.unary_call_async(&METHOD_V2_PUT_TASK_ASSIGNMENTS, req, opt)
+    }
+
+    pub fn put_task_assignments_async(&self, req: &super::service::PutTaskAssignmentsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::status::BaseResponse>> {
+        self.put_task_assignments_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_inputs_add_jobs_opt(&self, req: &super::service::ListInputsAddJobsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiInputsAddJobResponse> {
+        self.client.unary_call(&METHOD_V2_LIST_INPUTS_ADD_JOBS, req, opt)
+    }
+
+    pub fn list_inputs_add_jobs(&self, req: &super::service::ListInputsAddJobsRequest) -> ::grpcio::Result<super::service::MultiInputsAddJobResponse> {
+        self.list_inputs_add_jobs_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_inputs_add_jobs_async_opt(&self, req: &super::service::ListInputsAddJobsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiInputsAddJobResponse>> {
+        self.client.unary_call_async(&METHOD_V2_LIST_INPUTS_ADD_JOBS, req, opt)
+    }
+
+    pub fn list_inputs_add_jobs_async(&self, req: &super::service::ListInputsAddJobsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiInputsAddJobResponse>> {
+        self.list_inputs_add_jobs_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn get_inputs_add_job_opt(&self, req: &super::service::GetInputsAddJobRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::SingleInputsAddJobResponse> {
+        self.client.unary_call(&METHOD_V2_GET_INPUTS_ADD_JOB, req, opt)
+    }
+
+    pub fn get_inputs_add_job(&self, req: &super::service::GetInputsAddJobRequest) -> ::grpcio::Result<super::service::SingleInputsAddJobResponse> {
+        self.get_inputs_add_job_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn get_inputs_add_job_async_opt(&self, req: &super::service::GetInputsAddJobRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleInputsAddJobResponse>> {
+        self.client.unary_call_async(&METHOD_V2_GET_INPUTS_ADD_JOB, req, opt)
+    }
+
+    pub fn get_inputs_add_job_async(&self, req: &super::service::GetInputsAddJobRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleInputsAddJobResponse>> {
+        self.get_inputs_add_job_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn cancel_inputs_add_job_opt(&self, req: &super::service::CancelInputsAddJobRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::SingleInputsAddJobResponse> {
+        self.client.unary_call(&METHOD_V2_CANCEL_INPUTS_ADD_JOB, req, opt)
+    }
+
+    pub fn cancel_inputs_add_job(&self, req: &super::service::CancelInputsAddJobRequest) -> ::grpcio::Result<super::service::SingleInputsAddJobResponse> {
+        self.cancel_inputs_add_job_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn cancel_inputs_add_job_async_opt(&self, req: &super::service::CancelInputsAddJobRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleInputsAddJobResponse>> {
+        self.client.unary_call_async(&METHOD_V2_CANCEL_INPUTS_ADD_JOB, req, opt)
+    }
+
+    pub fn cancel_inputs_add_job_async(&self, req: &super::service::CancelInputsAddJobRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleInputsAddJobResponse>> {
+        self.cancel_inputs_add_job_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn post_uploads_opt(&self, req: &super::service::PostUploadsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiUploadResponse> {
+        self.client.unary_call(&METHOD_V2_POST_UPLOADS, req, opt)
+    }
+
+    pub fn post_uploads(&self, req: &super::service::PostUploadsRequest) -> ::grpcio::Result<super::service::MultiUploadResponse> {
+        self.post_uploads_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn post_uploads_async_opt(&self, req: &super::service::PostUploadsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiUploadResponse>> {
+        self.client.unary_call_async(&METHOD_V2_POST_UPLOADS, req, opt)
+    }
+
+    pub fn post_uploads_async(&self, req: &super::service::PostUploadsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiUploadResponse>> {
+        self.post_uploads_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn put_upload_content_parts_opt(&self, req: &super::service::PutUploadContentPartsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::SingleUploadResponse> {
+        self.client.unary_call(&METHOD_V2_PUT_UPLOAD_CONTENT_PARTS, req, opt)
+    }
+
+    pub fn put_upload_content_parts(&self, req: &super::service::PutUploadContentPartsRequest) -> ::grpcio::Result<super::service::SingleUploadResponse> {
+        self.put_upload_content_parts_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn put_upload_content_parts_async_opt(&self, req: &super::service::PutUploadContentPartsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleUploadResponse>> {
+        self.client.unary_call_async(&METHOD_V2_PUT_UPLOAD_CONTENT_PARTS, req, opt)
+    }
+
+    pub fn put_upload_content_parts_async(&self, req: &super::service::PutUploadContentPartsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleUploadResponse>> {
+        self.put_upload_content_parts_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn get_upload_opt(&self, req: &super::service::GetUploadRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::SingleUploadResponse> {
+        self.client.unary_call(&METHOD_V2_GET_UPLOAD, req, opt)
+    }
+
+    pub fn get_upload(&self, req: &super::service::GetUploadRequest) -> ::grpcio::Result<super::service::SingleUploadResponse> {
+        self.get_upload_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn get_upload_async_opt(&self, req: &super::service::GetUploadRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleUploadResponse>> {
+        self.client.unary_call_async(&METHOD_V2_GET_UPLOAD, req, opt)
+    }
+
+    pub fn get_upload_async(&self, req: &super::service::GetUploadRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleUploadResponse>> {
+        self.get_upload_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_uploads_opt(&self, req: &super::service::ListUploadsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiUploadResponse> {
+        self.client.unary_call(&METHOD_V2_LIST_UPLOADS, req, opt)
+    }
+
+    pub fn list_uploads(&self, req: &super::service::ListUploadsRequest) -> ::grpcio::Result<super::service::MultiUploadResponse> {
+        self.list_uploads_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_uploads_async_opt(&self, req: &super::service::ListUploadsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiUploadResponse>> {
+        self.client.unary_call_async(&METHOD_V2_LIST_UPLOADS, req, opt)
+    }
+
+    pub fn list_uploads_async(&self, req: &super::service::ListUploadsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiUploadResponse>> {
+        self.list_uploads_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn delete_uploads_opt(&self, req: &super::service::DeleteUploadsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::status::BaseResponse> {
+        self.client.unary_call(&METHOD_V2_DELETE_UPLOADS, req, opt)
+    }
+
+    pub fn delete_uploads(&self, req: &super::service::DeleteUploadsRequest) -> ::grpcio::Result<super::status::BaseResponse> {
+        self.delete_uploads_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn delete_uploads_async_opt(&self, req: &super::service::DeleteUploadsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::status::BaseResponse>> {
+        self.client.unary_call_async(&METHOD_V2_DELETE_UPLOADS, req, opt)
+    }
+
+    pub fn delete_uploads_async(&self, req: &super::service::DeleteUploadsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::status::BaseResponse>> {
+        self.delete_uploads_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn post_inputs_data_sources_opt(&self, req: &super::service::PostInputsDataSourcesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiInputsAddJobResponse> {
+        self.client.unary_call(&METHOD_V2_POST_INPUTS_DATA_SOURCES, req, opt)
+    }
+
+    pub fn post_inputs_data_sources(&self, req: &super::service::PostInputsDataSourcesRequest) -> ::grpcio::Result<super::service::MultiInputsAddJobResponse> {
+        self.post_inputs_data_sources_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn post_inputs_data_sources_async_opt(&self, req: &super::service::PostInputsDataSourcesRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiInputsAddJobResponse>> {
+        self.client.unary_call_async(&METHOD_V2_POST_INPUTS_DATA_SOURCES, req, opt)
+    }
+
+    pub fn post_inputs_data_sources_async(&self, req: &super::service::PostInputsDataSourcesRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiInputsAddJobResponse>> {
+        self.post_inputs_data_sources_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn get_inputs_extraction_job_opt(&self, req: &super::service::GetInputsExtractionJobRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::SingleInputsExtractionJobResponse> {
+        self.client.unary_call(&METHOD_V2_GET_INPUTS_EXTRACTION_JOB, req, opt)
+    }
+
+    pub fn get_inputs_extraction_job(&self, req: &super::service::GetInputsExtractionJobRequest) -> ::grpcio::Result<super::service::SingleInputsExtractionJobResponse> {
+        self.get_inputs_extraction_job_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn get_inputs_extraction_job_async_opt(&self, req: &super::service::GetInputsExtractionJobRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleInputsExtractionJobResponse>> {
+        self.client.unary_call_async(&METHOD_V2_GET_INPUTS_EXTRACTION_JOB, req, opt)
+    }
+
+    pub fn get_inputs_extraction_job_async(&self, req: &super::service::GetInputsExtractionJobRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleInputsExtractionJobResponse>> {
+        self.get_inputs_extraction_job_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_inputs_extraction_jobs_opt(&self, req: &super::service::ListInputsExtractionJobsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiInputsExtractionJobResponse> {
+        self.client.unary_call(&METHOD_V2_LIST_INPUTS_EXTRACTION_JOBS, req, opt)
+    }
+
+    pub fn list_inputs_extraction_jobs(&self, req: &super::service::ListInputsExtractionJobsRequest) -> ::grpcio::Result<super::service::MultiInputsExtractionJobResponse> {
+        self.list_inputs_extraction_jobs_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_inputs_extraction_jobs_async_opt(&self, req: &super::service::ListInputsExtractionJobsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiInputsExtractionJobResponse>> {
+        self.client.unary_call_async(&METHOD_V2_LIST_INPUTS_EXTRACTION_JOBS, req, opt)
+    }
+
+    pub fn list_inputs_extraction_jobs_async(&self, req: &super::service::ListInputsExtractionJobsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiInputsExtractionJobResponse>> {
+        self.list_inputs_extraction_jobs_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn cancel_inputs_extraction_jobs_opt(&self, req: &super::service::CancelInputsExtractionJobsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiInputsExtractionJobResponse> {
+        self.client.unary_call(&METHOD_V2_CANCEL_INPUTS_EXTRACTION_JOBS, req, opt)
+    }
+
+    pub fn cancel_inputs_extraction_jobs(&self, req: &super::service::CancelInputsExtractionJobsRequest) -> ::grpcio::Result<super::service::MultiInputsExtractionJobResponse> {
+        self.cancel_inputs_extraction_jobs_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn cancel_inputs_extraction_jobs_async_opt(&self, req: &super::service::CancelInputsExtractionJobsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiInputsExtractionJobResponse>> {
+        self.client.unary_call_async(&METHOD_V2_CANCEL_INPUTS_EXTRACTION_JOBS, req, opt)
+    }
+
+    pub fn cancel_inputs_extraction_jobs_async(&self, req: &super::service::CancelInputsExtractionJobsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiInputsExtractionJobResponse>> {
+        self.cancel_inputs_extraction_jobs_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn post_inputs_uploads_opt(&self, req: &super::service::PostInputsUploadsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiInputsAddJobResponse> {
+        self.client.unary_call(&METHOD_V2_POST_INPUTS_UPLOADS, req, opt)
+    }
+
+    pub fn post_inputs_uploads(&self, req: &super::service::PostInputsUploadsRequest) -> ::grpcio::Result<super::service::MultiInputsAddJobResponse> {
+        self.post_inputs_uploads_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn post_inputs_uploads_async_opt(&self, req: &super::service::PostInputsUploadsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiInputsAddJobResponse>> {
+        self.client.unary_call_async(&METHOD_V2_POST_INPUTS_UPLOADS, req, opt)
+    }
+
+    pub fn post_inputs_uploads_async(&self, req: &super::service::PostInputsUploadsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiInputsAddJobResponse>> {
+        self.post_inputs_uploads_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn get_runner_opt(&self, req: &super::service::GetRunnerRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::SingleRunnerResponse> {
+        self.client.unary_call(&METHOD_V2_GET_RUNNER, req, opt)
+    }
+
+    pub fn get_runner(&self, req: &super::service::GetRunnerRequest) -> ::grpcio::Result<super::service::SingleRunnerResponse> {
+        self.get_runner_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn get_runner_async_opt(&self, req: &super::service::GetRunnerRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleRunnerResponse>> {
+        self.client.unary_call_async(&METHOD_V2_GET_RUNNER, req, opt)
+    }
+
+    pub fn get_runner_async(&self, req: &super::service::GetRunnerRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::SingleRunnerResponse>> {
+        self.get_runner_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_runners_opt(&self, req: &super::service::ListRunnersRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiRunnerResponse> {
+        self.client.unary_call(&METHOD_V2_LIST_RUNNERS, req, opt)
+    }
+
+    pub fn list_runners(&self, req: &super::service::ListRunnersRequest) -> ::grpcio::Result<super::service::MultiRunnerResponse> {
+        self.list_runners_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_runners_async_opt(&self, req: &super::service::ListRunnersRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiRunnerResponse>> {
+        self.client.unary_call_async(&METHOD_V2_LIST_RUNNERS, req, opt)
+    }
+
+    pub fn list_runners_async(&self, req: &super::service::ListRunnersRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiRunnerResponse>> {
+        self.list_runners_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn post_runners_opt(&self, req: &super::service::PostRunnersRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiRunnerResponse> {
+        self.client.unary_call(&METHOD_V2_POST_RUNNERS, req, opt)
+    }
+
+    pub fn post_runners(&self, req: &super::service::PostRunnersRequest) -> ::grpcio::Result<super::service::MultiRunnerResponse> {
+        self.post_runners_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn post_runners_async_opt(&self, req: &super::service::PostRunnersRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiRunnerResponse>> {
+        self.client.unary_call_async(&METHOD_V2_POST_RUNNERS, req, opt)
+    }
+
+    pub fn post_runners_async(&self, req: &super::service::PostRunnersRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiRunnerResponse>> {
+        self.post_runners_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn delete_runners_opt(&self, req: &super::service::DeleteRunnersRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::status::BaseResponse> {
+        self.client.unary_call(&METHOD_V2_DELETE_RUNNERS, req, opt)
+    }
+
+    pub fn delete_runners(&self, req: &super::service::DeleteRunnersRequest) -> ::grpcio::Result<super::status::BaseResponse> {
+        self.delete_runners_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn delete_runners_async_opt(&self, req: &super::service::DeleteRunnersRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::status::BaseResponse>> {
+        self.client.unary_call_async(&METHOD_V2_DELETE_RUNNERS, req, opt)
+    }
+
+    pub fn delete_runners_async(&self, req: &super::service::DeleteRunnersRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::status::BaseResponse>> {
+        self.delete_runners_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_runner_items_opt(&self, req: &super::service::ListRunnerItemsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiRunnerItemResponse> {
+        self.client.unary_call(&METHOD_V2_LIST_RUNNER_ITEMS, req, opt)
+    }
+
+    pub fn list_runner_items(&self, req: &super::service::ListRunnerItemsRequest) -> ::grpcio::Result<super::service::MultiRunnerItemResponse> {
+        self.list_runner_items_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn list_runner_items_async_opt(&self, req: &super::service::ListRunnerItemsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiRunnerItemResponse>> {
+        self.client.unary_call_async(&METHOD_V2_LIST_RUNNER_ITEMS, req, opt)
+    }
+
+    pub fn list_runner_items_async(&self, req: &super::service::ListRunnerItemsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiRunnerItemResponse>> {
+        self.list_runner_items_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn post_runner_item_outputs_opt(&self, req: &super::service::PostRunnerItemOutputsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiRunnerItemOutputResponse> {
+        self.client.unary_call(&METHOD_V2_POST_RUNNER_ITEM_OUTPUTS, req, opt)
+    }
+
+    pub fn post_runner_item_outputs(&self, req: &super::service::PostRunnerItemOutputsRequest) -> ::grpcio::Result<super::service::MultiRunnerItemOutputResponse> {
+        self.post_runner_item_outputs_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn post_runner_item_outputs_async_opt(&self, req: &super::service::PostRunnerItemOutputsRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiRunnerItemOutputResponse>> {
+        self.client.unary_call_async(&METHOD_V2_POST_RUNNER_ITEM_OUTPUTS, req, opt)
+    }
+
+    pub fn post_runner_item_outputs_async(&self, req: &super::service::PostRunnerItemOutputsRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiRunnerItemOutputResponse>> {
+        self.post_runner_item_outputs_async_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn post_model_versions_training_time_estimate_opt(&self, req: &super::service::PostModelVersionsTrainingTimeEstimateRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::service::MultiTrainingTimeEstimateResponse> {
+        self.client.unary_call(&METHOD_V2_POST_MODEL_VERSIONS_TRAINING_TIME_ESTIMATE, req, opt)
+    }
+
+    pub fn post_model_versions_training_time_estimate(&self, req: &super::service::PostModelVersionsTrainingTimeEstimateRequest) -> ::grpcio::Result<super::service::MultiTrainingTimeEstimateResponse> {
+        self.post_model_versions_training_time_estimate_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn post_model_versions_training_time_estimate_async_opt(&self, req: &super::service::PostModelVersionsTrainingTimeEstimateRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiTrainingTimeEstimateResponse>> {
+        self.client.unary_call_async(&METHOD_V2_POST_MODEL_VERSIONS_TRAINING_TIME_ESTIMATE, req, opt)
+    }
+
+    pub fn post_model_versions_training_time_estimate_async(&self, req: &super::service::PostModelVersionsTrainingTimeEstimateRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::service::MultiTrainingTimeEstimateResponse>> {
+        self.post_model_versions_training_time_estimate_async_opt(req, ::grpcio::CallOption::default())
+    }
+    pub fn spawn<F>(&self, f: F) where F: ::std::future::Future<Output = ()> + Send + 'static {
         self.client.spawn(f)
     }
 }
 
 pub trait V2 {
-    fn list_concept_relations(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListConceptRelationsRequest, sink: ::grpcio::UnarySink<super::service::MultiConceptRelationResponse>);
-    fn post_concept_relations(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostConceptRelationsRequest, sink: ::grpcio::UnarySink<super::service::MultiConceptRelationResponse>);
-    fn delete_concept_relations(&mut self, ctx: ::grpcio::RpcContext, req: super::service::DeleteConceptRelationsRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
-    fn get_concept_counts(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetConceptCountsRequest, sink: ::grpcio::UnarySink<super::service::MultiConceptCountResponse>);
-    fn get_concept(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetConceptRequest, sink: ::grpcio::UnarySink<super::service::SingleConceptResponse>);
-    fn list_concepts(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListConceptsRequest, sink: ::grpcio::UnarySink<super::service::MultiConceptResponse>);
-    fn post_concepts_searches(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostConceptsSearchesRequest, sink: ::grpcio::UnarySink<super::service::MultiConceptResponse>);
-    fn post_concepts(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostConceptsRequest, sink: ::grpcio::UnarySink<super::service::MultiConceptResponse>);
-    fn patch_concepts(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PatchConceptsRequest, sink: ::grpcio::UnarySink<super::service::MultiConceptResponse>);
-    fn get_concept_language(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetConceptLanguageRequest, sink: ::grpcio::UnarySink<super::service::SingleConceptLanguageResponse>);
-    fn list_concept_languages(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListConceptLanguagesRequest, sink: ::grpcio::UnarySink<super::service::MultiConceptLanguageResponse>);
-    fn post_concept_languages(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostConceptLanguagesRequest, sink: ::grpcio::UnarySink<super::service::MultiConceptLanguageResponse>);
-    fn patch_concept_languages(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PatchConceptLanguagesRequest, sink: ::grpcio::UnarySink<super::service::MultiConceptLanguageResponse>);
-    fn list_knowledge_graphs(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListKnowledgeGraphsRequest, sink: ::grpcio::UnarySink<super::service::MultiKnowledgeGraphResponse>);
-    fn post_knowledge_graphs(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostKnowledgeGraphsRequest, sink: ::grpcio::UnarySink<super::service::MultiKnowledgeGraphResponse>);
-    fn post_concept_mapping_jobs(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostConceptMappingJobsRequest, sink: ::grpcio::UnarySink<super::service::MultiConceptMappingJobResponse>);
-    fn get_annotation(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetAnnotationRequest, sink: ::grpcio::UnarySink<super::service::SingleAnnotationResponse>);
-    fn list_annotations(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListAnnotationsRequest, sink: ::grpcio::UnarySink<super::service::MultiAnnotationResponse>);
-    fn post_annotations(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostAnnotationsRequest, sink: ::grpcio::UnarySink<super::service::MultiAnnotationResponse>);
-    fn patch_annotations(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PatchAnnotationsRequest, sink: ::grpcio::UnarySink<super::service::MultiAnnotationResponse>);
-    fn patch_annotations_status(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PatchAnnotationsStatusRequest, sink: ::grpcio::UnarySink<super::service::PatchAnnotationsStatusResponse>);
-    fn delete_annotation(&mut self, ctx: ::grpcio::RpcContext, req: super::service::DeleteAnnotationRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
-    fn delete_annotations(&mut self, ctx: ::grpcio::RpcContext, req: super::service::DeleteAnnotationsRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
-    fn post_annotations_searches(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostAnnotationsSearchesRequest, sink: ::grpcio::UnarySink<super::service::MultiSearchResponse>);
-    fn get_input_count(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetInputCountRequest, sink: ::grpcio::UnarySink<super::service::SingleInputCountResponse>);
-    fn stream_inputs(&mut self, ctx: ::grpcio::RpcContext, req: super::service::StreamInputsRequest, sink: ::grpcio::UnarySink<super::service::MultiInputResponse>);
-    fn get_input_samples(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetInputSamplesRequest, sink: ::grpcio::UnarySink<super::service::MultiInputAnnotationResponse>);
-    fn get_input(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetInputRequest, sink: ::grpcio::UnarySink<super::service::SingleInputResponse>);
-    fn list_inputs(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListInputsRequest, sink: ::grpcio::UnarySink<super::service::MultiInputResponse>);
-    fn post_inputs(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostInputsRequest, sink: ::grpcio::UnarySink<super::service::MultiInputResponse>);
-    fn patch_inputs(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PatchInputsRequest, sink: ::grpcio::UnarySink<super::service::MultiInputResponse>);
-    fn delete_input(&mut self, ctx: ::grpcio::RpcContext, req: super::service::DeleteInputRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
-    fn delete_inputs(&mut self, ctx: ::grpcio::RpcContext, req: super::service::DeleteInputsRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
-    fn post_inputs_searches(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostInputsSearchesRequest, sink: ::grpcio::UnarySink<super::service::MultiSearchResponse>);
-    fn post_model_outputs(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostModelOutputsRequest, sink: ::grpcio::UnarySink<super::service::MultiOutputResponse>);
-    fn get_model_type(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetModelTypeRequest, sink: ::grpcio::UnarySink<super::service::SingleModelTypeResponse>);
-    fn list_open_source_licenses(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListOpenSourceLicensesRequest, sink: ::grpcio::UnarySink<super::service::ListOpenSourceLicensesResponse>);
-    fn list_model_types(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListModelTypesRequest, sink: ::grpcio::UnarySink<super::service::MultiModelTypeResponse>);
-    fn get_model(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetModelRequest, sink: ::grpcio::UnarySink<super::service::SingleModelResponse>);
-    fn get_model_output_info(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetModelRequest, sink: ::grpcio::UnarySink<super::service::SingleModelResponse>);
-    fn list_models(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListModelsRequest, sink: ::grpcio::UnarySink<super::service::MultiModelResponse>);
-    fn post_models_searches(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostModelsSearchesRequest, sink: ::grpcio::UnarySink<super::service::MultiModelResponse>);
-    fn post_models(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostModelsRequest, sink: ::grpcio::UnarySink<super::service::SingleModelResponse>);
-    fn patch_models(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PatchModelsRequest, sink: ::grpcio::UnarySink<super::service::MultiModelResponse>);
-    fn delete_model(&mut self, ctx: ::grpcio::RpcContext, req: super::service::DeleteModelRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
-    fn delete_models(&mut self, ctx: ::grpcio::RpcContext, req: super::service::DeleteModelsRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
-    fn patch_model_toolkits(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PatchModelToolkitsRequest, sink: ::grpcio::UnarySink<super::service::MultiModelToolkitResponse>);
-    fn patch_model_use_cases(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PatchModelUseCasesRequest, sink: ::grpcio::UnarySink<super::service::MultiModelUseCaseResponse>);
-    fn patch_model_languages(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PatchModelLanguagesRequest, sink: ::grpcio::UnarySink<super::service::MultiModelLanguageResponse>);
-    fn list_model_inputs(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListModelInputsRequest, sink: ::grpcio::UnarySink<super::service::MultiInputResponse>);
-    fn get_model_version(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetModelVersionRequest, sink: ::grpcio::UnarySink<super::service::SingleModelVersionResponse>);
-    fn list_model_versions(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListModelVersionsRequest, sink: ::grpcio::UnarySink<super::service::MultiModelVersionResponse>);
-    fn post_model_versions_publish(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostModelVersionsPublishRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
-    fn post_model_versions_un_publish(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostModelVersionsUnPublishRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
-    fn post_model_versions(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostModelVersionsRequest, sink: ::grpcio::UnarySink<super::service::SingleModelResponse>);
-    fn patch_model_versions(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PatchModelVersionsRequest, sink: ::grpcio::UnarySink<super::service::MultiModelVersionResponse>);
-    fn delete_model_version(&mut self, ctx: ::grpcio::RpcContext, req: super::service::DeleteModelVersionRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
-    fn get_model_version_metrics(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetModelVersionMetricsRequest, sink: ::grpcio::UnarySink<super::service::SingleModelVersionResponse>);
-    fn post_model_version_metrics(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostModelVersionMetricsRequest, sink: ::grpcio::UnarySink<super::service::SingleModelVersionResponse>);
-    fn list_model_references(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListModelReferencesRequest, sink: ::grpcio::UnarySink<super::service::MultiModelReferenceResponse>);
-    fn get_model_version_input_example(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetModelVersionInputExampleRequest, sink: ::grpcio::UnarySink<super::service::SingleModelVersionInputExampleResponse>);
-    fn list_model_version_input_examples(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListModelVersionInputExamplesRequest, sink: ::grpcio::UnarySink<super::service::MultiModelVersionInputExampleResponse>);
-    fn get_workflow(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetWorkflowRequest, sink: ::grpcio::UnarySink<super::service::SingleWorkflowResponse>);
-    fn list_workflows(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListWorkflowsRequest, sink: ::grpcio::UnarySink<super::service::MultiWorkflowResponse>);
-    fn post_workflows(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostWorkflowsRequest, sink: ::grpcio::UnarySink<super::service::MultiWorkflowResponse>);
-    fn patch_workflows(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PatchWorkflowsRequest, sink: ::grpcio::UnarySink<super::service::MultiWorkflowResponse>);
-    fn delete_workflow(&mut self, ctx: ::grpcio::RpcContext, req: super::service::DeleteWorkflowRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
-    fn delete_workflows(&mut self, ctx: ::grpcio::RpcContext, req: super::service::DeleteWorkflowsRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
-    fn post_workflow_results(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostWorkflowResultsRequest, sink: ::grpcio::UnarySink<super::service::PostWorkflowResultsResponse>);
-    fn post_workflow_results_similarity(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostWorkflowResultsSimilarityRequest, sink: ::grpcio::UnarySink<super::service::PostWorkflowResultsSimilarityResponse>);
-    fn list_workflow_versions(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListWorkflowVersionsRequest, sink: ::grpcio::UnarySink<super::service::MultiWorkflowVersionResponse>);
-    fn get_workflow_version(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetWorkflowVersionRequest, sink: ::grpcio::UnarySink<super::service::SingleWorkflowVersionResponse>);
-    fn delete_workflow_versions(&mut self, ctx: ::grpcio::RpcContext, req: super::service::DeleteWorkflowVersionsRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
-    fn patch_workflow_versions(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PatchWorkflowVersionsRequest, sink: ::grpcio::UnarySink<super::service::MultiWorkflowVersionResponse>);
-    fn get_key(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetKeyRequest, sink: ::grpcio::UnarySink<super::service::SingleKeyResponse>);
-    fn list_keys(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListKeysRequest, sink: ::grpcio::UnarySink<super::service::MultiKeyResponse>);
-    fn list_app_keys(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListAppKeysRequest, sink: ::grpcio::UnarySink<super::service::MultiKeyResponse>);
-    fn delete_key(&mut self, ctx: ::grpcio::RpcContext, req: super::service::DeleteKeyRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
-    fn post_keys(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostKeysRequest, sink: ::grpcio::UnarySink<super::service::MultiKeyResponse>);
-    fn patch_keys(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PatchKeysRequest, sink: ::grpcio::UnarySink<super::service::MultiKeyResponse>);
-    fn my_scopes(&mut self, ctx: ::grpcio::RpcContext, req: super::service::MyScopesRequest, sink: ::grpcio::UnarySink<super::service::MultiScopeResponse>);
-    fn my_scopes_user(&mut self, ctx: ::grpcio::RpcContext, req: super::service::MyScopesUserRequest, sink: ::grpcio::UnarySink<super::service::MultiScopeUserResponse>);
-    fn my_scopes_root(&mut self, ctx: ::grpcio::RpcContext, req: super::service::MyScopesRootRequest, sink: ::grpcio::UnarySink<super::service::MultiScopeRootResponse>);
-    fn list_scopes(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListScopesRequest, sink: ::grpcio::UnarySink<super::service::MultiScopeDepsResponse>);
-    fn get_app(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetAppRequest, sink: ::grpcio::UnarySink<super::service::SingleAppResponse>);
-    fn list_apps(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListAppsRequest, sink: ::grpcio::UnarySink<super::service::MultiAppResponse>);
-    fn delete_app(&mut self, ctx: ::grpcio::RpcContext, req: super::service::DeleteAppRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
-    fn post_apps(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostAppsRequest, sink: ::grpcio::UnarySink<super::service::MultiAppResponse>);
-    fn patch_apps(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PatchAppsRequest, sink: ::grpcio::UnarySink<super::service::MultiAppResponse>);
-    fn post_apps_searches(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostAppsSearchesRequest, sink: ::grpcio::UnarySink<super::service::MultiAppResponse>);
-    fn post_validate_password(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostValidatePasswordRequest, sink: ::grpcio::UnarySink<super::service::SinglePasswordValidationResponse>);
-    fn get_search(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetSearchRequest, sink: ::grpcio::UnarySink<super::service::SingleSearchResponse>);
-    fn list_searches(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListSearchesRequest, sink: ::grpcio::UnarySink<super::service::MultiSearchResponse>);
-    fn post_searches(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostSearchesRequest, sink: ::grpcio::UnarySink<super::service::MultiSearchResponse>);
-    fn post_searches_by_id(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostSearchesByIDRequest, sink: ::grpcio::UnarySink<super::service::MultiSearchResponse>);
-    fn post_annotation_search_metrics(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostAnnotationSearchMetricsRequest, sink: ::grpcio::UnarySink<super::service::MultiAnnotationSearchMetricsResponse>);
-    fn get_annotation_search_metrics(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetAnnotationSearchMetricsRequest, sink: ::grpcio::UnarySink<super::service::MultiAnnotationSearchMetricsResponse>);
-    fn list_annotation_search_metrics(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListAnnotationSearchMetricsRequest, sink: ::grpcio::UnarySink<super::service::MultiAnnotationSearchMetricsResponse>);
-    fn delete_annotation_search_metrics(&mut self, ctx: ::grpcio::RpcContext, req: super::service::DeleteAnnotationSearchMetricsRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
-    fn delete_search(&mut self, ctx: ::grpcio::RpcContext, req: super::service::DeleteSearchRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
-    fn list_status_codes(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListStatusCodesRequest, sink: ::grpcio::UnarySink<super::service::MultiStatusCodeResponse>);
-    fn get_status_code(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetStatusCodeRequest, sink: ::grpcio::UnarySink<super::service::SingleStatusCodeResponse>);
-    fn list_collaborators(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListCollaboratorsRequest, sink: ::grpcio::UnarySink<super::service::MultiCollaboratorsResponse>);
-    fn post_collaborators(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostCollaboratorsRequest, sink: ::grpcio::UnarySink<super::service::MultiCollaboratorsResponse>);
-    fn patch_collaborators(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PatchCollaboratorsRequest, sink: ::grpcio::UnarySink<super::service::MultiCollaboratorsResponse>);
-    fn delete_collaborators(&mut self, ctx: ::grpcio::RpcContext, req: super::service::DeleteCollaboratorsRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
-    fn list_collaborations(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListCollaborationsRequest, sink: ::grpcio::UnarySink<super::service::MultiCollaborationsResponse>);
-    fn post_app_duplications(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostAppDuplicationsRequest, sink: ::grpcio::UnarySink<super::service::MultiAppDuplicationsResponse>);
-    fn list_app_duplications(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListAppDuplicationsRequest, sink: ::grpcio::UnarySink<super::service::MultiAppDuplicationsResponse>);
-    fn get_app_duplication(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetAppDuplicationRequest, sink: ::grpcio::UnarySink<super::service::SingleAppDuplicationResponse>);
-    fn post_tasks(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostTasksRequest, sink: ::grpcio::UnarySink<super::service::MultiTaskResponse>);
-    fn get_task_annotation_count(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetTaskCountRequest, sink: ::grpcio::UnarySink<super::service::SingleTaskCountResponse>);
-    fn get_task_input_count(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetTaskCountRequest, sink: ::grpcio::UnarySink<super::service::SingleTaskCountResponse>);
-    fn get_task(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetTaskRequest, sink: ::grpcio::UnarySink<super::service::SingleTaskResponse>);
-    fn list_tasks(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListTasksRequest, sink: ::grpcio::UnarySink<super::service::MultiTaskResponse>);
-    fn patch_tasks(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PatchTasksRequest, sink: ::grpcio::UnarySink<super::service::MultiTaskResponse>);
-    fn delete_tasks(&mut self, ctx: ::grpcio::RpcContext, req: super::service::DeleteTasksRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
-    fn post_label_orders(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostLabelOrdersRequest, sink: ::grpcio::UnarySink<super::service::MultiLabelOrderResponse>);
-    fn get_label_order(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetLabelOrderRequest, sink: ::grpcio::UnarySink<super::service::SingleLabelOrderResponse>);
-    fn list_label_orders(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListLabelOrdersRequest, sink: ::grpcio::UnarySink<super::service::MultiLabelOrderResponse>);
-    fn patch_label_orders(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PatchLabelOrdersRequest, sink: ::grpcio::UnarySink<super::service::MultiLabelOrderResponse>);
-    fn delete_label_orders(&mut self, ctx: ::grpcio::RpcContext, req: super::service::DeleteLabelOrdersRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
-    fn post_collectors(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostCollectorsRequest, sink: ::grpcio::UnarySink<super::service::MultiCollectorResponse>);
-    fn get_collector(&mut self, ctx: ::grpcio::RpcContext, req: super::service::GetCollectorRequest, sink: ::grpcio::UnarySink<super::service::SingleCollectorResponse>);
-    fn list_collectors(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListCollectorsRequest, sink: ::grpcio::UnarySink<super::service::MultiCollectorResponse>);
-    fn patch_collectors(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PatchCollectorsRequest, sink: ::grpcio::UnarySink<super::service::MultiCollectorResponse>);
-    fn delete_collectors(&mut self, ctx: ::grpcio::RpcContext, req: super::service::DeleteCollectorsRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
-    fn post_stat_values(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostStatValuesRequest, sink: ::grpcio::UnarySink<super::service::MultiStatValueResponse>);
-    fn post_stat_values_aggregate(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostStatValuesAggregateRequest, sink: ::grpcio::UnarySink<super::service::MultiStatValueAggregateResponse>);
-    fn post_trending_metrics_view(&mut self, ctx: ::grpcio::RpcContext, req: super::service::PostTrendingMetricsViewRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>);
-    fn list_trending_metrics_views(&mut self, ctx: ::grpcio::RpcContext, req: super::service::ListTrendingMetricsViewsRequest, sink: ::grpcio::UnarySink<super::service::MultiTrendingMetricsViewResponse>);
+    fn list_concept_relations(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::ListConceptRelationsRequest, sink: ::grpcio::UnarySink<super::service::MultiConceptRelationResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_concept_relations(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostConceptRelationsRequest, sink: ::grpcio::UnarySink<super::service::MultiConceptRelationResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn delete_concept_relations(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::DeleteConceptRelationsRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn get_concept_counts(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::GetConceptCountsRequest, sink: ::grpcio::UnarySink<super::service::MultiConceptCountResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn get_concept(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::GetConceptRequest, sink: ::grpcio::UnarySink<super::service::SingleConceptResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn list_concepts(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::ListConceptsRequest, sink: ::grpcio::UnarySink<super::service::MultiConceptResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn list_model_concepts(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::ListModelConceptsRequest, sink: ::grpcio::UnarySink<super::service::MultiConceptResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_concepts_searches(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostConceptsSearchesRequest, sink: ::grpcio::UnarySink<super::service::MultiConceptResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_concepts(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostConceptsRequest, sink: ::grpcio::UnarySink<super::service::MultiConceptResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn patch_concepts(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PatchConceptsRequest, sink: ::grpcio::UnarySink<super::service::MultiConceptResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn get_concept_language(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::GetConceptLanguageRequest, sink: ::grpcio::UnarySink<super::service::SingleConceptLanguageResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn list_concept_languages(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::ListConceptLanguagesRequest, sink: ::grpcio::UnarySink<super::service::MultiConceptLanguageResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_concept_languages(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostConceptLanguagesRequest, sink: ::grpcio::UnarySink<super::service::MultiConceptLanguageResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn patch_concept_languages(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PatchConceptLanguagesRequest, sink: ::grpcio::UnarySink<super::service::MultiConceptLanguageResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn list_knowledge_graphs(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::ListKnowledgeGraphsRequest, sink: ::grpcio::UnarySink<super::service::MultiKnowledgeGraphResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_knowledge_graphs(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostKnowledgeGraphsRequest, sink: ::grpcio::UnarySink<super::service::MultiKnowledgeGraphResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_concept_mapping_jobs(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostConceptMappingJobsRequest, sink: ::grpcio::UnarySink<super::service::MultiConceptMappingJobResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn get_annotation(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::GetAnnotationRequest, sink: ::grpcio::UnarySink<super::service::SingleAnnotationResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn list_annotations(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::ListAnnotationsRequest, sink: ::grpcio::UnarySink<super::service::MultiAnnotationResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_annotations(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostAnnotationsRequest, sink: ::grpcio::UnarySink<super::service::MultiAnnotationResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn patch_annotations(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PatchAnnotationsRequest, sink: ::grpcio::UnarySink<super::service::MultiAnnotationResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn patch_annotations_status(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PatchAnnotationsStatusRequest, sink: ::grpcio::UnarySink<super::service::PatchAnnotationsStatusResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn delete_annotation(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::DeleteAnnotationRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn delete_annotations(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::DeleteAnnotationsRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn patch_annotations_searches(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PatchAnnotationsSearchesRequest, sink: ::grpcio::UnarySink<super::service::MultiSearchResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_annotations_searches(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostAnnotationsSearchesRequest, sink: ::grpcio::UnarySink<super::service::MultiSearchResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn list_annotation_workers(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::ListAnnotationWorkersRequest, sink: ::grpcio::UnarySink<super::service::MultiWorkerResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn get_input_count(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::GetInputCountRequest, sink: ::grpcio::UnarySink<super::service::SingleInputCountResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn stream_inputs(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::StreamInputsRequest, sink: ::grpcio::UnarySink<super::service::MultiInputResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn get_input_samples(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::GetInputSamplesRequest, sink: ::grpcio::UnarySink<super::service::MultiInputAnnotationResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn get_input(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::GetInputRequest, sink: ::grpcio::UnarySink<super::service::SingleInputResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn get_input_video_manifest(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::GetVideoManifestRequest, sink: ::grpcio::UnarySink<super::service::GetVideoManifestResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn list_inputs(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::ListInputsRequest, sink: ::grpcio::UnarySink<super::service::MultiInputResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_inputs(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostInputsRequest, sink: ::grpcio::UnarySink<super::service::MultiInputResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn patch_inputs(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PatchInputsRequest, sink: ::grpcio::UnarySink<super::service::MultiInputResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn delete_input(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::DeleteInputRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn delete_inputs(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::DeleteInputsRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn patch_inputs_searches(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PatchInputsSearchesRequest, sink: ::grpcio::UnarySink<super::service::MultiSearchResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_inputs_searches(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostInputsSearchesRequest, sink: ::grpcio::UnarySink<super::service::MultiSearchResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_model_outputs(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostModelOutputsRequest, sink: ::grpcio::UnarySink<super::service::MultiOutputResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn list_datasets(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::ListDatasetsRequest, sink: ::grpcio::UnarySink<super::service::MultiDatasetResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn get_dataset(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::GetDatasetRequest, sink: ::grpcio::UnarySink<super::service::SingleDatasetResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_datasets(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostDatasetsRequest, sink: ::grpcio::UnarySink<super::service::MultiDatasetResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn patch_datasets(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PatchDatasetsRequest, sink: ::grpcio::UnarySink<super::service::MultiDatasetResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn delete_datasets(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::DeleteDatasetsRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn list_dataset_inputs(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::ListDatasetInputsRequest, sink: ::grpcio::UnarySink<super::service::MultiDatasetInputResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn get_dataset_input(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::GetDatasetInputRequest, sink: ::grpcio::UnarySink<super::service::SingleDatasetInputResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_dataset_inputs(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostDatasetInputsRequest, sink: ::grpcio::UnarySink<super::service::MultiDatasetInputResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn delete_dataset_inputs(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::DeleteDatasetInputsRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn list_dataset_versions(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::ListDatasetVersionsRequest, sink: ::grpcio::UnarySink<super::service::MultiDatasetVersionResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn get_dataset_version(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::GetDatasetVersionRequest, sink: ::grpcio::UnarySink<super::service::SingleDatasetVersionResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn list_dataset_version_metrics_groups(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::ListDatasetVersionMetricsGroupsRequest, sink: ::grpcio::UnarySink<super::service::MultiDatasetVersionMetricsGroupResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_dataset_versions(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostDatasetVersionsRequest, sink: ::grpcio::UnarySink<super::service::MultiDatasetVersionResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn patch_dataset_versions(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PatchDatasetVersionsRequest, sink: ::grpcio::UnarySink<super::service::MultiDatasetVersionResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn delete_dataset_versions(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::DeleteDatasetVersionsRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn put_dataset_version_exports(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PutDatasetVersionExportsRequest, sink: ::grpcio::UnarySink<super::service::MultiDatasetVersionExportResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn get_model_type(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::GetModelTypeRequest, sink: ::grpcio::UnarySink<super::service::SingleModelTypeResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn list_open_source_licenses(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::ListOpenSourceLicensesRequest, sink: ::grpcio::UnarySink<super::service::ListOpenSourceLicensesResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn list_model_types(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::ListModelTypesRequest, sink: ::grpcio::UnarySink<super::service::MultiModelTypeResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn get_model(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::GetModelRequest, sink: ::grpcio::UnarySink<super::service::SingleModelResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn get_model_output_info(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::GetModelRequest, sink: ::grpcio::UnarySink<super::service::SingleModelResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn list_models(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::ListModelsRequest, sink: ::grpcio::UnarySink<super::service::MultiModelResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn get_resource_counts(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::GetResourceCountsRequest, sink: ::grpcio::UnarySink<super::service::GetResourceCountsResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_models_searches(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostModelsSearchesRequest, sink: ::grpcio::UnarySink<super::service::MultiModelResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_models(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostModelsRequest, sink: ::grpcio::UnarySink<super::service::SingleModelResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn patch_models(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PatchModelsRequest, sink: ::grpcio::UnarySink<super::service::MultiModelResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn patch_model_ids(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PatchModelIdsRequest, sink: ::grpcio::UnarySink<super::service::MultiModelResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn delete_model(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::DeleteModelRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn delete_models(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::DeleteModelsRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn patch_model_check_consents(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PatchModelCheckConsentsRequest, sink: ::grpcio::UnarySink<super::service::MultiModelCheckConsentResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn patch_model_toolkits(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PatchModelToolkitsRequest, sink: ::grpcio::UnarySink<super::service::MultiModelToolkitResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn patch_model_use_cases(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PatchModelUseCasesRequest, sink: ::grpcio::UnarySink<super::service::MultiModelUseCaseResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn patch_model_languages(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PatchModelLanguagesRequest, sink: ::grpcio::UnarySink<super::service::MultiModelLanguageResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn list_model_inputs(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::ListModelInputsRequest, sink: ::grpcio::UnarySink<super::service::MultiInputResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn get_model_version(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::GetModelVersionRequest, sink: ::grpcio::UnarySink<super::service::SingleModelVersionResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn list_model_versions(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::ListModelVersionsRequest, sink: ::grpcio::UnarySink<super::service::MultiModelVersionResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_workflow_versions_un_publish(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostWorkflowVersionsUnPublishRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_workflow_versions_publish(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostWorkflowVersionsPublishRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_model_versions_publish(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostModelVersionsPublishRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_model_versions_un_publish(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostModelVersionsUnPublishRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_model_versions(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostModelVersionsRequest, sink: ::grpcio::UnarySink<super::service::SingleModelResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn patch_model_versions(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PatchModelVersionsRequest, sink: ::grpcio::UnarySink<super::service::MultiModelVersionResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn delete_model_version(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::DeleteModelVersionRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn get_model_version_metrics(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::GetModelVersionMetricsRequest, sink: ::grpcio::UnarySink<super::service::SingleModelVersionResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_model_version_metrics(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostModelVersionMetricsRequest, sink: ::grpcio::UnarySink<super::service::SingleModelVersionResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_model_version_evaluations(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostModelVersionEvaluationsRequest, sink: ::grpcio::UnarySink<super::service::MultiEvalMetricsResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn list_model_version_evaluations(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::ListModelVersionEvaluationsRequest, sink: ::grpcio::UnarySink<super::service::MultiEvalMetricsResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn get_model_version_evaluation(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::GetModelVersionEvaluationRequest, sink: ::grpcio::UnarySink<super::service::SingleEvalMetricsResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_evaluations(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostEvaluationsRequest, sink: ::grpcio::UnarySink<super::service::MultiEvalMetricsResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn list_evaluations(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::ListEvaluationsRequest, sink: ::grpcio::UnarySink<super::service::MultiEvalMetricsResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn get_evaluation(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::GetEvaluationRequest, sink: ::grpcio::UnarySink<super::service::SingleEvalMetricsResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn list_model_references(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::ListModelReferencesRequest, sink: ::grpcio::UnarySink<super::service::MultiModelReferenceResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn get_model_version_input_example(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::GetModelVersionInputExampleRequest, sink: ::grpcio::UnarySink<super::service::SingleModelVersionInputExampleResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn list_model_version_input_examples(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::ListModelVersionInputExamplesRequest, sink: ::grpcio::UnarySink<super::service::MultiModelVersionInputExampleResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn get_workflow(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::GetWorkflowRequest, sink: ::grpcio::UnarySink<super::service::SingleWorkflowResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn list_workflows(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::ListWorkflowsRequest, sink: ::grpcio::UnarySink<super::service::MultiWorkflowResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_workflows(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostWorkflowsRequest, sink: ::grpcio::UnarySink<super::service::MultiWorkflowResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn patch_workflows(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PatchWorkflowsRequest, sink: ::grpcio::UnarySink<super::service::MultiWorkflowResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn patch_workflow_ids(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PatchWorkflowIdsRequest, sink: ::grpcio::UnarySink<super::service::MultiWorkflowResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn delete_workflow(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::DeleteWorkflowRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn delete_workflows(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::DeleteWorkflowsRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_workflow_results(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostWorkflowResultsRequest, sink: ::grpcio::UnarySink<super::service::PostWorkflowResultsResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_workflow_results_similarity(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostWorkflowResultsSimilarityRequest, sink: ::grpcio::UnarySink<super::service::PostWorkflowResultsSimilarityResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn list_workflow_versions(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::ListWorkflowVersionsRequest, sink: ::grpcio::UnarySink<super::service::MultiWorkflowVersionResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn get_workflow_version(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::GetWorkflowVersionRequest, sink: ::grpcio::UnarySink<super::service::SingleWorkflowVersionResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn delete_workflow_versions(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::DeleteWorkflowVersionsRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn patch_workflow_versions(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PatchWorkflowVersionsRequest, sink: ::grpcio::UnarySink<super::service::MultiWorkflowVersionResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn get_key(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::GetKeyRequest, sink: ::grpcio::UnarySink<super::service::SingleKeyResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn list_keys(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::ListKeysRequest, sink: ::grpcio::UnarySink<super::service::MultiKeyResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn list_app_keys(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::ListAppKeysRequest, sink: ::grpcio::UnarySink<super::service::MultiKeyResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn delete_key(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::DeleteKeyRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_keys(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostKeysRequest, sink: ::grpcio::UnarySink<super::service::MultiKeyResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn patch_keys(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PatchKeysRequest, sink: ::grpcio::UnarySink<super::service::MultiKeyResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn my_scopes(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::MyScopesRequest, sink: ::grpcio::UnarySink<super::service::MultiScopeResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn my_scopes_user(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::MyScopesUserRequest, sink: ::grpcio::UnarySink<super::service::MultiScopeUserResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn my_scopes_root(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::MyScopesRootRequest, sink: ::grpcio::UnarySink<super::service::MultiScopeRootResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn list_scopes(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::ListScopesRequest, sink: ::grpcio::UnarySink<super::service::MultiScopeDepsResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn get_app(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::GetAppRequest, sink: ::grpcio::UnarySink<super::service::SingleAppResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn list_apps(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::ListAppsRequest, sink: ::grpcio::UnarySink<super::service::MultiAppResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn delete_app(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::DeleteAppRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_apps(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostAppsRequest, sink: ::grpcio::UnarySink<super::service::MultiAppResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn patch_apps(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PatchAppsRequest, sink: ::grpcio::UnarySink<super::service::MultiAppResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn patch_apps_ids(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PatchAppsIdsRequest, sink: ::grpcio::UnarySink<super::service::MultiAppResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn patch_app(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PatchAppRequest, sink: ::grpcio::UnarySink<super::service::SingleAppResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_apps_searches(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostAppsSearchesRequest, sink: ::grpcio::UnarySink<super::service::MultiAppResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn get_user(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::GetUserRequest, sink: ::grpcio::UnarySink<super::service::SingleUserResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_validate_password(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostValidatePasswordRequest, sink: ::grpcio::UnarySink<super::service::SinglePasswordValidationResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn get_search(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::GetSearchRequest, sink: ::grpcio::UnarySink<super::service::SingleSearchResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn list_searches(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::ListSearchesRequest, sink: ::grpcio::UnarySink<super::service::MultiSearchResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn patch_searches(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PatchSearchesRequest, sink: ::grpcio::UnarySink<super::service::MultiSearchResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_searches(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostSearchesRequest, sink: ::grpcio::UnarySink<super::service::MultiSearchResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_searches_by_id(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostSearchesByIDRequest, sink: ::grpcio::UnarySink<super::service::MultiSearchResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_annotation_search_metrics(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostAnnotationSearchMetricsRequest, sink: ::grpcio::UnarySink<super::service::MultiAnnotationSearchMetricsResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn get_annotation_search_metrics(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::GetAnnotationSearchMetricsRequest, sink: ::grpcio::UnarySink<super::service::MultiAnnotationSearchMetricsResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn list_annotation_search_metrics(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::ListAnnotationSearchMetricsRequest, sink: ::grpcio::UnarySink<super::service::MultiAnnotationSearchMetricsResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn delete_annotation_search_metrics(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::DeleteAnnotationSearchMetricsRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn delete_search(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::DeleteSearchRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn list_annotation_filters(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::ListAnnotationFiltersRequest, sink: ::grpcio::UnarySink<super::service::MultiAnnotationFilterResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn get_annotation_filter(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::GetAnnotationFilterRequest, sink: ::grpcio::UnarySink<super::service::SingleAnnotationFilterResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_annotation_filters(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostAnnotationFiltersRequest, sink: ::grpcio::UnarySink<super::service::MultiAnnotationFilterResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn patch_annotation_filters(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PatchAnnotationFiltersRequest, sink: ::grpcio::UnarySink<super::service::MultiAnnotationFilterResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn delete_annotation_filters(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::DeleteAnnotationFiltersRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn list_status_codes(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::ListStatusCodesRequest, sink: ::grpcio::UnarySink<super::service::MultiStatusCodeResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn get_status_code(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::GetStatusCodeRequest, sink: ::grpcio::UnarySink<super::service::SingleStatusCodeResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn list_collaborators(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::ListCollaboratorsRequest, sink: ::grpcio::UnarySink<super::service::MultiCollaboratorsResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_collaborators(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostCollaboratorsRequest, sink: ::grpcio::UnarySink<super::service::MultiCollaboratorsResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn patch_collaborators(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PatchCollaboratorsRequest, sink: ::grpcio::UnarySink<super::service::MultiCollaboratorsResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn delete_collaborators(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::DeleteCollaboratorsRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn list_collaborations(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::ListCollaborationsRequest, sink: ::grpcio::UnarySink<super::service::MultiCollaborationsResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_app_duplications(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostAppDuplicationsRequest, sink: ::grpcio::UnarySink<super::service::MultiAppDuplicationsResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn list_app_duplications(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::ListAppDuplicationsRequest, sink: ::grpcio::UnarySink<super::service::MultiAppDuplicationsResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn get_app_duplication(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::GetAppDuplicationRequest, sink: ::grpcio::UnarySink<super::service::SingleAppDuplicationResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_tasks(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostTasksRequest, sink: ::grpcio::UnarySink<super::service::MultiTaskResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn get_task_annotation_count(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::GetTaskCountRequest, sink: ::grpcio::UnarySink<super::service::SingleTaskCountResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn get_task_input_count(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::GetTaskCountRequest, sink: ::grpcio::UnarySink<super::service::SingleTaskCountResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn get_task(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::GetTaskRequest, sink: ::grpcio::UnarySink<super::service::SingleTaskResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn list_tasks(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::ListTasksRequest, sink: ::grpcio::UnarySink<super::service::MultiTaskResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn patch_tasks(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PatchTasksRequest, sink: ::grpcio::UnarySink<super::service::MultiTaskResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn delete_tasks(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::DeleteTasksRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_label_orders(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostLabelOrdersRequest, sink: ::grpcio::UnarySink<super::service::MultiLabelOrderResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn get_label_order(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::GetLabelOrderRequest, sink: ::grpcio::UnarySink<super::service::SingleLabelOrderResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn list_label_orders(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::ListLabelOrdersRequest, sink: ::grpcio::UnarySink<super::service::MultiLabelOrderResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn patch_label_orders(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PatchLabelOrdersRequest, sink: ::grpcio::UnarySink<super::service::MultiLabelOrderResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn delete_label_orders(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::DeleteLabelOrdersRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_collectors(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostCollectorsRequest, sink: ::grpcio::UnarySink<super::service::MultiCollectorResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn get_collector(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::GetCollectorRequest, sink: ::grpcio::UnarySink<super::service::SingleCollectorResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn list_collectors(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::ListCollectorsRequest, sink: ::grpcio::UnarySink<super::service::MultiCollectorResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn patch_collectors(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PatchCollectorsRequest, sink: ::grpcio::UnarySink<super::service::MultiCollectorResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn delete_collectors(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::DeleteCollectorsRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_stat_values(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostStatValuesRequest, sink: ::grpcio::UnarySink<super::service::MultiStatValueResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_stat_values_aggregate(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostStatValuesAggregateRequest, sink: ::grpcio::UnarySink<super::service::MultiStatValueAggregateResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_trending_metrics_view(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostTrendingMetricsViewRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn list_trending_metrics_views(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::ListTrendingMetricsViewsRequest, sink: ::grpcio::UnarySink<super::service::MultiTrendingMetricsViewResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn get_module(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::GetModuleRequest, sink: ::grpcio::UnarySink<super::service::SingleModuleResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn list_modules(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::ListModulesRequest, sink: ::grpcio::UnarySink<super::service::MultiModuleResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_modules(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostModulesRequest, sink: ::grpcio::UnarySink<super::service::MultiModuleResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn patch_modules(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PatchModulesRequest, sink: ::grpcio::UnarySink<super::service::MultiModuleResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn delete_modules(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::DeleteModulesRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn get_module_version(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::GetModuleVersionRequest, sink: ::grpcio::UnarySink<super::service::SingleModuleVersionResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn list_module_versions(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::ListModuleVersionsRequest, sink: ::grpcio::UnarySink<super::service::MultiModuleVersionResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_module_versions(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostModuleVersionsRequest, sink: ::grpcio::UnarySink<super::service::MultiModuleVersionResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn delete_module_versions(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::DeleteModuleVersionsRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn get_module_version_usage_count(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::GetModuleVersionUsageCountRequest, sink: ::grpcio::UnarySink<super::service::SingleModuleVersionUsageCountResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn get_installed_module_version(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::GetInstalledModuleVersionRequest, sink: ::grpcio::UnarySink<super::service::SingleInstalledModuleVersionResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn list_installed_module_versions(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::ListInstalledModuleVersionsRequest, sink: ::grpcio::UnarySink<super::service::MultiInstalledModuleVersionResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_installed_module_versions(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostInstalledModuleVersionsRequest, sink: ::grpcio::UnarySink<super::service::MultiInstalledModuleVersionResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn delete_installed_module_versions(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::DeleteInstalledModuleVersionsRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_installed_module_versions_key(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostInstalledModuleVersionsKeyRequest, sink: ::grpcio::UnarySink<super::service::SingleKeyResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_bulk_operations(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostBulkOperationsRequest, sink: ::grpcio::UnarySink<super::service::MultiBulkOperationsResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn list_bulk_operations(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::ListBulkOperationsRequest, sink: ::grpcio::UnarySink<super::service::MultiBulkOperationsResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn get_bulk_operation(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::GetBulkOperationRequest, sink: ::grpcio::UnarySink<super::service::SingleBulkOperationsResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn cancel_bulk_operations(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::CancelBulkOperationRequest, sink: ::grpcio::UnarySink<super::service::MultiBulkOperationsResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn delete_bulk_operations(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::DeleteBulkOperationRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn list_next_task_assignments(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::ListNextTaskAssignmentsRequest, sink: ::grpcio::UnarySink<super::service::MultiInputResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn put_task_assignments(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PutTaskAssignmentsRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn list_inputs_add_jobs(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::ListInputsAddJobsRequest, sink: ::grpcio::UnarySink<super::service::MultiInputsAddJobResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn get_inputs_add_job(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::GetInputsAddJobRequest, sink: ::grpcio::UnarySink<super::service::SingleInputsAddJobResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn cancel_inputs_add_job(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::CancelInputsAddJobRequest, sink: ::grpcio::UnarySink<super::service::SingleInputsAddJobResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_uploads(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostUploadsRequest, sink: ::grpcio::UnarySink<super::service::MultiUploadResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn put_upload_content_parts(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PutUploadContentPartsRequest, sink: ::grpcio::UnarySink<super::service::SingleUploadResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn get_upload(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::GetUploadRequest, sink: ::grpcio::UnarySink<super::service::SingleUploadResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn list_uploads(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::ListUploadsRequest, sink: ::grpcio::UnarySink<super::service::MultiUploadResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn delete_uploads(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::DeleteUploadsRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_inputs_data_sources(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostInputsDataSourcesRequest, sink: ::grpcio::UnarySink<super::service::MultiInputsAddJobResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn get_inputs_extraction_job(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::GetInputsExtractionJobRequest, sink: ::grpcio::UnarySink<super::service::SingleInputsExtractionJobResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn list_inputs_extraction_jobs(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::ListInputsExtractionJobsRequest, sink: ::grpcio::UnarySink<super::service::MultiInputsExtractionJobResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn cancel_inputs_extraction_jobs(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::CancelInputsExtractionJobsRequest, sink: ::grpcio::UnarySink<super::service::MultiInputsExtractionJobResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_inputs_uploads(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostInputsUploadsRequest, sink: ::grpcio::UnarySink<super::service::MultiInputsAddJobResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn get_runner(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::GetRunnerRequest, sink: ::grpcio::UnarySink<super::service::SingleRunnerResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn list_runners(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::ListRunnersRequest, sink: ::grpcio::UnarySink<super::service::MultiRunnerResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_runners(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostRunnersRequest, sink: ::grpcio::UnarySink<super::service::MultiRunnerResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn delete_runners(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::DeleteRunnersRequest, sink: ::grpcio::UnarySink<super::status::BaseResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn list_runner_items(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::ListRunnerItemsRequest, sink: ::grpcio::UnarySink<super::service::MultiRunnerItemResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_runner_item_outputs(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostRunnerItemOutputsRequest, sink: ::grpcio::UnarySink<super::service::MultiRunnerItemOutputResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
+    fn post_model_versions_training_time_estimate(&mut self, ctx: ::grpcio::RpcContext, _req: super::service::PostModelVersionsTrainingTimeEstimateRequest, sink: ::grpcio::UnarySink<super::service::MultiTrainingTimeEstimateResponse>) {
+        grpcio::unimplemented_call!(ctx, sink)
+    }
 }
 
 pub fn create_v2<S: V2 + Send + Clone + 'static>(s: S) -> ::grpcio::Service {
@@ -3204,6 +5650,10 @@ pub fn create_v2<S: V2 + Send + Clone + 'static>(s: S) -> ::grpcio::Service {
     let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_LIST_CONCEPTS, move |ctx, req, resp| {
         instance.list_concepts(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_LIST_MODEL_CONCEPTS, move |ctx, req, resp| {
+        instance.list_model_concepts(ctx, req, resp)
     });
     let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_POST_CONCEPTS_SEARCHES, move |ctx, req, resp| {
@@ -3274,8 +5724,16 @@ pub fn create_v2<S: V2 + Send + Clone + 'static>(s: S) -> ::grpcio::Service {
         instance.delete_annotations(ctx, req, resp)
     });
     let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_PATCH_ANNOTATIONS_SEARCHES, move |ctx, req, resp| {
+        instance.patch_annotations_searches(ctx, req, resp)
+    });
+    let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_POST_ANNOTATIONS_SEARCHES, move |ctx, req, resp| {
         instance.post_annotations_searches(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_LIST_ANNOTATION_WORKERS, move |ctx, req, resp| {
+        instance.list_annotation_workers(ctx, req, resp)
     });
     let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_GET_INPUT_COUNT, move |ctx, req, resp| {
@@ -3292,6 +5750,10 @@ pub fn create_v2<S: V2 + Send + Clone + 'static>(s: S) -> ::grpcio::Service {
     let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_GET_INPUT, move |ctx, req, resp| {
         instance.get_input(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_GET_INPUT_VIDEO_MANIFEST, move |ctx, req, resp| {
+        instance.get_input_video_manifest(ctx, req, resp)
     });
     let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_LIST_INPUTS, move |ctx, req, resp| {
@@ -3314,12 +5776,80 @@ pub fn create_v2<S: V2 + Send + Clone + 'static>(s: S) -> ::grpcio::Service {
         instance.delete_inputs(ctx, req, resp)
     });
     let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_PATCH_INPUTS_SEARCHES, move |ctx, req, resp| {
+        instance.patch_inputs_searches(ctx, req, resp)
+    });
+    let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_POST_INPUTS_SEARCHES, move |ctx, req, resp| {
         instance.post_inputs_searches(ctx, req, resp)
     });
     let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_POST_MODEL_OUTPUTS, move |ctx, req, resp| {
         instance.post_model_outputs(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_LIST_DATASETS, move |ctx, req, resp| {
+        instance.list_datasets(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_GET_DATASET, move |ctx, req, resp| {
+        instance.get_dataset(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_POST_DATASETS, move |ctx, req, resp| {
+        instance.post_datasets(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_PATCH_DATASETS, move |ctx, req, resp| {
+        instance.patch_datasets(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_DELETE_DATASETS, move |ctx, req, resp| {
+        instance.delete_datasets(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_LIST_DATASET_INPUTS, move |ctx, req, resp| {
+        instance.list_dataset_inputs(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_GET_DATASET_INPUT, move |ctx, req, resp| {
+        instance.get_dataset_input(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_POST_DATASET_INPUTS, move |ctx, req, resp| {
+        instance.post_dataset_inputs(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_DELETE_DATASET_INPUTS, move |ctx, req, resp| {
+        instance.delete_dataset_inputs(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_LIST_DATASET_VERSIONS, move |ctx, req, resp| {
+        instance.list_dataset_versions(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_GET_DATASET_VERSION, move |ctx, req, resp| {
+        instance.get_dataset_version(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_LIST_DATASET_VERSION_METRICS_GROUPS, move |ctx, req, resp| {
+        instance.list_dataset_version_metrics_groups(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_POST_DATASET_VERSIONS, move |ctx, req, resp| {
+        instance.post_dataset_versions(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_PATCH_DATASET_VERSIONS, move |ctx, req, resp| {
+        instance.patch_dataset_versions(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_DELETE_DATASET_VERSIONS, move |ctx, req, resp| {
+        instance.delete_dataset_versions(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_PUT_DATASET_VERSION_EXPORTS, move |ctx, req, resp| {
+        instance.put_dataset_version_exports(ctx, req, resp)
     });
     let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_GET_MODEL_TYPE, move |ctx, req, resp| {
@@ -3346,6 +5876,10 @@ pub fn create_v2<S: V2 + Send + Clone + 'static>(s: S) -> ::grpcio::Service {
         instance.list_models(ctx, req, resp)
     });
     let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_GET_RESOURCE_COUNTS, move |ctx, req, resp| {
+        instance.get_resource_counts(ctx, req, resp)
+    });
+    let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_POST_MODELS_SEARCHES, move |ctx, req, resp| {
         instance.post_models_searches(ctx, req, resp)
     });
@@ -3358,12 +5892,20 @@ pub fn create_v2<S: V2 + Send + Clone + 'static>(s: S) -> ::grpcio::Service {
         instance.patch_models(ctx, req, resp)
     });
     let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_PATCH_MODEL_IDS, move |ctx, req, resp| {
+        instance.patch_model_ids(ctx, req, resp)
+    });
+    let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_DELETE_MODEL, move |ctx, req, resp| {
         instance.delete_model(ctx, req, resp)
     });
     let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_DELETE_MODELS, move |ctx, req, resp| {
         instance.delete_models(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_PATCH_MODEL_CHECK_CONSENTS, move |ctx, req, resp| {
+        instance.patch_model_check_consents(ctx, req, resp)
     });
     let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_PATCH_MODEL_TOOLKITS, move |ctx, req, resp| {
@@ -3388,6 +5930,14 @@ pub fn create_v2<S: V2 + Send + Clone + 'static>(s: S) -> ::grpcio::Service {
     let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_LIST_MODEL_VERSIONS, move |ctx, req, resp| {
         instance.list_model_versions(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_POST_WORKFLOW_VERSIONS_UN_PUBLISH, move |ctx, req, resp| {
+        instance.post_workflow_versions_un_publish(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_POST_WORKFLOW_VERSIONS_PUBLISH, move |ctx, req, resp| {
+        instance.post_workflow_versions_publish(ctx, req, resp)
     });
     let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_POST_MODEL_VERSIONS_PUBLISH, move |ctx, req, resp| {
@@ -3418,6 +5968,30 @@ pub fn create_v2<S: V2 + Send + Clone + 'static>(s: S) -> ::grpcio::Service {
         instance.post_model_version_metrics(ctx, req, resp)
     });
     let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_POST_MODEL_VERSION_EVALUATIONS, move |ctx, req, resp| {
+        instance.post_model_version_evaluations(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_LIST_MODEL_VERSION_EVALUATIONS, move |ctx, req, resp| {
+        instance.list_model_version_evaluations(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_GET_MODEL_VERSION_EVALUATION, move |ctx, req, resp| {
+        instance.get_model_version_evaluation(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_POST_EVALUATIONS, move |ctx, req, resp| {
+        instance.post_evaluations(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_LIST_EVALUATIONS, move |ctx, req, resp| {
+        instance.list_evaluations(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_GET_EVALUATION, move |ctx, req, resp| {
+        instance.get_evaluation(ctx, req, resp)
+    });
+    let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_LIST_MODEL_REFERENCES, move |ctx, req, resp| {
         instance.list_model_references(ctx, req, resp)
     });
@@ -3444,6 +6018,10 @@ pub fn create_v2<S: V2 + Send + Clone + 'static>(s: S) -> ::grpcio::Service {
     let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_PATCH_WORKFLOWS, move |ctx, req, resp| {
         instance.patch_workflows(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_PATCH_WORKFLOW_IDS, move |ctx, req, resp| {
+        instance.patch_workflow_ids(ctx, req, resp)
     });
     let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_DELETE_WORKFLOW, move |ctx, req, resp| {
@@ -3538,8 +6116,20 @@ pub fn create_v2<S: V2 + Send + Clone + 'static>(s: S) -> ::grpcio::Service {
         instance.patch_apps(ctx, req, resp)
     });
     let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_PATCH_APPS_IDS, move |ctx, req, resp| {
+        instance.patch_apps_ids(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_PATCH_APP, move |ctx, req, resp| {
+        instance.patch_app(ctx, req, resp)
+    });
+    let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_POST_APPS_SEARCHES, move |ctx, req, resp| {
         instance.post_apps_searches(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_GET_USER, move |ctx, req, resp| {
+        instance.get_user(ctx, req, resp)
     });
     let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_POST_VALIDATE_PASSWORD, move |ctx, req, resp| {
@@ -3552,6 +6142,10 @@ pub fn create_v2<S: V2 + Send + Clone + 'static>(s: S) -> ::grpcio::Service {
     let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_LIST_SEARCHES, move |ctx, req, resp| {
         instance.list_searches(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_PATCH_SEARCHES, move |ctx, req, resp| {
+        instance.patch_searches(ctx, req, resp)
     });
     let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_POST_SEARCHES, move |ctx, req, resp| {
@@ -3580,6 +6174,26 @@ pub fn create_v2<S: V2 + Send + Clone + 'static>(s: S) -> ::grpcio::Service {
     let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_DELETE_SEARCH, move |ctx, req, resp| {
         instance.delete_search(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_LIST_ANNOTATION_FILTERS, move |ctx, req, resp| {
+        instance.list_annotation_filters(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_GET_ANNOTATION_FILTER, move |ctx, req, resp| {
+        instance.get_annotation_filter(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_POST_ANNOTATION_FILTERS, move |ctx, req, resp| {
+        instance.post_annotation_filters(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_PATCH_ANNOTATION_FILTERS, move |ctx, req, resp| {
+        instance.patch_annotation_filters(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_DELETE_ANNOTATION_FILTERS, move |ctx, req, resp| {
+        instance.delete_annotation_filters(ctx, req, resp)
     });
     let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_LIST_STATUS_CODES, move |ctx, req, resp| {
@@ -3701,9 +6315,177 @@ pub fn create_v2<S: V2 + Send + Clone + 'static>(s: S) -> ::grpcio::Service {
     builder = builder.add_unary_handler(&METHOD_V2_POST_TRENDING_METRICS_VIEW, move |ctx, req, resp| {
         instance.post_trending_metrics_view(ctx, req, resp)
     });
-    let mut instance = s;
+    let mut instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_V2_LIST_TRENDING_METRICS_VIEWS, move |ctx, req, resp| {
         instance.list_trending_metrics_views(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_GET_MODULE, move |ctx, req, resp| {
+        instance.get_module(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_LIST_MODULES, move |ctx, req, resp| {
+        instance.list_modules(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_POST_MODULES, move |ctx, req, resp| {
+        instance.post_modules(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_PATCH_MODULES, move |ctx, req, resp| {
+        instance.patch_modules(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_DELETE_MODULES, move |ctx, req, resp| {
+        instance.delete_modules(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_GET_MODULE_VERSION, move |ctx, req, resp| {
+        instance.get_module_version(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_LIST_MODULE_VERSIONS, move |ctx, req, resp| {
+        instance.list_module_versions(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_POST_MODULE_VERSIONS, move |ctx, req, resp| {
+        instance.post_module_versions(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_DELETE_MODULE_VERSIONS, move |ctx, req, resp| {
+        instance.delete_module_versions(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_GET_MODULE_VERSION_USAGE_COUNT, move |ctx, req, resp| {
+        instance.get_module_version_usage_count(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_GET_INSTALLED_MODULE_VERSION, move |ctx, req, resp| {
+        instance.get_installed_module_version(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_LIST_INSTALLED_MODULE_VERSIONS, move |ctx, req, resp| {
+        instance.list_installed_module_versions(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_POST_INSTALLED_MODULE_VERSIONS, move |ctx, req, resp| {
+        instance.post_installed_module_versions(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_DELETE_INSTALLED_MODULE_VERSIONS, move |ctx, req, resp| {
+        instance.delete_installed_module_versions(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_POST_INSTALLED_MODULE_VERSIONS_KEY, move |ctx, req, resp| {
+        instance.post_installed_module_versions_key(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_POST_BULK_OPERATIONS, move |ctx, req, resp| {
+        instance.post_bulk_operations(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_LIST_BULK_OPERATIONS, move |ctx, req, resp| {
+        instance.list_bulk_operations(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_GET_BULK_OPERATION, move |ctx, req, resp| {
+        instance.get_bulk_operation(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_CANCEL_BULK_OPERATIONS, move |ctx, req, resp| {
+        instance.cancel_bulk_operations(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_DELETE_BULK_OPERATIONS, move |ctx, req, resp| {
+        instance.delete_bulk_operations(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_LIST_NEXT_TASK_ASSIGNMENTS, move |ctx, req, resp| {
+        instance.list_next_task_assignments(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_PUT_TASK_ASSIGNMENTS, move |ctx, req, resp| {
+        instance.put_task_assignments(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_LIST_INPUTS_ADD_JOBS, move |ctx, req, resp| {
+        instance.list_inputs_add_jobs(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_GET_INPUTS_ADD_JOB, move |ctx, req, resp| {
+        instance.get_inputs_add_job(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_CANCEL_INPUTS_ADD_JOB, move |ctx, req, resp| {
+        instance.cancel_inputs_add_job(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_POST_UPLOADS, move |ctx, req, resp| {
+        instance.post_uploads(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_PUT_UPLOAD_CONTENT_PARTS, move |ctx, req, resp| {
+        instance.put_upload_content_parts(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_GET_UPLOAD, move |ctx, req, resp| {
+        instance.get_upload(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_LIST_UPLOADS, move |ctx, req, resp| {
+        instance.list_uploads(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_DELETE_UPLOADS, move |ctx, req, resp| {
+        instance.delete_uploads(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_POST_INPUTS_DATA_SOURCES, move |ctx, req, resp| {
+        instance.post_inputs_data_sources(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_GET_INPUTS_EXTRACTION_JOB, move |ctx, req, resp| {
+        instance.get_inputs_extraction_job(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_LIST_INPUTS_EXTRACTION_JOBS, move |ctx, req, resp| {
+        instance.list_inputs_extraction_jobs(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_CANCEL_INPUTS_EXTRACTION_JOBS, move |ctx, req, resp| {
+        instance.cancel_inputs_extraction_jobs(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_POST_INPUTS_UPLOADS, move |ctx, req, resp| {
+        instance.post_inputs_uploads(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_GET_RUNNER, move |ctx, req, resp| {
+        instance.get_runner(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_LIST_RUNNERS, move |ctx, req, resp| {
+        instance.list_runners(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_POST_RUNNERS, move |ctx, req, resp| {
+        instance.post_runners(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_DELETE_RUNNERS, move |ctx, req, resp| {
+        instance.delete_runners(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_LIST_RUNNER_ITEMS, move |ctx, req, resp| {
+        instance.list_runner_items(ctx, req, resp)
+    });
+    let mut instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_V2_POST_RUNNER_ITEM_OUTPUTS, move |ctx, req, resp| {
+        instance.post_runner_item_outputs(ctx, req, resp)
+    });
+    let mut instance = s;
+    builder = builder.add_unary_handler(&METHOD_V2_POST_MODEL_VERSIONS_TRAINING_TIME_ESTIMATE, move |ctx, req, resp| {
+        instance.post_model_versions_training_time_estimate(ctx, req, resp)
     });
     builder.build()
 }
