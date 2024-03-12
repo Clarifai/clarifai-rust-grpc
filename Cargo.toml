@@ -1,6 +1,6 @@
 [package]
 name = "clarifai_grpc"
-version = "8.0.0"
+version = "10.2.1"
 authors = ["Clarifai <rok.povsic@clarifai.com>"]
 edition = "2018"
 license = "Apache-2.0"
