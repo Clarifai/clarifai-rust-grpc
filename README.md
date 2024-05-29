@@ -2,6 +2,8 @@
 
 # Clarifai Rust gRPC Client
 
+> Please note that this client is currently unsupported and has not been updated to correspond to the latest version of the Clarifai API.
+
 This is the official Clarifai gRPC Rust client for interacting with our powerful recognition
 [API](https://docs.clarifai.com).
 Clarifai provides a platform for data scientists, developers, researchers and enterprises to master the entire
