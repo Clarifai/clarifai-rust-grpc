@@ -1,4 +1,5 @@
-![Clarifai logo](docs/logo.png)
+![image](https://github.com/user-attachments/assets/a3a1e684-60f9-4c97-9f6e-e96015604d82)
+
 
 # Clarifai Rust gRPC Client
 
